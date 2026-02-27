@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WorkLoop AS tilbyr AI-Audit, AI-Sprint og AI-Retainer for norske bedrifter. Se detaljer og priser.">
+  <title>Tjenester — WorkLoop AS</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .service-detail-section {
+      padding-block: 5rem;
+    }
+    .service-detail-section:nth-child(even) {
+      background: var(--bg-light);
+    }
+    .service-nav {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    .service-nav a {
+      padding: 0.6rem 1.5rem;
+      border: 1.5px solid var(--blue-600);
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--blue-600);
+      transition: all 0.2s ease;
+    }
+    .service-nav a:hover {
+      background: var(--blue-600);
+      color: #fff;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+    .feature-item .check { color: var(--blue-600); font-size: 1rem; flex-shrink: 0; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 2.5rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--blue-200);
+    }
+    .timeline-item {
+      text-align: center;
+      padding-top: 2.5rem;
+      position: relative;
+    }
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 32px;
+      background: var(--blue-600);
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--blue-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--white);
+      font-weight: 700;
+      z-index: 1;
+    }
+    .timeline-label { font-size: 0.8125rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+    .timeline-sub { font-size: 0.75rem; color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .feature-list { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr 1fr; row-gap: 2rem; }
+      .timeline::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">W</span>
+      WorkLoop
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Hjem</a></li>
+      <li><a href="/about.html">Om oss</a></li>
+      <li><a href="/services.html" class="active">Tjenester</a></li>
+      <li><a href="/blog.html">Blogg</a></li>
+      <li><a href="/contact.html" class="btn btn-primary btn-sm">Kontakt oss</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Hjem</a>
+      <span>&#8250;</span>
+      <span>Tjenester</span>
+    </div>
+    <h1>Tjenester og priser</h1>
+    <p>Tre klare tilbud, transparent prising og tydelige resultater. Velg det som passer din situasjon.</p>
+  </div>
+</div>
+
+<!-- Service Navigation -->
+<section class="section-sm" style="background: var(--white); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="service-nav">
+      <a href="#audit">AI-Audit</a>
+      <a href="#sprint">AI-Sprint</a>
+      <a href="#retainer">AI-Retainer</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI-Audit -->
+<section class="service-detail-section" id="audit">
+  <div class="container">
+    <div class="grid-2" style="gap: 4rem; align-items: start;">
+      <div class="animate-on-scroll">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">&#128269;</div>
+          <div class="service-detail-body">
+            <span class="section-label">Tjeneste 1 av 3</span>
+            <h2 style="margin-top: 0.25rem;">AI-Audit</h2>
+          </div>
+        </div>
+
+        <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 1.5rem;">
+          Vet du ikke helt hvor du skal starte med AI? Det er det vanligste spørsmålet vi får.
+          En AI-Audit gir deg et klart, konkret og handlingsrettet svar — uten å binde deg til noe.
+        </p>
+        <p style="font-size: 1.0625rem; line-height: 1.75;">
+          I løpet av 2–4 timer går vi grundig gjennom bedriftens prosesser og identifiserer
+          de tre tiltakene med høyest forventet ROI. Du sitter igjen med en rapport du kan handle på
+          umiddelbart — uavhengig av om du velger å jobbe videre med oss.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item"><span class="check">&#10003;</span> Grundig prosessgjennomgang (2–4 timer)</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Top-3 automatiseringsmuligheter</div>
+          <div class="feature-item"><span class="check">&#10003;</span> ROI-estimat per tiltak</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Detaljert skriftlig rapport</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Prioritert handlingsplan</div>
+          <div class="feature-item"><span class="check">&#10003;</span> 30 min oppfølgingssamtale</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Ingen bindingstid</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Leveres innen 5 virkedager</div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll delay-2">
+        <div class="price-tiers">
+          <div class="price-tier">
+            <h5>Liten bedrift</h5>
+            <div class="amount">7 500 kr</div>
+            <p>1–10 ansatte. 1–2 kjerneomr&aring;der gjennomg&aring;tt.</p>
+          </div>
+          <div class="price-tier" style="border-color: var(--blue-300);">
+            <h5>Mellomstor bedrift</h5>
+            <div class="amount">15 000 kr</div>
+            <p>11–50 ansatte. Flere avdelinger og prosesser.</p>
+          </div>
+        </div>
+
+        <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+          <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">Slik fungerer det</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">1. Du fyller ut kontaktskjemaet</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">2. Vi ringer deg innen 1 virkedag</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">3. Vi gjennomfører auditen (digitalt eller fysisk)</p>
+          <p style="font-size: 0.9rem;">4. Du mottar rapporten innen 5 virkedager</p>
+        </div>
+
+        <a href="/contact.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;">
+          Bestill AI-Audit &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI-Sprint -->
+<section class="service-detail-section" id="sprint">
+  <div class="container">
+    <div class="grid-2" style="gap: 4rem; align-items: start;">
+      <div class="animate-on-scroll">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">&#9889;</div>
+          <div class="service-detail-body">
+            <span class="section-label">Tjeneste 2 av 3</span>
+            <h2 style="margin-top: 0.25rem;">AI-Sprint</h2>
+          </div>
+        </div>
+
+        <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 1.5rem;">
+          Klar til å handle? En AI-Sprint er vår implementeringstjeneste der vi går fra idé til
+          fungerende løsning i produksjon. Raskt, strukturert og med tett dialog hele veien.
+        </p>
+        <p style="font-size: 1.0625rem; line-height: 1.75;">
+          Vi tilpasser løsningen til din eksisterende teknologi, trener teamet ditt og sikrer
+          at alt fungerer slik det skal. Tre måneder med gratis support er inkludert.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item"><span class="check">&#10003;</span> Skreddersydd AI-løsning</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Integrasjon med eksisterende systemer</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Testing og kvalitetssikring</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Opplæring av ansatte</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Teknisk dokumentasjon</div>
+          <div class="feature-item"><span class="check">&#10003;</span> 3 mnd gratis support</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Faste ukentlige statusmøter</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Klare milepæler og leveranser</div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll delay-2">
+        <div class="price-tiers">
+          <div class="price-tier">
+            <h5>Standard Sprint</h5>
+            <div class="amount">25 000 – 75 000 kr</div>
+            <p>Enkel automatisering, én prosess. 2–4 ukers leveringstid.</p>
+          </div>
+          <div class="price-tier" style="border-color: var(--blue-300);">
+            <h5>Pro Sprint</h5>
+            <div class="amount">75 000 – 250 000 kr</div>
+            <p>Komplekse løsninger, flere integrasjoner. 4–12 ukers leveringstid.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h4 style="margin-bottom: 1rem;">Typisk leveringstidslinje</h4>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot">1</div>
+              <div class="timeline-label">Uke 1</div>
+              <div class="timeline-sub">Kravspec &amp; plan</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">2</div>
+              <div class="timeline-label">Uke 2–3</div>
+              <div class="timeline-sub">Utvikling</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">3</div>
+              <div class="timeline-label">Uke 4</div>
+              <div class="timeline-sub">Testing</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">4</div>
+              <div class="timeline-label">Uke 5</div>
+              <div class="timeline-sub">Lansering</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">&#10003;</div>
+              <div class="timeline-label">Mnd 2–4</div>
+              <div class="timeline-sub">Gratis support</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="/contact.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;">
+          Start din sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI-Retainer -->
+<section class="service-detail-section" id="retainer">
+  <div class="container">
+    <div class="grid-2" style="gap: 4rem; align-items: start;">
+      <div class="animate-on-scroll">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">&#128260;</div>
+          <div class="service-detail-body">
+            <span class="section-label">Tjeneste 3 av 3</span>
+            <h2 style="margin-top: 0.25rem;">AI-Retainer</h2>
+          </div>
+        </div>
+
+        <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 1.5rem;">
+          Vil du ha en dedikert AI-partner som hjelper deg å ligge i forkant? Med AI-Retainer
+          blir WorkLoop en fast del av teamet ditt — vi optimerer, vedlikeholder og videreutvikler
+          løsningene dine løpende.
+        </p>
+        <p style="font-size: 1.0625rem; line-height: 1.75;">
+          Perfekt for bedrifter som allerede er i gang med AI og ønsker å kontinuerlig forbedre seg,
+          eller som ønsker et fast månedlig budsjett uten overraskelser.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item"><span class="check">&#10003;</span> Månedlig strategimøte (2 timer)</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Løpende optimering av løsninger</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Prioritert support (respons &lt; 4 timer)</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Ny funksjonalitet etter behov</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Månedlig KPI-rapport</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Tilgang til alle nye verktøy vi lanserer</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Dedikert kontaktperson</div>
+          <div class="feature-item"><span class="check">&#10003;</span> Oppsigelse med 1 måneds varsel</div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll delay-2">
+        <div class="price-tiers">
+          <div class="price-tier">
+            <h5>Basis</h5>
+            <div class="amount">8 000 kr/mnd</div>
+            <p>Support og l&oslash;pende optimering. Maks 8 timer per m&aring;ned.</p>
+          </div>
+          <div class="price-tier" style="border-color: var(--blue-300);">
+            <h5>Vekst</h5>
+            <div class="amount">30 000 kr/mnd</div>
+            <p>Full partner. Ubegrenset support og aktiv videreutvikling.</p>
+          </div>
+        </div>
+
+        <div style="background: #FFF8E1; border: 1px solid #FFE082; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+          <h4 style="margin-bottom: 0.5rem; color: #5D4037;">&#128161; Spar 15% med årsavtale</h4>
+          <p style="font-size: 0.9rem; color: #6D4C41;">Inngår du en årsavtale får du 15% rabatt på månedsprisen. Kontakt oss for tilbud.</p>
+        </div>
+
+        <a href="/contact.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;">
+          Snakk med oss om retainer &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label animate-on-scroll">Vanlige spørsmål</span>
+      <h2 class="animate-on-scroll">FAQ</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Trenger vi teknisk kompetanse internt for å bruke løsningene?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Nei. Vi designer løsningene slik at dine ansatte kan bruke dem uten teknisk bakgrunn.
+            Opplæring og brukerdokumentasjon er alltid inkludert i leveransen.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hva skjer med dataene våre? Er det GDPR-sikkert?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Alle løsninger er designet i henhold til GDPR-regelverket. Vi signerer databehandleravtale
+            (DPA) med alle kunder, og vi bruker kun GDPR-godkjente skytjenester med servere i EØS.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hvor lang tid tar det å se resultater?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            For de fleste kunder ser vi målbare resultater innen 30 dager etter at løsningen er i drift.
+            Tidssparingsgevinsten er typisk umiddelbar, mens ROI-beregningen tar 2–3 måneder å verifisere.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Kan jeg avslutte samarbeidet når som helst?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ja. AI-Audit og AI-Sprint er engangsprosjekter uten bindingstid. AI-Retainer har
+            1 måneds oppsigelsestid. Vi tror på å beholde kunder gjennom resultater, ikke kontrakter.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hva om dere ikke leverer som lovet?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vi har klare suksesskriterier og leveransegaranti i alle kontrakter. Dersom vi ikke
+            oppfyller de avtalte målene, jobber vi kostnadsfritt til vi gjør det. Vi tar ansvaret fullt ut.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2 class="animate-on-scroll">Usikker på hvilken pakke som passer?</h2>
+    <p class="animate-on-scroll">De aller fleste starter med en AI-Audit. Ring oss eller send en melding — vi finner ut av det sammen.</p>
+    <div class="cta-buttons animate-on-scroll">
+      <a href="/contact.html" class="btn btn-accent btn-lg">Bestill gratis AI-audit &rarr;</a>
+      <a href="/contact.html" class="btn btn-outline-white btn-lg">Snakk med oss</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="logo-mark" style="background:#1A6FCC;">W</span>
+          WorkLoop AS
+        </div>
+        <p class="footer-tagline">Vi hjelper norske SMB-er med å spare tid og penger gjennom praktisk AI-automatisering.</p>
+        <p style="font-size:0.8rem;">Org.nr.: 123 456 789</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasjon</h5>
+        <nav class="footer-links">
+          <a href="/">Hjem</a>
+          <a href="/about.html">Om oss</a>
+          <a href="/services.html">Tjenester</a>
+          <a href="/blog.html">Blogg</a>
+          <a href="/contact.html">Kontakt</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Tjenester</h5>
+        <nav class="footer-links">
+          <a href="/services.html#audit">AI-Audit</a>
+          <a href="/services.html#sprint">AI-Sprint</a>
+          <a href="/services.html#retainer">AI-Retainer</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <div class="footer-contact-item"><span>&#128231;</span><span>post@workloop.no</span></div>
+        <div class="footer-contact-item"><span>&#128205;</span><span>Oslo, Norge</span></div>
+        <div class="footer-contact-item"><span>&#128336;</span><span>Man–fre, 08–16</span></div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2025 WorkLoop AS. Alle rettigheter forbeholdt.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Personvern (GDPR)</a>
+        <a href="#">Vilkår</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

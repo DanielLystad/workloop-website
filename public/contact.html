@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ta kontakt med WorkLoop AS — bestill gratis AI-audit eller book en samtale direkte.">
+  <title>Kontakt oss — WorkLoop AS</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--s-6);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s-4);
+      margin-bottom: var(--s-4);
+      transition: box-shadow var(--t);
+    }
+    .contact-info-card:hover { box-shadow: var(--shadow); }
+    .contact-info-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .contact-info-text h4 { margin-bottom: 0.25rem; font-size: 0.9375rem; }
+    .contact-info-text p  { font-size: 0.9375rem; margin-bottom: 0; }
+    .contact-info-text a  { color: var(--blue-600); }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-mark">W</span>
+      WorkLoop
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Hjem</a></li>
+      <li><a href="/about.html">Om oss</a></li>
+      <li><a href="/services.html">Tjenester</a></li>
+      <li><a href="/blog.html">Blogg</a></li>
+      <li><a href="/contact.html" class="btn btn-primary btn-sm active">Kontakt oss</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Hjem</a>
+      <span>&#8250;</span>
+      <span>Kontakt</span>
+    </div>
+    <h1>Ta kontakt</h1>
+    <p>Vi svarer innen 1 virkedag. Bestill gratis AI-audit eller still oss et spørsmål.</p>
+  </div>
+</div>
+
+<!-- Contact Form + Info -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="animate-on-scroll">
+        <span class="section-label">Kontaktinformasjon</span>
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">La oss ta en prat</h2>
+        <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 2rem;">
+          Uansett om du har et konkret prosjekt eller bare er nysgjerrig på hva AI kan gjøre
+          for deg — ta kontakt. Alle henvendelser behandles innen 1 virkedag.
+        </p>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">&#128231;</div>
+          <div class="contact-info-text">
+            <h4>E-post</h4>
+            <p><a href="mailto:post@workloop.no">post@workloop.no</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">&#128205;</div>
+          <div class="contact-info-text">
+            <h4>Adresse</h4>
+            <p>Oslo, Norge<br>Vi jobber også digitalt med bedrifter over hele landet.</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">&#128336;</div>
+          <div class="contact-info-text">
+            <h4>Åpningstider</h4>
+            <p>Mandag–fredag: 08:00–16:00<br>Responstid: &lt; 1 virkedag</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">&#127979;</div>
+          <div class="contact-info-text">
+            <h4>Org.nummer</h4>
+            <p>WorkLoop AS &mdash; 123 456 789</p>
+          </div>
+        </div>
+
+        <!-- Calendly placeholder -->
+        <div style="margin-top: 2rem;">
+          <h4 style="margin-bottom: 1rem;">Foretrekker du å booke tid direkte?</h4>
+          <div class="calendly-placeholder">
+            <div style="font-size: 2rem; margin-bottom: 0.75rem;">&#128197;</div>
+            <h4>Book en gratis 30 min samtale</h4>
+            <p>Velg et tidspunkt som passer deg i vår kalender.</p>
+            <a href="#" class="btn btn-primary">&#128197; &nbsp;Åpne kalender</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="form-card animate-on-scroll delay-2">
+        <h3 style="margin-bottom: 0.5rem;">Send oss en melding</h3>
+        <p style="margin-bottom: 1.5rem; font-size:0.9375rem;">Fyll ut skjemaet under, så tar vi kontakt innen 1 virkedag.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Navn *</label>
+              <input type="text" id="name" name="name" placeholder="Ola Nordmann" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post *</label>
+              <input type="email" id="email" name="email" placeholder="ola@bedrift.no" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Bedrift</label>
+              <input type="text" id="company" name="company" placeholder="Bedriften AS">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="+47 000 00 000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Hva kan vi hjelpe deg med?</label>
+            <select id="interest" name="interest">
+              <option value="">Velg alternativ...</option>
+              <option value="audit">AI-Audit — Kartlegge mulighetene (7 500–15 000 kr)</option>
+              <option value="sprint">AI-Sprint — Bygge en løsning (25 000–250 000 kr)</option>
+              <option value="retainer">AI-Retainer — Løpende samarbeid (8 000–30 000 kr/mnd)</option>
+              <option value="general">Generell forespørsel / vet ikke enda</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="employees">Antall ansatte</label>
+            <select id="employees" name="employees">
+              <option value="">Velg...</option>
+              <option value="1-5">1–5 ansatte</option>
+              <option value="6-15">6–15 ansatte</option>
+              <option value="16-50">16–50 ansatte</option>
+              <option value="50+">50+ ansatte</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Fortell litt om bedriften og utfordringene dine *</label>
+            <textarea id="message" name="message"
+              placeholder="Hva gjør dere, hvilke oppgaver tar mest tid, og hva ønsker du å oppnå med automatisering?"
+              required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:1rem;">
+            Send melding &rarr;
+          </button>
+
+          <p style="font-size:0.8rem; color:var(--gray-400); margin-top:1rem; text-align:center;">
+            Vi behandler dine data i henhold til GDPR. Les vår <a href="#" style="color:var(--blue-600);">personvernerklæring</a>.
+          </p>
+
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label animate-on-scroll">Har du spørsmål?</span>
+      <h2 class="animate-on-scroll">Vanlige spørsmål</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Er den første samtalen helt gratis og uforpliktende?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ja, absolutt. Den første samtalen er alltid gratis og uforpliktende. Vi bruker 30 minutter
+            på å forstå bedriften din og finne ut om vi kan hjelpe deg. Ingen salgspress, ingen skjult agenda.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hvor lang tid tar det fra jeg kontakter dere til vi er i gang?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vi svarer innen 1 virkedag og kan vanligvis ha en oppstartsamtale i løpet av uken etter.
+            For AI-Audit kan vi typisk levere innen 2 uker fra du sier ja. For AI-Sprint avhenger
+            oppstartsdato av kapasitet, men vi har vanligvis ledig kapasitet innen 2–4 uker.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Jobber dere bare i Oslo, eller hjelper dere bedrifter over hele Norge?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vi jobber med bedrifter over hele Norge. De fleste møter gjennomføres digitalt via Teams
+            eller Zoom. For større prosjekter kan vi reise til deg ved behov. Avstand er ikke et hinder.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hva trenger jeg å forberede til den første samtalen?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ingenting spesielt. Det holder at du tenker litt over hvilke oppgaver som tar mest tid
+            i hverdagen din. Vi stiller spørsmålene og finner strukturen. Jo mer åpen du er, desto
+            bedre kan vi hjelpe deg.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span class="logo-mark" style="background:#1A6FCC;">W</span>
+          WorkLoop AS
+        </div>
+        <p class="footer-tagline">Vi hjelper norske SMB-er med å spare tid og penger gjennom praktisk AI-automatisering.</p>
+        <p style="font-size:0.8rem;">Org.nr.: 123 456 789</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasjon</h5>
+        <nav class="footer-links">
+          <a href="/">Hjem</a>
+          <a href="/about.html">Om oss</a>
+          <a href="/services.html">Tjenester</a>
+          <a href="/blog.html">Blogg</a>
+          <a href="/contact.html">Kontakt</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Tjenester</h5>
+        <nav class="footer-links">
+          <a href="/services.html#audit">AI-Audit</a>
+          <a href="/services.html#sprint">AI-Sprint</a>
+          <a href="/services.html#retainer">AI-Retainer</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <div class="footer-contact-item"><span>&#128231;</span><span>post@workloop.no</span></div>
+        <div class="footer-contact-item"><span>&#128205;</span><span>Oslo, Norge</span></div>
+        <div class="footer-contact-item"><span>&#128336;</span><span>Man–fre, 08–16</span></div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2025 WorkLoop AS. Alle rettigheter forbeholdt.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Personvern (GDPR)</a>
+        <a href="#">Vilkår</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

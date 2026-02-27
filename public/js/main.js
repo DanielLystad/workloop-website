@@ -1,0 +1,178 @@
+/* WorkLoop AS — main.js */
+
+(function () {
+  'use strict';
+
+  /* ─── Navbar scroll shadow ─────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    const onScroll = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ─── Mobile hamburger ──────────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  /* ─── Active nav link ───────────────────────────────────── */
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href').replace(/\/$/, '') || '/';
+    if (href === currentPath || (currentPath === '' && href === '/')) {
+      link.classList.add('active');
+    }
+  });
+
+  /* ─── Scroll animations (IntersectionObserver) ──────────── */
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  if (animateElements.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    animateElements.forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show all immediately
+    animateElements.forEach(el => el.classList.add('visible'));
+  }
+
+  /* ─── Animated number counters ──────────────────────────── */
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1600;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        el.textContent = Math.round(easeOut(progress) * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => counterObserver.observe(el));
+  }
+
+  /* ─── Smooth scroll for anchor links ───────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // navbar height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ─── Contact form AJAX ─────────────────────────────────── */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const submitBtn  = contactForm.querySelector('[type="submit"]');
+    const formMsg    = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name:     contactForm.querySelector('[name="name"]')?.value.trim(),
+        email:    contactForm.querySelector('[name="email"]')?.value.trim(),
+        company:  contactForm.querySelector('[name="company"]')?.value.trim(),
+        phone:    contactForm.querySelector('[name="phone"]')?.value.trim(),
+        interest: contactForm.querySelector('[name="interest"]')?.value,
+        message:  contactForm.querySelector('[name="message"]')?.value.trim(),
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sender…';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+
+        if (json.ok) {
+          formMsg.className = 'form-message success';
+          formMsg.textContent = json.message;
+          contactForm.reset();
+        } else {
+          formMsg.className = 'form-message error';
+          formMsg.textContent = json.error || 'Noe gikk galt. Prøv igjen.';
+        }
+      } catch {
+        formMsg.className = 'form-message error';
+        formMsg.textContent = 'Tilkoblingsfeil. Sjekk internett og prøv igjen.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send melding';
+        formMsg.style.display = 'block';
+        formMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
+  /* ─── FAQ accordion (CSS-only fallback for JS-enhanced) ─── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+})();
