@@ -47,10 +47,10 @@
 
   /* ─── Active nav link ───────────────────────────────────── */
   // Note: active class is already set in HTML, this just adds extra validation
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === 'index.html' && href === 'index.html')) {
+    const href = link.getAttribute('href').replace(/\/$/, '') || '/';
+    if (href === currentPath || (currentPath === '/' && href === '/')) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
