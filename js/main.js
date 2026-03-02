@@ -116,49 +116,49 @@
     });
   });
 
-  /* ─── Contact form AJAX ─────────────────────────────────── */
+  /* ─── Contact form Web3Forms ────────────────────────────── */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     const submitBtn  = contactForm.querySelector('[type="submit"]');
     const formMsg    = document.getElementById('formMessage');
 
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      formMsg.className = 'form-message success';
+      formMsg.textContent = 'Takk for meldingen! Vi tar kontakt innen 1 virkedag.';
+      formMsg.style.display = 'block';
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const data = {
-        name:     contactForm.querySelector('[name="name"]')?.value.trim(),
-        email:    contactForm.querySelector('[name="email"]')?.value.trim(),
-        company:  contactForm.querySelector('[name="company"]')?.value.trim(),
-        phone:    contactForm.querySelector('[name="phone"]')?.value.trim(),
-        interest: contactForm.querySelector('[name="interest"]')?.value,
-        message:  contactForm.querySelector('[name="message"]')?.value.trim(),
-      };
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sender…';
 
       try {
-        const res = await fetch('/api/contact', {
+        const formData = new FormData(contactForm);
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          body: formData
         });
         const json = await res.json();
 
-        if (json.ok) {
+        if (json.success) {
           formMsg.className = 'form-message success';
-          formMsg.textContent = json.message;
+          formMsg.textContent = 'Takk! Vi tar kontakt innen 1 virkedag.';
           contactForm.reset();
         } else {
           formMsg.className = 'form-message error';
-          formMsg.textContent = json.error || 'Noe gikk galt. Prøv igjen.';
+          formMsg.textContent = json.message || 'Noe gikk galt. Prøv igjen.';
         }
       } catch {
         formMsg.className = 'form-message error';
         formMsg.textContent = 'Tilkoblingsfeil. Sjekk internett og prøv igjen.';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send melding';
+        submitBtn.textContent = 'Send melding &rarr;';
         formMsg.style.display = 'block';
         formMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }

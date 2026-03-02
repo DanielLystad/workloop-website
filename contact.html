@@ -142,7 +142,13 @@
         <h3 style="margin-bottom: 0.5rem;">Send oss en melding</h3>
         <p style="margin-bottom: 1.5rem; font-size:0.9375rem;">Fyll ut skjemaet under, så tar vi kontakt innen 1 virkedag.</p>
 
-        <form id="contactForm" novalidate>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key - Get yours free at https://web3forms.com -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="Ny kontakthenvendelse fra WorkLoop.no">
+          <input type="hidden" name="from_name" value="WorkLoop Nettside">
+          <input type="hidden" name="redirect" value="https://workloop.no/contact.html?success=true">
+
           <div class="form-row">
             <div class="form-group">
               <label for="name">Navn *</label>
