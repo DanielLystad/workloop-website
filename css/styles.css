@@ -1276,6 +1276,16 @@ p { color: var(--text-secondary); }
   margin: 0 auto var(--s-5);
 }
 
+.team-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--s-5);
+  display: block;
+  border: 2px solid var(--blue-100);
+}
+
 .team-card h4 { margin-bottom: var(--s-1); }
 .team-card .team-role { font-size: 0.875rem; color: var(--blue-600); font-weight: 600; margin-bottom: var(--s-3); }
 .team-card p { font-size: 0.875rem; }
