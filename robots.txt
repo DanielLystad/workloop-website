@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://workloop.no/sitemap.xml
+
+# IndexNow
+IndexNow-Key-Location: https://workloop.no/e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119.txt
