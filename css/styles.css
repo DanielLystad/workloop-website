@@ -1536,9 +1536,9 @@ p { color: var(--text-secondary); }
     background: var(--white);
     flex-direction: column;
     align-items: stretch;
-    padding: var(--s-4) var(--s-5);
-    padding-bottom: max(var(--s-5), env(safe-area-inset-bottom));
-    gap: var(--s-1);
+    padding: 0.75rem 1.25rem;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    gap: 0.25rem;
     box-shadow: var(--shadow-lg);
     border-bottom: 1px solid var(--border);
     z-index: 999;
@@ -1547,13 +1547,14 @@ p { color: var(--text-secondary); }
   .nav-links.open { display: flex; }
 
   .nav-links a {
-    padding: var(--s-3) var(--s-4);
-    font-size: 1rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.9375rem;
     border-radius: var(--radius);
   }
 
   .nav-links .btn {
-    margin-top: var(--s-2);
+    margin-top: 0.5rem;
+    padding: 0.625rem 1rem;
     text-align: center;
     justify-content: center;
     border-radius: var(--radius-full);

@@ -17,11 +17,29 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   if (hamburger && navLinks) {
+    const lockScroll = () => {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    };
+
+    const unlockScroll = () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+
     hamburger.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       hamburger.classList.toggle('active', open);
       hamburger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        lockScroll();
+      } else {
+        unlockScroll();
+      }
     });
 
     // Close on link click
@@ -30,7 +48,7 @@
         navLinks.classList.remove('open');
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        unlockScroll();
       });
     });
 
@@ -40,7 +58,7 @@
         navLinks.classList.remove('open');
         hamburger.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        unlockScroll();
       }
     });
   }
