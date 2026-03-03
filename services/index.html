@@ -3,12 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="WorkLoop AS tilbyr gratis prosess-kartlegging, AI-Sprint og AI-Retainer for norske bedrifter. Se detaljer og priser.">
+  <meta name="description" content="WorkLoop tilbyr gratis prosess-kartlegging, AI-Sprint og AI-Retainer for norske bedrifter. Se detaljer og priser.">
   <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
-  <title>Tjenester — WorkLoop AS</title>
+
+  <title>Tjenester — WorkLoop</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://workloop.no/services">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workloop.no/services">
+  <meta property="og:title" content="Tjenester — WorkLoop">
+  <meta property="og:description" content="Gratis prosess-kartlegging, AI-Sprint fra 25 000 kr, og AI-Retainer fra 8 000 kr/mnd. Priser i NOK.">
+  <meta property="og:image" content="https://workloop.no/images/og-services.jpg">
+  <meta property="og:locale" content="nb_NO">
+  <meta property="og:site_name" content="WorkLoop">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tjenester — WorkLoop">
+  <meta name="twitter:description" content="Gratis prosess-kartlegging, AI-Sprint fra 25 000 kr, og AI-Retainer fra 8 000 kr/mnd.">
+  <meta name="twitter:image" content="https://workloop.no/images/og-services.jpg">
+
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- JSON-LD Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Prosess-kartlegging",
+        "provider": { "@type": "Organization", "name": "WorkLoop" },
+        "areaServed": { "@type": "Country", "name": "Norge" },
+        "description": "Gratis AI-audit for norske bedrifter",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "NOK"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "AI-Sprint",
+        "provider": { "@type": "Organization", "name": "WorkLoop" },
+        "areaServed": { "@type": "Country", "name": "Norge" },
+        "description": "Skreddersydd AI-løsning fra idé til produksjon",
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "25000",
+            "maxPrice": "250000",
+            "priceCurrency": "NOK"
+          }
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "AI-Retainer",
+        "provider": { "@type": "Organization", "name": "WorkLoop" },
+        "areaServed": { "@type": "Country", "name": "Norge" },
+        "description": "Løpende AI-partner for kontinuerlig forbedring",
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "8000",
+            "maxPrice": "30000",
+            "priceCurrency": "NOK",
+            "unitText": "MONTH"
+          }
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     .service-detail-section {
       padding-block: 5rem;
@@ -111,7 +186,7 @@
 <nav class="navbar" id="navbar">
   <div class="container nav-container">
     <a href="/" class="nav-logo">
-      <img src="/images/logo-horizontal.svg" alt="WorkLoop AS">
+      <img src="/images/logo-horizontal.svg" alt="WorkLoop">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Hjem</a></li>
@@ -465,10 +540,9 @@
       <div>
         <div class="footer-logo">
           <span class="logo-mark" style="background:#1A6FCC;">W</span>
-          WorkLoop AS
+          WorkLoop
         </div>
-        <p class="footer-tagline">Vi hjelper norske SMB-er med å spare tid og penger gjennom praktisk AI-automatisering.</p>
-        <p style="font-size:0.8rem;">Org.nr.: 123 456 789</p>
+        <p class="footer-tagline">Vi hjelper norske SMB-er med å spare tid og penger gjennom praktisk automatisering.</p>
       </div>
       <div class="footer-col">
         <h5>Navigasjon</h5>
@@ -497,7 +571,7 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <span>&copy; 2025 WorkLoop AS. Alle rettigheter forbeholdt.</span>
+      <span>&copy; 2025 WorkLoop. Alle rettigheter forbeholdt.</span>
       <div class="footer-bottom-links">
         <a href="#">Personvern (GDPR)</a>
         <a href="#">Vilkår</a>
