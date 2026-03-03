@@ -308,18 +308,7 @@ p { color: var(--text-secondary); }
   height: 2px;
   background: var(--blue-600);
   border-radius: 2px;
-  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes slideIn {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 20px;
-    opacity: 1;
-  }
+  transition: all 0.2s ease;
 }
 
 /* Focus state for accessibility */
@@ -365,7 +354,7 @@ p { color: var(--text-secondary); }
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  color: var(--gray-500);
+  color: var(--gray-700);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -406,7 +395,7 @@ p { color: var(--text-secondary); }
   height: 18px;
   position: relative;
   z-index: 1;
-  stroke-width: 2;
+  stroke-width: 2.25;
 }
 
 /* Hamburger */
