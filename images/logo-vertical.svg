@@ -28,6 +28,6 @@
     <text x="70" y="105" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="800" fill="#002D6E" letter-spacing="-0.5">Work</text>
 
     <!-- Loop -->
-    <text x="70" y="140" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="800" fill="#1A6FCC" letter-spacing="-0.5">Loop</text>
+    <text x="70" y="132" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="800" fill="#1A6FCC" letter-spacing="-0.5">Loop</text>
   </g>
 </svg>
