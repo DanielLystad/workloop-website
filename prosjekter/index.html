@@ -3,27 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Se våre AI-prosjekter og lær om automatisering for norske bedrifter — videoer og case studies fra WorkLoop AS.">
+  <meta name="description" content="Se våre AI-prosjekter og lær om automatisering for norske bedrifter — videoer, artikler og case studies fra WorkLoop AS.">
   <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
-  <title>Prosjekter &amp; Videoer — WorkLoop AS</title>
+  <title>Prosjekter &amp; Innhold — WorkLoop AS</title>
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    .video-grid {
+    .content-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
-    .video-card {
+    .content-card {
       background: var(--white);
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .video-card:hover {
+    .content-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
@@ -42,29 +44,53 @@
       height: 100%;
       border: 0;
     }
-    .video-info {
-      padding: 1.5rem;
+    .content-thumbnail {
+      height: 200px;
+      background: linear-gradient(135deg, #003D8F, #1A6FCC);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
-    .video-info h3 {
+    .content-thumbnail .play-btn,
+    .content-thumbnail .icon-btn {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-600);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .content-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-info h3 {
       font-size: 1.125rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
       color: var(--text-primary);
     }
-    .video-info p {
+    .content-info p {
       font-size: 0.9rem;
       color: var(--text-secondary);
       line-height: 1.6;
       margin-bottom: 1rem;
+      flex: 1;
     }
-    .video-meta {
+    .content-meta {
       display: flex;
       gap: 0.75rem;
       align-items: center;
       font-size: 0.8125rem;
       color: var(--gray-500);
     }
-    .video-tag {
+    .content-tag {
       display: inline-flex;
       align-items: center;
       padding: 0.25rem 0.75rem;
@@ -74,6 +100,10 @@
       font-size: 0.75rem;
       font-weight: 600;
     }
+    .content-tag.video { background: #FFF3E0; color: #E65100; }
+    .content-tag.article { background: #E8F5E9; color: #2E7D32; }
+    .content-tag.guide { background: #F3E5F5; color: #6A1B9A; }
+    .content-tag.case { background: #E3F2FD; color: #1565C0; }
   </style>
 </head>
 <body>
@@ -104,35 +134,35 @@
       <span>&#8250;</span>
       <span>Prosjekter</span>
     </div>
-    <h1>Prosjekter og videoer</h1>
-    <p>Se hvordan vi hjelper norske bedrifter med AI-automatisering. Praktiske eksempler, case studies og tips.</p>
+    <h1>Prosjekter og innhold</h1>
+    <p>Videoer, artikler, guider og case studies om AI-automatisering for norske bedrifter.</p>
   </div>
 </div>
 
 <!-- Featured Video -->
 <section class="section">
   <div class="container">
-    <span class="section-label animate-on-scroll">Siste prosjekt</span>
+    <span class="section-label animate-on-scroll">Utvalgt prosjekt</span>
 
     <div class="animate-on-scroll" style="max-width: 900px; margin: 2rem auto;">
-      <div class="video-card">
+      <div class="content-card">
         <div class="video-embed">
-          <!-- Placeholder: Replace dQw4w9WgXcQ with your YouTube video ID -->
+          <!-- Placeholder: Replace with your YouTube video ID -->
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
             title="Utvalgt prosjektvideo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Case Study</span>
+        <div class="content-info">
+          <span class="content-tag case">Case Study</span>
           <h3 style="margin-top: 1rem;">Slik automatiserte vi fakturabehandling for et regnskapsbyrå — fra 15 timer til 1 time per uke</h3>
           <p>
             En detaljert gjennomgang av et reelt prosjekt: hva vi fant i kartleggingen, hva vi bygde
             og hva resultatet ble. Inkluderer kostnadsberegning og ROI-analyse.
           </p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 22 min</span>
             <span>&bull;</span>
             <span>Regnskap &amp; Økonomi</span>
@@ -141,24 +171,24 @@
       </div>
     </div>
 
-    <!-- Video Grid -->
-    <div class="video-grid" style="margin-top: 4rem;">
+    <!-- Content Grid -->
+    <div class="content-grid" style="margin-top: 4rem;">
       <!-- Video 1 -->
-      <div class="video-card animate-on-scroll delay-1">
+      <div class="content-card animate-on-scroll delay-1">
         <div class="video-embed">
           <!-- Placeholder: Replace with your YouTube video ID -->
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
             title="5 prosesser du bør automatisere"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Guide</span>
+        <div class="content-info">
+          <span class="content-tag video">Video</span>
           <h3>5 prosesser du bør automatisere i din SMB i dag</h3>
           <p>Vi går gjennom de vanligste tidstyvene og viser konkret hvordan AI eliminerer dem.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 8 min</span>
             <span>&bull;</span>
             <span>Automatisering</span>
@@ -166,22 +196,18 @@
         </div>
       </div>
 
-      <!-- Video 2 -->
-      <div class="video-card animate-on-scroll delay-2">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Hva koster AI-automatisering"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <!-- Article 1 -->
+      <div class="content-card animate-on-scroll delay-2">
+        <div class="content-thumbnail" style="background: linear-gradient(135deg, #003D8F, #1A6FCC);">
+          <div class="icon-btn">
+            <i data-lucide="file-text" style="width:32px;height:32px;"></i>
+          </div>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Informasjon</span>
+        <div class="content-info">
+          <span class="content-tag article">Artikkel</span>
           <h3>Hva koster AI-automatisering egentlig for norske bedrifter?</h3>
           <p>En ærlig gjennomgang av priser, skjulte kostnader og hva du faktisk kan forvente å spare.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 6 min</span>
             <span>&bull;</span>
             <span>Økonomi</span>
@@ -189,22 +215,18 @@
         </div>
       </div>
 
-      <!-- Video 3 -->
-      <div class="video-card animate-on-scroll delay-3">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Kom i gang med AI på 30 dager"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <!-- Guide 1 -->
+      <div class="content-card animate-on-scroll delay-3">
+        <div class="content-thumbnail" style="background: linear-gradient(135deg, #004EB0, #4D93E0);">
+          <div class="icon-btn">
+            <i data-lucide="book-open" style="width:32px;height:32px;"></i>
+          </div>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Guide</span>
+        <div class="content-info">
+          <span class="content-tag guide">Guide</span>
           <h3>Nybegynnerguide: Kom i gang med AI i din bedrift på 30 dager</h3>
           <p>En steg-for-steg guide for deg som aldri har jobbet med AI-automatisering før.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 12 min</span>
             <span>&bull;</span>
             <span>Guide</span>
@@ -212,22 +234,18 @@
         </div>
       </div>
 
-      <!-- Video 4 -->
-      <div class="video-card animate-on-scroll delay-1">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Rørleggerbedrift case"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <!-- Case Study 1 -->
+      <div class="content-card animate-on-scroll delay-1">
+        <div class="content-thumbnail" style="background: linear-gradient(135deg, #002D6E, #003D8F);">
+          <div class="icon-btn">
+            <i data-lucide="bar-chart-2" style="width:32px;height:32px;"></i>
+          </div>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Case Study</span>
+        <div class="content-info">
+          <span class="content-tag case">Case Study</span>
           <h3>Rørleggerbedrift sparte 12 timer per uke med automatisert tilbudsgivning</h3>
           <p>Hele prosjektet fra A til Å — hva vi bygde, utfordringene vi møtte og sluttresultatet.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 7 min</span>
             <span>&bull;</span>
             <span>Case Study</span>
@@ -235,22 +253,22 @@
         </div>
       </div>
 
-      <!-- Video 5 -->
-      <div class="video-card animate-on-scroll delay-2">
+      <!-- Video 2 -->
+      <div class="content-card animate-on-scroll delay-2">
         <div class="video-embed">
           <!-- Placeholder: Replace with your YouTube video ID -->
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
             title="AI-chatbot for kundeservice"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Demo</span>
+        <div class="content-info">
+          <span class="content-tag video">Video</span>
           <h3>AI-chatbot for kundeservice: Slik satte vi opp en på 3 dager</h3>
           <p>Live-demonstrasjon av oppsett, konfigurasjon og integrasjon mot eksisterende systemer.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 15 min</span>
             <span>&bull;</span>
             <span>Demo</span>
@@ -258,22 +276,18 @@
         </div>
       </div>
 
-      <!-- Video 6 -->
-      <div class="video-card animate-on-scroll delay-3">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="GDPR og AI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+      <!-- Article 2 -->
+      <div class="content-card animate-on-scroll delay-3">
+        <div class="content-thumbnail" style="background: linear-gradient(135deg, #0057B8, #4D93E0);">
+          <div class="icon-btn">
+            <i data-lucide="file-text" style="width:32px;height:32px;"></i>
+          </div>
         </div>
-        <div class="video-info">
-          <span class="video-tag">Informasjon</span>
+        <div class="content-info">
+          <span class="content-tag article">Artikkel</span>
           <h3>GDPR og AI: Alt du trenger å vite som norsk bedrift i 2025</h3>
           <p>Hvilke regler gjelder, hva du må passe på og hvordan vi sikrer at våre løsninger er trygge.</p>
-          <div class="video-meta">
+          <div class="content-meta">
             <span><i data-lucide="clock" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> 9 min</span>
             <span>&bull;</span>
             <span>Jus &amp; Compliance</span>
