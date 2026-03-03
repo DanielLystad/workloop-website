@@ -44,6 +44,44 @@
       height: 100%;
       border: 0;
     }
+    .video-placeholder {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-placeholder-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+    .video-placeholder-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .video-placeholder-text {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .video-placeholder-subtext {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
     .content-thumbnail {
       height: 200px;
       background: linear-gradient(135deg, #003D8F, #1A6FCC);
@@ -146,14 +184,24 @@
 
     <div class="animate-on-scroll" style="max-width: 900px; margin: 2rem auto;">
       <div class="content-card">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="Utvalgt prosjektvideo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="video-placeholder">
+          <div class="video-placeholder-content">
+            <div class="video-placeholder-icon">
+              <i data-lucide="video" style="width:40px;height:40px;color:rgba(255,255,255,0.8);"></i>
+            </div>
+            <div class="video-placeholder-text">Video kommer snart</div>
+            <div class="video-placeholder-subtext">Erstatt med din YouTube video-ID</div>
+          </div>
+          <!-- 
+          For å legge til din video, erstatt video-placeholder div med:
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/DIN_VIDEO_ID" 
+              title="Video tittel" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          -->
         </div>
         <div class="content-info">
           <span class="content-tag case">Case Study</span>
@@ -175,14 +223,14 @@
     <div class="content-grid" style="margin-top: 4rem;">
       <!-- Video 1 -->
       <div class="content-card animate-on-scroll delay-1">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="5 prosesser du bør automatisere"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="video-placeholder">
+          <div class="video-placeholder-content">
+            <div class="video-placeholder-icon">
+              <i data-lucide="video" style="width:40px;height:40px;color:rgba(255,255,255,0.8);"></i>
+            </div>
+            <div class="video-placeholder-text">Video kommer snart</div>
+            <div class="video-placeholder-subtext">Erstatt med din YouTube video-ID</div>
+          </div>
         </div>
         <div class="content-info">
           <span class="content-tag video">Video</span>
@@ -255,14 +303,14 @@
 
       <!-- Video 2 -->
       <div class="content-card animate-on-scroll delay-2">
-        <div class="video-embed">
-          <!-- Placeholder: Replace with your YouTube video ID -->
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="AI-chatbot for kundeservice"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="video-placeholder">
+          <div class="video-placeholder-content">
+            <div class="video-placeholder-icon">
+              <i data-lucide="video" style="width:40px;height:40px;color:rgba(255,255,255,0.8);"></i>
+            </div>
+            <div class="video-placeholder-text">Video kommer snart</div>
+            <div class="video-placeholder-subtext">Erstatt med din YouTube video-ID</div>
+          </div>
         </div>
         <div class="content-info">
           <span class="content-tag video">Video</span>
