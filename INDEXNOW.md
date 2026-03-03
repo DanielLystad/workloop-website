@@ -50,7 +50,7 @@ curl -X POST "https://api.indexnow.org/indexnow" \
       "https://workloop.no/",
       "https://workloop.no/about",
       "https://workloop.no/services",
-      "https://workloop.no/blog",
+      "https://workloop.no/prosjekter",
       "https://workloop.no/contact"
     ]
   }'
