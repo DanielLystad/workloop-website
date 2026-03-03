@@ -245,10 +245,13 @@ p { color: var(--text-secondary); }
   display: flex;
   align-items: center;
   gap: var(--s-2);
+  flex-shrink: 0;
 }
 
 .nav-logo img {
-  height: 34px;
+  height: auto;
+  max-height: 40px;
+  max-width: min(200px, 40vw);
   width: auto;
   display: block;
 }
@@ -1516,6 +1519,11 @@ p { color: var(--text-secondary); }
 
   /* Nav */
   .hamburger { display: flex; }
+
+  .nav-logo img {
+    max-height: 30px;
+    max-width: min(160px, 35vw);
+  }
 
   .nav-links {
     display: none;
