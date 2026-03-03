@@ -1520,9 +1520,17 @@ p { color: var(--text-secondary); }
   /* Nav */
   .hamburger { display: flex; }
 
+  .nav-container {
+    padding-inline: 0.75rem;
+  }
+
+  .nav-logo {
+    gap: 0;
+  }
+
   .nav-logo img {
-    max-height: 30px;
-    max-width: min(160px, 35vw);
+    max-height: 24px;
+    max-width: min(140px, 30vw);
   }
 
   .nav-links {
