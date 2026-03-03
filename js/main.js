@@ -64,13 +64,16 @@
   }
 
   /* ─── Active nav link ───────────────────────────────────── */
-  // Note: active class is already set in HTML, this just adds extra validation
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('.nav-links a').forEach(link => {
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
-    if (href === currentPath || (currentPath === '/' && href === '/')) {
+    const shouldBeActive = href === currentPath || (currentPath === '/' && href === '/');
+    const isActive = link.classList.contains('active');
+
+    // Only modify DOM when state needs to change
+    if (shouldBeActive && !isActive) {
       link.classList.add('active');
-    } else {
+    } else if (!shouldBeActive && isActive) {
       link.classList.remove('active');
     }
   });
