@@ -12,7 +12,7 @@ PAYLOAD='{
     "https://'$HOST'/",
     "https://'$HOST'/about",
     "https://'$HOST'/services",
-    "https://'$HOST'/blog",
+    "https://'$HOST'/prosjekter",
     "https://'$HOST'/contact"
   ]
 }'
