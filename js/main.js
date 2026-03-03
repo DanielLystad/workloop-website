@@ -65,7 +65,8 @@
 
   /* ─── Active nav link ───────────────────────────────────── */
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  // Exclude buttons from active state management
+  document.querySelectorAll('.nav-links a:not(.btn)').forEach(link => {
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
     const shouldBeActive = href === currentPath || (currentPath === '/' && href === '/');
     const isActive = link.classList.contains('active');

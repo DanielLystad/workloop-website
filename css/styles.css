@@ -336,6 +336,15 @@ p { color: var(--text-secondary); }
   box-shadow: 0 3px 10px rgba(26, 111, 204, 0.25);
 }
 
+/* Ensure buttons never get active state styling */
+.nav-links a.btn.active,
+.nav-links a.btn:focus {
+  background: var(--blue-600);
+  color: var(--white);
+  font-weight: 600;
+  transform: none;
+}
+
 /* Social Links */
 .nav-social {
   display: flex;
