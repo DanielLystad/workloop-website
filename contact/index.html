@@ -150,16 +150,59 @@
         </div>
 
 
-        <!-- Cal.com booking -->
+        <!-- Booking form -->
         <div id="booking" style="margin-top: 2rem;">
-          <h4 style="margin-bottom: 1rem;">Foretrekker du å booke tid direkte?</h4>
+          <h4 style="margin-bottom: 1rem;">Book en gratis 30 min samtale</h4>
           <div class="booking-card">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;"><i data-lucide="calendar" style="width:48px;height:48px;margin:0 auto;"></i></div>
-            <h4>Book en gratis 30 min samtale</h4>
-            <p>Velg et tidspunkt som passer deg i vår kalender.</p>
-            <button data-cal-link="YOUR-USERNAME/gratis-samtale" data-cal-config='{"layout":"month_view","locale":"nb"}' class="btn btn-primary">
-              <i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Åpne kalender
-            </button>
+            <form id="bookingForm">
+              <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
+              <input type="hidden" name="subject" value="Ny booking fra WorkLoop.no">
+              <input type="hidden" name="from_name" value="WorkLoop Booking">
+              <div class="form-group">
+                <label for="bookName">Navn *</label>
+                <input type="text" id="bookName" name="name" required placeholder="Ditt fulle navn">
+              </div>
+              <div class="form-group">
+                <label for="bookEmail">E-post *</label>
+                <input type="email" id="bookEmail" name="email" required placeholder="navn@firma.no">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bookDate">Dato *</label>
+                  <input type="date" id="bookDate" name="date" required>
+                </div>
+                <div class="form-group">
+                  <label for="bookTime">Tidspunkt *</label>
+                  <select id="bookTime" name="time" required>
+                    <option value="">Velg tid</option>
+                    <option value="08:00">08:00</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="bookMessage">Melding (valgfritt)</label>
+                <textarea id="bookMessage" name="message" rows="2" placeholder="Hva kan vi hjelpe deg med?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                <i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Send booking
+              </button>
+              <div id="bookingMessage" class="form-message" style="display:none;"></div>
+            </form>
           </div>
         </div>
       </div>
@@ -359,29 +402,126 @@
 <script>
   lucide.createIcons();
 </script>
-<!-- Cal.com embed -->
 <script>
-  (function (C, A, L) {
-    var p = function (a, ar) { a.q.push(ar); };
-    var d = C.document;
-    C.Cal = C.Cal || function () {
-      var cal = C.Cal;
-      var ar = arguments;
-      if (!cal.loaded) {
-        cal.ns = {}; cal.q = cal.q || [];
-        d.head.appendChild(d.createElement("script")).src = A;
-        cal.loaded = true;
+  // Booking form
+  (function() {
+    var form = document.getElementById('bookingForm');
+    var dateInput = document.getElementById('bookDate');
+    var msg = document.getElementById('bookingMessage');
+    if (!form || !dateInput) return;
+
+    // Set min date to tomorrow
+    var today = new Date();
+    today.setDate(today.getDate() + 1);
+    dateInput.min = today.toISOString().split('T')[0];
+
+    // Set max date to 4 weeks out
+    var maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 28);
+    dateInput.max = maxDate.toISOString().split('T')[0];
+
+    // Block weekends
+    dateInput.addEventListener('input', function() {
+      var d = new Date(this.value + 'T12:00:00');
+      var day = d.getDay();
+      if (day === 0 || day === 6) {
+        this.setCustomValidity('Velg en ukedag (mandag-fredag).');
+      } else {
+        this.setCustomValidity('');
       }
-      if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;}
-      p(cal, ar);
-    };
-  })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", {origin:"https://app.cal.com"});
-  Cal("ui", {
-    styles: { branding: { brandColor: "#1A2E44" } },
-    hideEventTypeDetails: false,
-    layout: "month_view"
-  });
+    });
+
+    function generateICS(name, email, date, time) {
+      var start = date.replace(/-/g, '') + 'T' + time.replace(':', '') + '00';
+      var h = parseInt(time.split(':')[0]);
+      var m = parseInt(time.split(':')[1]) + 30;
+      if (m >= 60) { h++; m -= 60; }
+      var end = date.replace(/-/g, '') + 'T' + String(h).padStart(2,'0') + String(m).padStart(2,'0') + '00';
+      var now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+
+      return 'BEGIN:VCALENDAR\r\n' +
+        'VERSION:2.0\r\n' +
+        'PRODID:-//WorkLoop//Booking//NO\r\n' +
+        'BEGIN:VEVENT\r\n' +
+        'DTSTART;TZID=Europe/Oslo:' + start + '\r\n' +
+        'DTEND;TZID=Europe/Oslo:' + end + '\r\n' +
+        'DTSTAMP:' + now + '\r\n' +
+        'SUMMARY:WorkLoop - Gratis samtale\r\n' +
+        'DESCRIPTION:Gratis 30 min samtale med WorkLoop.\\nKontakt: ' + name + ' (' + email + ')\r\n' +
+        'ORGANIZER;CN=WorkLoop:mailto:post@workloop.no\r\n' +
+        'ATTENDEE;CN=' + name + ':mailto:' + email + '\r\n' +
+        'STATUS:TENTATIVE\r\n' +
+        'END:VEVENT\r\n' +
+        'END:VCALENDAR';
+    }
+
+    function downloadICS(icsContent) {
+      var blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'workloop-booking.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sender...';
+
+      var formData = new FormData(form);
+      formData.set('message',
+        'BOOKING\n\nNavn: ' + formData.get('name') +
+        '\nE-post: ' + formData.get('email') +
+        '\nDato: ' + formData.get('date') +
+        '\nTid: ' + formData.get('time') +
+        '\n\nMelding: ' + (formData.get('message') || 'Ingen')
+      );
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          var name = form.querySelector('#bookName').value;
+          var email = form.querySelector('#bookEmail').value;
+          var date = form.querySelector('#bookDate').value;
+          var time = form.querySelector('#bookTime').value;
+
+          msg.className = 'form-message success';
+          msg.innerHTML = 'Takk, ' + name + '! Bookingen er sendt. Vi bekrefter tidspunktet innen 1 virkedag.<br><br><a href="#" id="downloadIcs" style="color:#065f46;font-weight:600;">Last ned kalenderinvitasjon (.ics)</a>';
+          msg.style.display = 'block';
+
+          document.getElementById('downloadIcs').addEventListener('click', function(ev) {
+            ev.preventDefault();
+            downloadICS(generateICS(name, email, date, time));
+          });
+
+          form.reset();
+        } else {
+          msg.className = 'form-message error';
+          msg.textContent = json.message || 'Noe gikk galt. Prov igjen.';
+          msg.style.display = 'block';
+        }
+      })
+      .catch(function() {
+        msg.className = 'form-message error';
+        msg.textContent = 'Tilkoblingsfeil. Sjekk internett og prov igjen.';
+        msg.style.display = 'block';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Send booking';
+        if (window.lucide) lucide.createIcons();
+      });
+    });
+  })();
 </script>
 </body>
 </html>

@@ -1170,24 +1170,23 @@ p { color: var(--text-secondary); }
 
 /* ── 17. Booking Card ────────────────────────────────────────── */
 .booking-card {
-  background: var(--blue-50);
-  border: 1px solid var(--blue-200);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--s-16) var(--s-8);
-  text-align: center;
-  color: var(--blue-700);
+  padding: var(--s-6);
 }
 
-.booking-card h4 {
-  margin-bottom: var(--s-2);
-  color: var(--blue-900);
+.booking-card .form-group { margin-bottom: var(--s-4); }
+.booking-card label { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--blue-900); margin-bottom: var(--s-1); }
+.booking-card input, .booking-card select, .booking-card textarea {
+  width: 100%; padding: 0.625rem 0.875rem; border: 1px solid var(--border);
+  border-radius: var(--radius-md); font-size: 0.875rem; font-family: inherit;
+  transition: border-color 0.15s ease;
 }
-
-.booking-card p {
-  font-size: 0.875rem;
-  color: var(--blue-600);
-  margin-bottom: var(--s-5);
+.booking-card input:focus, .booking-card select:focus, .booking-card textarea:focus {
+  outline: none; border-color: var(--blue-600);
 }
+.booking-card .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
 
 /* ── 18. Page Header ─────────────────────────────────────────── */
 .page-header {
