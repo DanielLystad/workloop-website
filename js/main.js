@@ -183,7 +183,7 @@
         formMsg.textContent = 'Tilkoblingsfeil. Sjekk internett og prøv igjen.';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send melding &rarr;';
+        submitBtn.innerHTML = 'Send melding &rarr;';
         formMsg.style.display = 'block';
         formMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }

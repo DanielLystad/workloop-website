@@ -164,10 +164,17 @@ p { color: var(--text-secondary); }
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 0.9375rem;
-  transition: all var(--t);
+  transition: transform var(--t), box-shadow var(--t), background var(--t), border-color var(--t);
   white-space: nowrap;
   text-decoration: none;
   border: 2px solid transparent;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-lg { padding: 1rem 2.125rem; font-size: 1rem; }
@@ -326,10 +333,8 @@ p { color: var(--text-secondary); }
 }
 
 .nav-links .btn:hover {
-  background: var(--blue-700);
-  color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(26, 111, 204, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .nav-links .btn:active {
@@ -452,14 +457,14 @@ p { color: var(--text-secondary); }
 
 /* Accessibility: Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .nav-links a,
-  .nav-links a::before,
-  .nav-links a::after,
-  .social-link,
-  .hamburger span {
-    transition-duration: 0.01ms !important;
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+  .animate-on-scroll { opacity: 1; transform: none; }
+  .hero-orb { display: none; }
 }
 
 /* ── 7. Hero ─────────────────────────────────────────────────── */
@@ -692,6 +697,7 @@ p { color: var(--text-secondary); }
   box-shadow: var(--shadow-lg);
   border-color: var(--blue-200);
 }
+.service-card:active { transform: scale(0.98); }
 
 .service-card.featured {
   border-color: var(--blue-600);
@@ -1391,6 +1397,7 @@ p { color: var(--text-secondary); }
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
+.value-card:active { transform: scale(0.98); }
 
 .value-icon {
   font-size: 2rem;
