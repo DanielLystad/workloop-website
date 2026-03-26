@@ -37,54 +37,20 @@
   function parseDate(input) {
     var lower = input.toLowerCase().trim();
     var days = { 'mandag': 1, 'tirsdag': 2, 'onsdag': 3, 'torsdag': 4, 'fredag': 5 };
-
-    // Direct date format
     var match = lower.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (match) {
-      var d = new Date(input + 'T12:00:00');
-      var day = d.getDay();
-      if (day >= 1 && day <= 5) return input;
-      return null;
-    }
-
-    // Day name
+    if (match) { var d = new Date(input + 'T12:00:00'); if (d.getDay() >= 1 && d.getDay() <= 5) return input; return null; }
     for (var name in days) {
-      if (lower.includes(name)) {
-        var today = new Date();
-        var target = days[name];
-        var diff = target - today.getDay();
-        if (diff <= 0) diff += 7;
-        today.setDate(today.getDate() + diff);
-        return today.toISOString().split('T')[0];
-      }
+      if (lower.includes(name)) { var today = new Date(); var diff = days[name] - today.getDay(); if (diff <= 0) diff += 7; today.setDate(today.getDate() + diff); return today.toISOString().split('T')[0]; }
     }
-
-    // "imorgen" / "i morgen"
-    if (lower.includes('morgen')) {
-      var tom = new Date();
-      tom.setDate(tom.getDate() + 1);
-      if (tom.getDay() === 0) tom.setDate(tom.getDate() + 1);
-      if (tom.getDay() === 6) tom.setDate(tom.getDate() + 2);
-      return tom.toISOString().split('T')[0];
-    }
-
-    // "neste uke"
-    if (lower.includes('neste uke')) {
-      var nw = new Date();
-      var daysToMon = (8 - nw.getDay()) % 7;
-      if (daysToMon === 0) daysToMon = 7;
-      nw.setDate(nw.getDate() + daysToMon);
-      return nw.toISOString().split('T')[0];
-    }
-
+    if (lower.includes('morgen')) { var tom = new Date(); tom.setDate(tom.getDate() + 1); if (tom.getDay() === 0) tom.setDate(tom.getDate() + 1); if (tom.getDay() === 6) tom.setDate(tom.getDate() + 2); return tom.toISOString().split('T')[0]; }
+    if (lower.includes('neste uke')) { var nw = new Date(); var daysToMon = (8 - nw.getDay()) % 7; if (daysToMon === 0) daysToMon = 7; nw.setDate(nw.getDate() + daysToMon); return nw.toISOString().split('T')[0]; }
     return null;
   }
 
   function parseTime(input) {
     var match = input.trim().match(/^(\d{1,2})[:\.]?(\d{2})?$/);
     if (!match) return null;
-    var h = parseInt(match[1]);
-    var m = parseInt(match[2] || '0');
+    var h = parseInt(match[1]); var m = parseInt(match[2] || '0');
     if (m !== 0 && m !== 30) m = m < 15 ? 0 : 30;
     if (h < 8 || h > 15 || (h === 15 && m > 30)) return null;
     return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
@@ -105,47 +71,24 @@
     formData.append('from_name', data.name);
     formData.append('name', data.name);
     formData.append('email', data.email);
-    formData.append('message',
-      'BOOKING VIA CHATBOT\n\n' +
-      'Navn: ' + data.name + '\n' +
-      'E-post: ' + data.email + '\n' +
-      'Dato: ' + data.date + '\n' +
-      'Tid: ' + data.time + '\n'
-    );
-
+    formData.append('message', 'BOOKING VIA CHATBOT\n\nNavn: ' + data.name + '\nE-post: ' + data.email + '\nDato: ' + data.date + '\nTid: ' + data.time);
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
     .then(function(r) { return r.json(); })
     .then(function(json) {
       hideTyping();
       if (json.success) {
-        addMessage(
-          'Bookingen er sendt! Her er oppsummeringen:\n\n' +
-          '- **Navn:** ' + data.name + '\n' +
-          '- **Dato:** ' + formatDateNorwegian(data.date) + '\n' +
-          '- **Tid:** ' + data.time + '\n\n' +
-          'Vi bekrefter tidspunktet innen 1 virkedag pa **' + data.email + '**.\n\n' +
-          'Du kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.',
-          'bot'
-        );
-      } else {
-        addMessage('Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).', 'bot');
-      }
+        addMessage('Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** ' + data.name + '\n- **Dato:** ' + formatDateNorwegian(data.date) + '\n- **Tid:** ' + data.time + '\n\nVi bekrefter tidspunktet innen 1 virkedag pa **' + data.email + '**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.', 'bot');
+      } else { addMessage('Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).', 'bot'); }
     })
-    .catch(function() {
-      hideTyping();
-      addMessage('Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).', 'bot');
-    });
+    .catch(function() { hideTyping(); addMessage('Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).', 'bot'); });
   }
 
   function findResponse(message) {
     var lower = message.toLowerCase().replace(/[?!.,]/g, '');
-    var bestMatch = null;
-    var bestScore = 0;
+    var bestMatch = null; var bestScore = 0;
     for (var i = 0; i < KB.length; i++) {
       var score = 0;
-      for (var j = 0; j < KB[i].keywords.length; j++) {
-        if (lower.includes(KB[i].keywords[j])) score++;
-      }
+      for (var j = 0; j < KB[i].keywords.length; j++) { if (lower.includes(KB[i].keywords[j])) score++; }
       if (score > bestScore) { bestScore = score; bestMatch = KB[i]; }
     }
     if (bestMatch) return bestMatch.response;
@@ -155,129 +98,189 @@
   function formatMessage(text) {
     return text
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#3D9BE1;text-decoration:underline;">$1</a>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
       .replace(/\n/g, '<br>');
   }
 
+  /* ─── STYLES ─── */
   function injectStyles() {
-    var style = document.createElement('style');
-    style.textContent = '\
-      .wl-chat-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1A2E44;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;z-index:9999;transition:transform .2s ease,box-shadow .2s ease}\
-      .wl-chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,0.3)}\
-      .wl-chat-fab svg{width:28px;height:28px;fill:#fff;transition:transform .2s ease}\
-      .wl-chat-fab.open svg.icon-chat{display:none}\
-      .wl-chat-fab:not(.open) svg.icon-close{display:none}\
-      .wl-chat-window{position:fixed;bottom:100px;right:24px;width:380px;max-height:520px;border-radius:16px;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;overflow:hidden;z-index:9998;opacity:0;transform:translateY(16px) scale(.95);pointer-events:none;transition:opacity .25s ease,transform .25s ease}\
-      .wl-chat-window.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}\
-      .wl-chat-header{background:#1A2E44;padding:18px 20px;display:flex;align-items:center;gap:12px}\
-      .wl-chat-header-avatar{width:38px;height:38px;border-radius:50%;background:#3D9BE1;display:flex;align-items:center;justify-content:center;flex-shrink:0}\
-      .wl-chat-header-avatar svg{width:20px;height:20px;fill:#fff}\
-      .wl-chat-header-info h4{color:#fff;font-size:15px;font-weight:700;margin:0;line-height:1.2}\
-      .wl-chat-header-info p{color:rgba(255,255,255,.55);font-size:12px;margin:2px 0 0}\
-      .wl-chat-header-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;margin-left:auto;flex-shrink:0}\
-      .wl-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:260px;max-height:320px}\
-      .wl-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.6;word-wrap:break-word}\
-      .wl-msg.bot{background:#f1f5f9;color:#1e293b;align-self:flex-start;border-bottom-left-radius:4px}\
-      .wl-msg.user{background:#1A2E44;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}\
-      .wl-msg a{color:#3D9BE1;text-decoration:underline}\
-      .wl-msg.user a{color:#93c5fd}\
-      .wl-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}\
-      .wl-suggestion-btn{background:#eef4ff;color:#1A2E44;border:1px solid #c7d7fa;border-radius:100px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:background .15s ease}\
-      .wl-suggestion-btn:hover{background:#dbe8ff}\
-      .wl-chat-input-area{border-top:1px solid #e5e7eb;padding:12px 16px;display:flex;gap:8px;align-items:center}\
-      .wl-chat-input{flex:1;border:1px solid #e5e7eb;border-radius:24px;padding:10px 16px;font-size:13px;outline:none;font-family:inherit;transition:border-color .15s ease}\
-      .wl-chat-input:focus{border-color:#3D9BE1}\
-      .wl-chat-send{width:38px;height:38px;border-radius:50%;background:#3D9BE1;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s ease}\
-      .wl-chat-send:hover{background:#2b8ad4}\
-      .wl-chat-send svg{width:18px;height:18px;fill:#fff}\
-      .wl-typing{display:flex;gap:4px;padding:10px 14px;align-self:flex-start}\
-      .wl-typing span{width:7px;height:7px;border-radius:50%;background:#94a3b8;animation:wl-bounce 1.2s ease-in-out infinite}\
-      .wl-typing span:nth-child(2){animation-delay:.15s}\
-      .wl-typing span:nth-child(3){animation-delay:.3s}\
-      @keyframes wl-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}\
-      .wl-booking-progress{display:flex;gap:4px;padding:0 16px 8px}\
-      .wl-booking-step{flex:1;height:3px;border-radius:2px;background:#e5e7eb;transition:background .3s ease}\
-      .wl-booking-step.done{background:#3D9BE1}\
-      .wl-booking-step.active{background:#1A2E44}\
-      .wl-cancel-link{font-size:11px;color:#94a3b8;text-align:center;padding:0 16px 8px;cursor:pointer}\
-      .wl-cancel-link:hover{color:#64748b}\
-      @media(max-width:480px){.wl-chat-window{right:0;bottom:0;left:0;width:100%;max-height:100%;height:100%;border-radius:0}.wl-chat-messages{max-height:none;flex:1}.wl-chat-fab{bottom:16px;right:16px}}\
-    ';
-    document.head.appendChild(style);
+    var s = document.createElement('style');
+    s.textContent = [
+      /* FAB */
+      '.wl-fab{position:fixed;bottom:24px;right:24px;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#1A2E44 0%,#243b57 100%);border:none;cursor:pointer;box-shadow:0 4px 16px rgba(26,46,68,.35),0 1px 3px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;z-index:9999;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease}',
+      '.wl-fab:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,46,68,.4),0 2px 6px rgba(0,0,0,.1)}',
+      '.wl-fab:active{transform:scale(.95)}',
+      '.wl-fab svg{width:26px;height:26px;fill:#fff;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .2s ease}',
+      '.wl-fab.open .ic-chat{transform:rotate(90deg) scale(0);opacity:0}',
+      '.wl-fab:not(.open) .ic-close{transform:rotate(-90deg) scale(0);opacity:0;position:absolute}',
+      '.wl-fab.open .ic-close{transform:rotate(0) scale(1);opacity:1}',
+      '.wl-fab:not(.open) .ic-chat{transform:rotate(0) scale(1);opacity:1}',
+      /* FAB pulse ring */
+      '.wl-fab::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(61,155,225,.5);animation:wl-ring 2.5s ease-out infinite;pointer-events:none}',
+      '.wl-fab.opened::after{display:none}',
+      '@keyframes wl-ring{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.35);opacity:0}100%{transform:scale(1.35);opacity:0}}',
+
+      /* Window */
+      '.wl-win{position:fixed;bottom:100px;right:24px;width:388px;max-height:540px;border-radius:20px;background:#fff;box-shadow:0 12px 48px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,.08);display:flex;flex-direction:column;overflow:hidden;z-index:9998;opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:opacity .3s cubic-bezier(.22,1,.36,1),transform .3s cubic-bezier(.22,1,.36,1)}',
+      '.wl-win.vis{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}',
+      '.wl-win.closing{opacity:0;transform:translateY(12px) scale(.97);transition-duration:.2s}',
+
+      /* Header */
+      '.wl-hdr{background:linear-gradient(135deg,#1A2E44 0%,#22364f 100%);padding:18px 20px;display:flex;align-items:center;gap:12px}',
+      '.wl-hdr-av{width:40px;height:40px;border-radius:14px;background:rgba(61,155,225,.2);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;flex-shrink:0}',
+      '.wl-hdr-av svg{width:20px;height:20px;fill:#3D9BE1}',
+      '.wl-hdr-info h4{color:#fff;font-size:15px;font-weight:700;margin:0;line-height:1.2}',
+      '.wl-hdr-info p{color:rgba(255,255,255,.5);font-size:12px;margin:2px 0 0}',
+      '.wl-hdr-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;margin-left:auto;flex-shrink:0;box-shadow:0 0 6px rgba(74,222,128,.5)}',
+
+      /* Messages */
+      '.wl-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:260px;max-height:330px;scroll-behavior:smooth}',
+      '.wl-msgs::-webkit-scrollbar{width:4px}',
+      '.wl-msgs::-webkit-scrollbar-track{background:transparent}',
+      '.wl-msgs::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}',
+
+      '.wl-msg{max-width:84%;padding:11px 15px;border-radius:18px;font-size:13.5px;line-height:1.65;word-wrap:break-word;opacity:0;transform:translateY(8px);animation:wl-msgIn .3s cubic-bezier(.22,1,.36,1) forwards}',
+      '.wl-msg.bot{background:#f1f5f9;color:#1e293b;align-self:flex-start;border-bottom-left-radius:6px}',
+      '.wl-msg.user{background:linear-gradient(135deg,#1A2E44 0%,#243b57 100%);color:#fff;align-self:flex-end;border-bottom-right-radius:6px}',
+      '.wl-msg a{color:#3D9BE1;text-decoration:none;border-bottom:1px solid rgba(61,155,225,.3);transition:border-color .15s ease}',
+      '.wl-msg a:hover{border-color:#3D9BE1}',
+      '.wl-msg.user a{color:#93c5fd;border-bottom-color:rgba(147,197,253,.3)}',
+      '.wl-msg strong{font-weight:600}',
+      '@keyframes wl-msgIn{to{opacity:1;transform:translateY(0)}}',
+
+      /* Typing */
+      '.wl-typing{display:flex;gap:5px;padding:12px 16px;align-self:flex-start;opacity:0;animation:wl-msgIn .25s ease forwards}',
+      '.wl-typing span{width:8px;height:8px;border-radius:50%;background:#94a3b8;animation:wl-dot 1.4s ease-in-out infinite}',
+      '.wl-typing span:nth-child(2){animation-delay:.15s}',
+      '.wl-typing span:nth-child(3){animation-delay:.3s}',
+      '@keyframes wl-dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-8px);opacity:1}}',
+
+      /* Suggestions */
+      '.wl-sug{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}',
+      '.wl-sug-btn{background:#f0f4ff;color:#1A2E44;border:1px solid #c7d7fa;border-radius:100px;padding:7px 15px;font-size:12.5px;font-weight:500;cursor:pointer;transition:all .2s ease;opacity:0;transform:translateY(6px);animation:wl-sugIn .25s ease forwards}',
+      '.wl-sug-btn:nth-child(1){animation-delay:0s}',
+      '.wl-sug-btn:nth-child(2){animation-delay:.06s}',
+      '.wl-sug-btn:nth-child(3){animation-delay:.12s}',
+      '.wl-sug-btn:hover{background:#dce6ff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(61,155,225,.15)}',
+      '.wl-sug-btn:active{transform:scale(.96)}',
+      '@keyframes wl-sugIn{to{opacity:1;transform:translateY(0)}}',
+
+      /* Input area */
+      '.wl-input-area{border-top:1px solid #eef0f4;padding:12px 16px;display:flex;gap:8px;align-items:center;background:#fafbfc}',
+      '.wl-input{flex:1;border:1.5px solid #e5e7eb;border-radius:24px;padding:10px 16px;font-size:13.5px;outline:none;font-family:inherit;background:#fff;transition:border-color .2s ease,box-shadow .2s ease}',
+      '.wl-input:focus{border-color:#3D9BE1;box-shadow:0 0 0 3px rgba(61,155,225,.12)}',
+      '.wl-send{width:40px;height:40px;border-radius:50%;background:#3D9BE1;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s ease;position:relative;overflow:hidden}',
+      '.wl-send:hover{background:#2b8ad4;transform:scale(1.05)}',
+      '.wl-send:active{transform:scale(.93)}',
+      '.wl-send svg{width:17px;height:17px;fill:#fff;position:relative;left:1px}',
+      '.wl-send:disabled{opacity:.5;cursor:default;transform:none}',
+
+      /* Booking progress */
+      '.wl-bk-prog{display:flex;gap:4px;padding:0 16px 4px}',
+      '.wl-bk-step{flex:1;height:3px;border-radius:2px;background:#e5e7eb;transition:background .4s ease,transform .3s ease}',
+      '.wl-bk-step.done{background:#3D9BE1}',
+      '.wl-bk-step.active{background:#1A2E44;transform:scaleY(1.3)}',
+      '.wl-bk-cancel{font-size:11px;color:#94a3b8;text-align:center;padding:2px 16px 8px;cursor:pointer;transition:color .15s ease}',
+      '.wl-bk-cancel:hover{color:#64748b}',
+
+      /* Reduced motion */
+      '@media(prefers-reduced-motion:reduce){',
+      '.wl-fab,.wl-fab svg,.wl-win,.wl-msg,.wl-typing,.wl-sug-btn,.wl-send,.wl-bk-step{animation:none!important;transition:none!important}',
+      '.wl-msg,.wl-sug-btn{opacity:1;transform:none}',
+      '.wl-fab::after{display:none}',
+      '.wl-win.vis{opacity:1;transform:none}',
+      '}',
+
+      /* Mobile */
+      '@media(max-width:480px){',
+      '.wl-win{right:0;bottom:0;left:0;width:100%;max-height:100%;height:100%;border-radius:0}',
+      '.wl-msgs{max-height:none;flex:1}',
+      '.wl-fab{bottom:16px;right:16px}',
+      '}'
+    ].join('\n');
+    document.head.appendChild(s);
   }
 
+  /* ─── WIDGET ─── */
   function createWidget() {
     var fab = document.createElement('button');
-    fab.className = 'wl-chat-fab';
+    fab.className = 'wl-fab';
     fab.setAttribute('aria-label', 'Apne chat');
-    fab.innerHTML = '<svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg><svg class="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+    fab.innerHTML = '<svg class="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg><svg class="ic-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
 
     var win = document.createElement('div');
-    win.className = 'wl-chat-window';
-    win.innerHTML = '<div class="wl-chat-header"><div class="wl-chat-header-avatar"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="wl-chat-header-info"><h4>' + CONFIG.botName + '</h4><p>AI-assistent</p></div><div class="wl-chat-header-dot"></div></div><div class="wl-chat-messages" id="wlMessages"></div><div id="wlBookingProgress"></div><div class="wl-suggestions" id="wlSuggestions"></div><div class="wl-chat-input-area"><input type="text" class="wl-chat-input" id="wlInput" placeholder="' + CONFIG.placeholder + '" autocomplete="off"><button class="wl-chat-send" id="wlSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>';
+    win.className = 'wl-win';
+    win.innerHTML = [
+      '<div class="wl-hdr">',
+        '<div class="wl-hdr-av"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>',
+        '<div class="wl-hdr-info"><h4>' + CONFIG.botName + '</h4><p>AI-assistent</p></div>',
+        '<div class="wl-hdr-dot"></div>',
+      '</div>',
+      '<div class="wl-msgs" id="wlM"></div>',
+      '<div id="wlBP"></div>',
+      '<div class="wl-sug" id="wlS"></div>',
+      '<div class="wl-input-area">',
+        '<input type="text" class="wl-input" id="wlI" placeholder="' + CONFIG.placeholder + '" autocomplete="off">',
+        '<button class="wl-send" id="wlSnd" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>',
+      '</div>'
+    ].join('');
 
     document.body.appendChild(fab);
     document.body.appendChild(win);
 
-    var messages = document.getElementById('wlMessages');
-    var suggestionsEl = document.getElementById('wlSuggestions');
-    var progressEl = document.getElementById('wlBookingProgress');
-    var input = document.getElementById('wlInput');
-    var sendBtn = document.getElementById('wlSend');
+    var msgs = document.getElementById('wlM');
+    var sugEl = document.getElementById('wlS');
+    var progEl = document.getElementById('wlBP');
+    var input = document.getElementById('wlI');
+    var sendBtn = document.getElementById('wlSnd');
     var isOpen = false;
-    var suggestionsShown = true;
+    var sugShown = true;
 
     function addMessage(text, type) {
       var msg = document.createElement('div');
       msg.className = 'wl-msg ' + type;
       msg.innerHTML = formatMessage(text);
-      messages.appendChild(msg);
-      messages.scrollTop = messages.scrollHeight;
+      msgs.appendChild(msg);
+      msgs.scrollTop = msgs.scrollHeight;
     }
 
     function showTyping() {
-      var typing = document.createElement('div');
-      typing.className = 'wl-typing';
-      typing.id = 'wlTyping';
-      typing.innerHTML = '<span></span><span></span><span></span>';
-      messages.appendChild(typing);
-      messages.scrollTop = messages.scrollHeight;
+      var t = document.createElement('div');
+      t.className = 'wl-typing'; t.id = 'wlT';
+      t.innerHTML = '<span></span><span></span><span></span>';
+      msgs.appendChild(t);
+      msgs.scrollTop = msgs.scrollHeight;
     }
 
-    function hideTyping() {
-      var t = document.getElementById('wlTyping');
-      if (t) t.remove();
-    }
+    function hideTyping() { var t = document.getElementById('wlT'); if (t) t.remove(); }
 
     function showSuggestions() {
-      suggestionsEl.innerHTML = '';
+      sugEl.innerHTML = '';
       CONFIG.suggestions.forEach(function(text) {
         var btn = document.createElement('button');
-        btn.className = 'wl-suggestion-btn';
+        btn.className = 'wl-sug-btn';
         btn.textContent = text;
         btn.addEventListener('click', function() { handleInput(text); });
-        suggestionsEl.appendChild(btn);
+        sugEl.appendChild(btn);
       });
     }
 
-    function hideSuggestions() {
-      if (suggestionsShown) { suggestionsEl.innerHTML = ''; suggestionsShown = false; }
-    }
+    function hideSuggestions() { if (sugShown) { sugEl.innerHTML = ''; sugShown = false; } }
 
     function updateProgress() {
-      if (!booking.active) { progressEl.innerHTML = ''; return; }
-      var html = '<div class="wl-booking-progress">';
+      if (!booking.active) { progEl.innerHTML = ''; return; }
+      var html = '<div class="wl-bk-prog">';
       for (var i = 0; i < STEPS.length; i++) {
-        var cls = 'wl-booking-step';
+        var cls = 'wl-bk-step';
         if (i < booking.step) cls += ' done';
         else if (i === booking.step) cls += ' active';
         html += '<div class="' + cls + '"></div>';
       }
-      html += '</div><div class="wl-cancel-link" id="wlCancelBooking">Avbryt booking</div>';
-      progressEl.innerHTML = html;
-      document.getElementById('wlCancelBooking').addEventListener('click', function() {
+      html += '</div><div class="wl-bk-cancel" id="wlBC">Avbryt booking</div>';
+      progEl.innerHTML = html;
+      document.getElementById('wlBC').addEventListener('click', function() {
         booking.active = false; booking.step = 0; booking.data = {};
-        progressEl.innerHTML = '';
+        progEl.innerHTML = '';
         addMessage('Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?', 'bot');
       });
     }
@@ -291,39 +294,19 @@
     function handleBookingStep(text) {
       var step = STEPS[booking.step];
       var value = text.trim();
-
-      // For date step, parse and store the ISO date
-      if (step.key === 'date') {
-        var parsed = parseDate(value);
-        if (!parsed) { addMessage(step.error, 'bot'); return; }
-        value = parsed;
-      }
-
-      // For time step, parse and normalize
-      if (step.key === 'time') {
-        var parsedTime = parseTime(value);
-        if (!parsedTime) { addMessage(step.error, 'bot'); return; }
-        value = parsedTime;
-      }
-
+      if (step.key === 'date') { var parsed = parseDate(value); if (!parsed) { addMessage(step.error, 'bot'); return; } value = parsed; }
+      if (step.key === 'time') { var pt = parseTime(value); if (!pt) { addMessage(step.error, 'bot'); return; } value = pt; }
       if (!step.validate(value)) { addMessage(step.error, 'bot'); return; }
-
       booking.data[step.key] = value;
       booking.step++;
       updateProgress();
-
       if (booking.step >= STEPS.length) {
-        booking.active = false;
-        progressEl.innerHTML = '';
+        booking.active = false; progEl.innerHTML = '';
         submitBooking(booking.data, addMessage, showTyping, hideTyping);
         return;
       }
-
       showTyping();
-      setTimeout(function() {
-        hideTyping();
-        addMessage(STEPS[booking.step].prompt, 'bot');
-      }, 400 + Math.random() * 400);
+      setTimeout(function() { hideTyping(); addMessage(STEPS[booking.step].prompt, 'bot'); }, 400 + Math.random() * 300);
     }
 
     function handleInput(text) {
@@ -331,10 +314,8 @@
       hideSuggestions();
       addMessage(text, 'user');
       input.value = '';
-
       if (booking.active) { handleBookingStep(text); return; }
-
-      input.disabled = true;
+      input.disabled = true; sendBtn.disabled = true;
       showTyping();
       setTimeout(function() {
         hideTyping();
@@ -342,21 +323,23 @@
         if (response === '__BOOKING__') {
           addMessage('Supert! La meg hjelpe deg med a booke en gratis samtale.', 'bot');
           setTimeout(function() { startBooking(); }, 500);
-        } else {
-          addMessage(response, 'bot');
-        }
-        input.disabled = false;
-        input.focus();
-      }, 600 + Math.random() * 800);
+        } else { addMessage(response, 'bot'); }
+        input.disabled = false; sendBtn.disabled = false; input.focus();
+      }, 600 + Math.random() * 600);
     }
 
     fab.addEventListener('click', function() {
       isOpen = !isOpen;
       fab.classList.toggle('open', isOpen);
-      win.classList.toggle('visible', isOpen);
       if (isOpen) {
-        if (messages.children.length === 0) { addMessage(CONFIG.greeting, 'bot'); showSuggestions(); }
+        fab.classList.add('opened');
+        win.classList.remove('closing');
+        win.classList.add('vis');
+        if (msgs.children.length === 0) { addMessage(CONFIG.greeting, 'bot'); showSuggestions(); }
         input.focus();
+      } else {
+        win.classList.add('closing');
+        setTimeout(function() { win.classList.remove('vis', 'closing'); }, 200);
       }
     });
 
