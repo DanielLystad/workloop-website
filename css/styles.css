@@ -259,8 +259,8 @@ p { color: var(--text-secondary); }
 
 .nav-logo img {
   height: auto;
-  max-height: 40px;
-  max-width: min(200px, 40vw);
+  max-height: 56px;
+  max-width: min(260px, 50vw);
   width: auto;
   display: block;
 }
@@ -1688,8 +1688,8 @@ p { color: var(--text-secondary); }
   }
 
   .nav-logo img {
-    max-height: 24px;
-    max-width: min(140px, 30vw);
+    max-height: 36px;
+    max-width: min(180px, 40vw);
   }
 
   .nav-links {
