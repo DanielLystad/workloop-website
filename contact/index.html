@@ -27,6 +27,9 @@
   <meta name="twitter:image" content="https://workloop.no/images/og-contact.jpg">
 
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://unpkg.com/lucide@0.469.0"></script>
   <style>
@@ -397,10 +400,20 @@
   </div>
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
 <script src="/js/main.js"></script>
 <script src="/js/chatbot.js"></script>
 <script>
   lucide.createIcons();
+  (function() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', function() { btn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+    btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
 </script>
 <script>
   // Booking form

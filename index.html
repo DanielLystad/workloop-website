@@ -33,6 +33,9 @@
   <meta name="twitter:image" content="https://workloop.no/images/og-image.jpg">
 
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="https://unpkg.com/lucide@0.469.0"></script>
 
@@ -228,6 +231,17 @@
     <span class="trust-item"><i data-lucide="zap" style="width:16px;height:16px;"></i> Svar innen 1 virkedag</span>
     <span class="trust-vdivider"></span>
     <span class="trust-item"><i data-lucide="unlock" style="width:16px;height:16px;"></i> Ingen bindingstid</span>
+  </div>
+</div>
+
+<!-- ── Social Proof ──────────────────────────────────────── -->
+<div class="social-proof animate-on-scroll">
+  <div class="container">
+    <p class="social-proof-label">Vi jobber med bedrifter over hele Norge</p>
+    <div class="social-proof-logos">
+      <span>Oppsal Bil</span>
+      <span>Ditt firma?</span>
+    </div>
   </div>
 </div>
 
@@ -733,10 +747,40 @@
   </div>
 </footer>
 
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="/contact" class="btn btn-accent btn-lg">Prosess-kartlegging &rarr;</a>
+</div>
+
 <script src="js/main.js"></script>
 <script src="js/chatbot.js"></script>
 <script>
   lucide.createIcons();
+
+  // Back to top + mobile sticky CTA
+  (function() {
+    var btn = document.getElementById('backToTop');
+    var cta = document.getElementById('mobileCta');
+    var hero = document.querySelector('.hero');
+    if (!btn) return;
+
+    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
+      btn.classList.toggle('visible', y > 400);
+      if (cta) cta.classList.toggle('visible', y > heroBottom);
+    }, { passive: true });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 </script>
 </body>
 </html>
