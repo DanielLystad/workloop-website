@@ -1168,22 +1168,22 @@ p { color: var(--text-secondary); }
   border: 1px solid #FCA5A5;
 }
 
-/* ── 17. Calendly Placeholder ────────────────────────────────── */
-.calendly-placeholder {
+/* ── 17. Booking Card ────────────────────────────────────────── */
+.booking-card {
   background: var(--blue-50);
-  border: 2px dashed var(--blue-200);
+  border: 1px solid var(--blue-200);
   border-radius: var(--radius-lg);
   padding: var(--s-16) var(--s-8);
   text-align: center;
   color: var(--blue-700);
 }
 
-.calendly-placeholder h4 {
+.booking-card h4 {
   margin-bottom: var(--s-2);
   color: var(--blue-900);
 }
 
-.calendly-placeholder p {
+.booking-card p {
   font-size: 0.875rem;
   color: var(--blue-600);
   margin-bottom: var(--s-5);

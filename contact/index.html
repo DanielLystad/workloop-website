@@ -150,14 +150,16 @@
         </div>
 
 
-        <!-- Calendly placeholder -->
-        <div style="margin-top: 2rem;">
+        <!-- Cal.com booking -->
+        <div id="booking" style="margin-top: 2rem;">
           <h4 style="margin-bottom: 1rem;">Foretrekker du å booke tid direkte?</h4>
-          <div class="calendly-placeholder">
+          <div class="booking-card">
             <div style="font-size: 2rem; margin-bottom: 0.75rem;"><i data-lucide="calendar" style="width:48px;height:48px;margin:0 auto;"></i></div>
             <h4>Book en gratis 30 min samtale</h4>
             <p>Velg et tidspunkt som passer deg i vår kalender.</p>
-            <a href="#" class="btn btn-primary"><i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Åpne kalender</a>
+            <button data-cal-link="YOUR-USERNAME/gratis-samtale" data-cal-config='{"layout":"month_view","locale":"nb"}' class="btn btn-primary">
+              <i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Åpne kalender
+            </button>
           </div>
         </div>
       </div>
@@ -356,6 +358,30 @@
 <script src="/js/chatbot.js"></script>
 <script>
   lucide.createIcons();
+</script>
+<!-- Cal.com embed -->
+<script>
+  (function (C, A, L) {
+    var p = function (a, ar) { a.q.push(ar); };
+    var d = C.document;
+    C.Cal = C.Cal || function () {
+      var cal = C.Cal;
+      var ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {}; cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;}
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", {origin:"https://app.cal.com"});
+  Cal("ui", {
+    styles: { branding: { brandColor: "#1A2E44" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
 </script>
 </body>
 </html>

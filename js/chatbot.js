@@ -1,6 +1,4 @@
 (function() {
-  var WEB3FORMS_KEY = '767f7c2f-a4c5-4561-8125-ae3544cf7bc8';
-
   var CONFIG = {
     botName: 'WorkLoop',
     greeting: 'Hei! Jeg er WorkLoops AI-assistent. Hvordan kan jeg hjelpe deg i dag?',
@@ -26,8 +24,8 @@
       response: 'Prisene vare avhenger av prosjektets omfang:\n\n**AI-Audit** — Gratis og uforpliktende.\n**AI-Sprint** — Fra kr 14 900 (engangsbelop).\n**AI-Retainer** — Fra kr 1 990/mnd for drift og support.\n\nVi gir alltid et tydelig pristilbud for du forplikter deg til noe. Vil du bestille en gratis AI-audit for a finne ut hva som passer?'
     },
     {
-      keywords: ['bestill', 'book', 'audit', 'avtale', 'mote', 'møte', 'samtale', 'time'],
-      response: '__BOOKING__'
+      keywords: ['bestill', 'book', 'audit', 'avtale', 'mote', 'møte', 'samtale', 'time', 'gratis'],
+      response: 'Flott! Du kan booke en gratis 30-minutters samtale direkte i kalenderen var:\n\n[Book tid her](/contact#booking)\n\nVelg et tidspunkt som passer deg, sa far du en kalenderinvitasjon pa e-post. Enkelt og raskt!'
     },
     {
       keywords: ['chatbot', 'chat', 'bot', 'kundeservice', 'agent'],
@@ -43,7 +41,7 @@
     },
     {
       keywords: ['kontakt', 'ring', 'epost', 'mail', 'snakke'],
-      response: 'Du kan na oss pa flere mater:\n\n**E-post:** post@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Eller du kan bestille et mote direkte her i chatten — bare si ifra!'
+      response: 'Du kan na oss pa flere mater:\n\n**E-post:** post@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa [booke en gratis samtale direkte](/contact#booking)!'
     },
     {
       keywords: ['hvem', 'teamet', 'grunder', 'om dere', 'bakgrunn'],
@@ -53,21 +51,6 @@
       keywords: ['sikker', 'gdpr', 'personvern', 'data', 'trygg'],
       response: 'Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.'
     }
-  ];
-
-  // Booking flow state
-  var booking = {
-    active: false,
-    step: 0,
-    data: {}
-  };
-
-  var BOOKING_STEPS = [
-    { key: 'name',    prompt: 'Flott! La oss sette opp et mote. Hva heter du?' },
-    { key: 'company', prompt: 'Hvilket firma jobber du i?' },
-    { key: 'email',   prompt: 'Hva er din e-postadresse?' },
-    { key: 'phone',   prompt: 'Telefonnummer? (valgfritt — skriv "hopp over" for a ga videre)' },
-    { key: 'time',    prompt: 'Nar passer det for deg? (f.eks. "tirsdag formiddag", "denne uken", eller et spesifikt tidspunkt)' }
   ];
 
   function findResponse(message) {
@@ -88,60 +71,7 @@
 
     if (bestMatch) return bestMatch.response;
 
-    return 'Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [bestille en gratis AI-audit](/contact).';
-  }
-
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function submitBooking(data, addMessage, showTyping, hideTyping) {
-    showTyping();
-
-    var formData = new FormData();
-    formData.append('access_key', WEB3FORMS_KEY);
-    formData.append('subject', 'Ny booking via chatbot — ' + data.name);
-    formData.append('from_name', data.name);
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('phone', data.phone || 'Ikke oppgitt');
-    formData.append('company', data.company);
-    formData.append('message',
-      'Booking via chatbot\n\n' +
-      'Navn: ' + data.name + '\n' +
-      'Firma: ' + data.company + '\n' +
-      'E-post: ' + data.email + '\n' +
-      'Telefon: ' + (data.phone || 'Ikke oppgitt') + '\n' +
-      'Onsket tidspunkt: ' + data.time
-    );
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    })
-    .then(function(res) { return res.json(); })
-    .then(function(json) {
-      hideTyping();
-      if (json.success) {
-        addMessage(
-          'Perfekt, **' + data.name + '**! Bookingen er sendt.\n\n' +
-          'Her er en oppsummering:\n' +
-          '- **Navn:** ' + data.name + '\n' +
-          '- **Firma:** ' + data.company + '\n' +
-          '- **E-post:** ' + data.email + '\n' +
-          '- **Telefon:** ' + (data.phone || 'Ikke oppgitt') + '\n' +
-          '- **Onsket tid:** ' + data.time + '\n\n' +
-          'Vi tar kontakt innen 1 virkedag for a bekrefte tidspunktet. Takk!',
-          'bot'
-        );
-      } else {
-        addMessage('Beklager, noe gikk galt ved innsending. Du kan ogsa kontakte oss direkte pa **post@workloop.no** eller via [kontaktskjemaet](/contact).', 'bot');
-      }
-    })
-    .catch(function() {
-      hideTyping();
-      addMessage('Beklager, det oppstod en tilkoblingsfeil. Prov igjen, eller send oss en e-post pa **post@workloop.no**.', 'bot');
-    });
+    return 'Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [bestille en gratis AI-audit](/contact#booking).';
   }
 
   function formatMessage(text) {
@@ -350,28 +280,6 @@
         0%, 60%, 100% { transform: translateY(0); }\
         30% { transform: translateY(-6px); }\
       }\
-      .wl-booking-progress {\
-        display: flex;\
-        gap: 4px;\
-        padding: 0 16px 8px;\
-      }\
-      .wl-booking-step {\
-        flex: 1;\
-        height: 3px;\
-        border-radius: 2px;\
-        background: #e5e7eb;\
-        transition: background 0.3s ease;\
-      }\
-      .wl-booking-step.done { background: #3D9BE1; }\
-      .wl-booking-step.active { background: #1A2E44; }\
-      .wl-cancel-link {\
-        font-size: 11px;\
-        color: #94a3b8;\
-        text-align: center;\
-        padding: 0 16px 8px;\
-        cursor: pointer;\
-      }\
-      .wl-cancel-link:hover { color: #64748b; }\
       @media (max-width: 480px) {\
         .wl-chat-window {\
           right: 0; bottom: 0; left: 0;\
@@ -393,14 +301,13 @@
 
     var win = document.createElement('div');
     win.className = 'wl-chat-window';
-    win.innerHTML = '<div class="wl-chat-header"><div class="wl-chat-header-avatar"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="wl-chat-header-info"><h4>' + CONFIG.botName + '</h4><p>AI-assistent</p></div><div class="wl-chat-header-dot"></div></div><div class="wl-chat-messages" id="wlMessages"></div><div id="wlBookingProgress"></div><div class="wl-suggestions" id="wlSuggestions"></div><div class="wl-chat-input-area"><input type="text" class="wl-chat-input" id="wlInput" placeholder="' + CONFIG.placeholder + '" autocomplete="off"><button class="wl-chat-send" id="wlSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>';
+    win.innerHTML = '<div class="wl-chat-header"><div class="wl-chat-header-avatar"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div><div class="wl-chat-header-info"><h4>' + CONFIG.botName + '</h4><p>AI-assistent</p></div><div class="wl-chat-header-dot"></div></div><div class="wl-chat-messages" id="wlMessages"></div><div class="wl-suggestions" id="wlSuggestions"></div><div class="wl-chat-input-area"><input type="text" class="wl-chat-input" id="wlInput" placeholder="' + CONFIG.placeholder + '" autocomplete="off"><button class="wl-chat-send" id="wlSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div>';
 
     document.body.appendChild(fab);
     document.body.appendChild(win);
 
     var messages = document.getElementById('wlMessages');
     var suggestionsEl = document.getElementById('wlSuggestions');
-    var progressEl = document.getElementById('wlBookingProgress');
     var input = document.getElementById('wlInput');
     var sendBtn = document.getElementById('wlSend');
     var isOpen = false;
@@ -446,99 +353,18 @@
       }
     }
 
-    function updateProgress() {
-      if (!booking.active) {
-        progressEl.innerHTML = '';
-        return;
-      }
-      var html = '<div class="wl-booking-progress">';
-      for (var i = 0; i < BOOKING_STEPS.length; i++) {
-        var cls = 'wl-booking-step';
-        if (i < booking.step) cls += ' done';
-        else if (i === booking.step) cls += ' active';
-        html += '<div class="' + cls + '"></div>';
-      }
-      html += '</div>';
-      html += '<div class="wl-cancel-link" id="wlCancelBooking">Avbryt booking</div>';
-      progressEl.innerHTML = html;
-      var cancelBtn = document.getElementById('wlCancelBooking');
-      if (cancelBtn) {
-        cancelBtn.addEventListener('click', function() {
-          booking.active = false;
-          booking.step = 0;
-          booking.data = {};
-          progressEl.innerHTML = '';
-          addMessage('Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?', 'bot');
-        });
-      }
-    }
-
-    function startBooking() {
-      booking.active = true;
-      booking.step = 0;
-      booking.data = {};
-      updateProgress();
-      addMessage(BOOKING_STEPS[0].prompt, 'bot');
-    }
-
-    function handleBookingStep(text) {
-      var step = BOOKING_STEPS[booking.step];
-      var value = text.trim();
-
-      // Validation
-      if (step.key === 'email' && !validateEmail(value)) {
-        addMessage('Det ser ikke ut som en gyldig e-postadresse. Prov igjen (f.eks. navn@firma.no).', 'bot');
-        return;
-      }
-
-      if (step.key === 'phone' && (value.toLowerCase() === 'hopp over' || value === '-' || value === '')) {
-        value = '';
-      }
-
-      booking.data[step.key] = value;
-      booking.step++;
-      updateProgress();
-
-      if (booking.step >= BOOKING_STEPS.length) {
-        booking.active = false;
-        progressEl.innerHTML = '';
-        submitBooking(booking.data, addMessage, showTyping, hideTyping);
-        booking.step = 0;
-        booking.data = {};
-        return;
-      }
-
-      var delay = 400 + Math.random() * 400;
-      showTyping();
-      setTimeout(function() {
-        hideTyping();
-        addMessage(BOOKING_STEPS[booking.step].prompt, 'bot');
-      }, delay);
-    }
-
     function handleInput(text) {
       if (!text.trim()) return;
       hideSuggestions();
       addMessage(text, 'user');
       input.value = '';
-
-      if (booking.active) {
-        handleBookingStep(text);
-        return;
-      }
-
       input.disabled = true;
+
       showTyping();
       var delay = 600 + Math.random() * 800;
       setTimeout(function() {
         hideTyping();
-        var response = findResponse(text);
-        if (response === '__BOOKING__') {
-          addMessage('Supert! La meg hjelpe deg med a bestille en gratis AI-audit.', 'bot');
-          setTimeout(function() { startBooking(); }, 500);
-        } else {
-          addMessage(response, 'bot');
-        }
+        addMessage(findResponse(text), 'bot');
         input.disabled = false;
         input.focus();
       }, delay);
