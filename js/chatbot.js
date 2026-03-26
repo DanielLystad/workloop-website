@@ -111,8 +111,9 @@
       '.wl-fab:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,46,68,.4),0 2px 6px rgba(0,0,0,.1)}',
       '.wl-fab:active{transform:scale(.95)}',
       '.wl-fab svg{width:26px;height:26px;fill:#fff;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .2s ease}',
+      '.wl-fab svg{position:absolute}',
       '.wl-fab.open .ic-chat{transform:rotate(90deg) scale(0);opacity:0}',
-      '.wl-fab:not(.open) .ic-close{transform:rotate(-90deg) scale(0);opacity:0;position:absolute}',
+      '.wl-fab:not(.open) .ic-close{transform:rotate(-90deg) scale(0);opacity:0}',
       '.wl-fab.open .ic-close{transform:rotate(0) scale(1);opacity:1}',
       '.wl-fab:not(.open) .ic-chat{transform:rotate(0) scale(1);opacity:1}',
       /* FAB pulse ring */
