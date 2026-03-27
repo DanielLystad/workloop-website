@@ -5,20 +5,20 @@
 
 /* ── 1. Custom Properties ────────────────────────────────────── */
 :root {
-  /* Blue palette */
-  --blue-900: #002D6E;
-  --blue-800: #003D8F;
-  --blue-700: #004EB0;
-  --blue-600: #0057B8;
-  --blue-500: #1A6FCC;
-  --blue-400: #4D93E0;
-  --blue-200: #A8C8F0;
-  --blue-100: #D6E8FA;
-  --blue-50:  #EEF5FD;
+  /* Blue palette (brand-aligned: #3D9BE1 primary) */
+  --blue-900: #1A2E44;
+  --blue-800: #1E3A52;
+  --blue-700: #2A5070;
+  --blue-600: #3D9BE1;
+  --blue-500: #5AADE8;
+  --blue-400: #7DC0EE;
+  --blue-200: #B8DAF4;
+  --blue-100: #E0EFF9;
+  --blue-50:  #F0F7FD;
 
   /* Accent */
   --red:  #C0392B;
-  --gold: #FBD85D;
+  --gold: #3D9BE1;
 
   /* Grays */
   --gray-900: #111827;
@@ -34,7 +34,7 @@
 
   /* Semantic */
   --bg-light:      #F8FAFC;
-  --text-primary:  #111827;
+  --text-primary:  #1A2E44;
   --text-secondary: #4B5563;
   --border:        #E5E7EB;
   --white:         #ffffff;
@@ -65,9 +65,9 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow:    0 4px 16px rgba(0,0,0,0.10);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-  --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+  --shadow:    0 2px 8px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-xl: 0 8px 32px rgba(0,0,0,0.10);
 
   /* Transitions */
   --t: 0.2s ease;
@@ -194,14 +194,14 @@ p { color: var(--text-secondary); }
 
 .btn-accent {
   background: var(--gold);
-  color: var(--blue-900);
+  color: var(--white);
   border-color: var(--gold);
 }
 .btn-accent:hover {
-  background: #f5ce45;
-  border-color: #f5ce45;
+  background: #2A5070;
+  border-color: #2A5070;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(251,216,93,0.4);
+  box-shadow: 0 6px 20px rgba(61,155,225,0.3);
 }
 
 .btn-outline {
@@ -471,7 +471,7 @@ p { color: var(--text-secondary); }
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--blue-900) 0%, #003D8F 50%, var(--blue-700) 100%);
+  background: #1A2E44;
   padding-block: var(--s-24) var(--s-20);
   text-align: center;
   color: var(--white);
@@ -481,9 +481,7 @@ p { color: var(--text-secondary); }
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0,87,184,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(77,147,224,0.2) 0%, transparent 60%);
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(61,155,225,0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -923,30 +921,30 @@ p { color: var(--text-secondary); }
 
 /* ── 14. Testimonials ────────────────────────────────────────── */
 .testimonials {
-  background: var(--blue-900);
-  color: var(--white);
+  background: var(--white);
+  color: var(--text-primary);
   padding-block: var(--s-24);
 }
 
-.testimonials .section-label { color: var(--blue-200); }
-.testimonials h2 { color: var(--white); }
+.testimonials .section-label { color: var(--blue-600); }
+.testimonials h2 { color: var(--blue-900); }
 
 .testimonial-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--s-8);
 }
 
 .testimonial-stars {
-  color: var(--gold);
+  color: #F59E0B;
   font-size: 1rem;
   margin-bottom: var(--s-4);
   letter-spacing: 2px;
 }
 
 .testimonial-text {
-  color: rgba(255,255,255,0.85);
+  color: var(--text-secondary);
   font-size: 0.9375rem;
   line-height: 1.7;
   margin-bottom: var(--s-6);
@@ -975,7 +973,7 @@ p { color: var(--text-secondary); }
 
 .author-name {
   font-weight: 700;
-  color: var(--white);
+  color: var(--blue-900);
   font-size: 0.9375rem;
 }
 
@@ -1196,7 +1194,7 @@ p { color: var(--text-secondary); }
 
 /* ── 18. Page Header ─────────────────────────────────────────── */
 .page-header {
-  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+  background: #1A2E44;
   padding-block: var(--s-16) var(--s-12);
   color: var(--white);
   text-align: center;
@@ -1283,14 +1281,16 @@ p { color: var(--text-secondary); }
 
 /* ── 20. CTA Banner ──────────────────────────────────────────── */
 .cta-banner {
-  background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
+  background: var(--blue-50);
   padding-block: var(--s-16);
   text-align: center;
-  color: var(--white);
+  color: var(--blue-900);
+  border-top: 1px solid var(--blue-100);
+  border-bottom: 1px solid var(--blue-100);
 }
 
-.cta-banner h2 { color: var(--white); margin-bottom: var(--s-4); }
-.cta-banner p  { color: rgba(255,255,255,0.8); margin-bottom: var(--s-8); font-size: 1.0625rem; }
+.cta-banner h2 { color: var(--blue-900); margin-bottom: var(--s-4); }
+.cta-banner p  { color: var(--text-secondary); margin-bottom: var(--s-8); font-size: 1.0625rem; }
 
 .cta-buttons {
   display: flex;
