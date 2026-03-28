@@ -97,6 +97,16 @@
     animateElements.forEach(el => el.classList.add('visible'));
   }
 
+  /* ─── Logo CTA draw animation ──────────────────────────── */
+  var logoCta = document.getElementById('logoCta');
+  if (logoCta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 }).observe(logoCta);
+  }
+
   /* ─── Animated number counters ──────────────────────────── */
   const counters = document.querySelectorAll('.stat-number[data-target]');
   if (counters.length && 'IntersectionObserver' in window) {
