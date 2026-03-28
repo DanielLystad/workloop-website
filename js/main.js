@@ -15,63 +15,53 @@
 
   /* ─── Mobile hamburger ──────────────────────────────────── */
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
-  if (hamburger && navLinks) {
-    const lockScroll = () => {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
+  const mobilePanel = document.getElementById('navMobilePanel');
+  const overlay = document.getElementById('navOverlay');
+
+  if (hamburger && mobilePanel) {
+    const closeMobile = () => {
+      mobilePanel.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      if (overlay) overlay.classList.remove('visible');
+      document.body.style.overflow = '';
     };
 
-    const unlockScroll = () => {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+    const openMobile = () => {
+      mobilePanel.classList.add('open');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      if (overlay) overlay.classList.add('visible');
+      document.body.style.overflow = 'hidden';
     };
 
     hamburger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      hamburger.classList.toggle('active', open);
-      hamburger.setAttribute('aria-expanded', open);
-      if (open) {
-        lockScroll();
-      } else {
-        unlockScroll();
-      }
+      const isOpen = mobilePanel.classList.contains('open');
+      isOpen ? closeMobile() : openMobile();
     });
 
-    // Close on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        unlockScroll();
-      });
+    mobilePanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobile);
     });
 
-    // Close on outside click
+    if (overlay) {
+      overlay.addEventListener('click', closeMobile);
+    }
+
     document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target)) {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        unlockScroll();
+      if (!navbar.contains(e.target) && !mobilePanel.contains(e.target)) {
+        closeMobile();
       }
     });
   }
 
   /* ─── Active nav link ───────────────────────────────────── */
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-  // Exclude buttons from active state management
-  document.querySelectorAll('.nav-links a:not(.btn)').forEach(link => {
+  document.querySelectorAll('.nav-center a, .nav-mobile-panel a:not(.nav-mobile-cta)').forEach(link => {
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
-    const shouldBeActive = href === currentPath || (currentPath === '/' && href === '/');
+    const shouldBeActive = href === currentPath;
     const isActive = link.classList.contains('active');
 
-    // Only modify DOM when state needs to change
     if (shouldBeActive && !isActive) {
       link.classList.add('active');
     } else if (!shouldBeActive && isActive) {
@@ -109,9 +99,9 @@
       var wobbleStart = performance.now();
       function heroWobble(now) {
         var t = (now - wobbleStart) / 1000;
-        var rx = Math.sin(t * 0.4) * 12;
-        var ry = Math.cos(t * 0.3) * 8;
-        var tz = Math.sin(t * 0.2) * 4;
+        var rx = Math.sin(t * 0.15) * 3;
+        var ry = Math.cos(t * 0.12) * 2.5;
+        var tz = Math.sin(t * 0.08) * 2;
         heroLogo.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(' + tz + 'px) scale(1)';
         requestAnimationFrame(heroWobble);
       }
@@ -157,7 +147,7 @@
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const offset = 80; // navbar height
+        const offset = 72; // navbar height
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
