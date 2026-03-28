@@ -498,13 +498,6 @@ p { color: var(--text-secondary); }
   color: var(--white);
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
 /* Hero mesh gradient */
 .hero-mesh {
   position: absolute;
@@ -516,28 +509,40 @@ p { color: var(--text-secondary); }
 .hero-mesh-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(80px);
   will-change: transform;
 }
 
 .hm-1 {
-  width: 500px; height: 500px;
-  background: rgba(61,155,225,0.12);
-  top: -20%; right: -5%;
-  animation: mesh-drift-1 14s ease-in-out infinite;
+  width: 600px; height: 600px;
+  background: rgba(61,155,225,0.28);
+  top: -30%; right: -10%;
+  animation: hero-drift-1 10s ease-in-out infinite;
 }
 
 .hm-2 {
-  width: 400px; height: 400px;
-  background: rgba(61,155,225,0.08);
-  bottom: -15%; left: 5%;
-  animation: mesh-drift-2 18s ease-in-out infinite;
+  width: 500px; height: 500px;
+  background: rgba(61,155,225,0.18);
+  bottom: -25%; left: -5%;
+  animation: hero-drift-2 13s ease-in-out infinite;
+}
+
+@keyframes hero-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 30px) scale(1.08); }
+  66% { transform: translate(20px, -20px) scale(0.95); }
+}
+
+@keyframes hero-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(35px, -25px) scale(1.1); }
+  70% { transform: translate(-15px, 20px) scale(0.92); }
 }
 
 .hero-mesh-grain {
   position: absolute;
   inset: 0;
-  opacity: 0.3;
+  opacity: 0.4;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 180px;
