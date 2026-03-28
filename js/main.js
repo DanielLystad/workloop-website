@@ -97,6 +97,29 @@
     animateElements.forEach(el => el.classList.add('visible'));
   }
 
+  /* ─── Hero logo 3D perspective wobble ────────────────────── */
+  var heroLogo = document.querySelector('.hero-logo-img');
+  if (heroLogo) {
+    // Entrance fade-in
+    setTimeout(function() { heroLogo.classList.add('visible'); }, 400);
+
+    // 3D wobble with requestAnimationFrame
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced) {
+      var wobbleStart = performance.now();
+      function heroWobble(now) {
+        var t = (now - wobbleStart) / 1000;
+        var rx = Math.sin(t * 0.4) * 12;
+        var ry = Math.cos(t * 0.3) * 8;
+        var tz = Math.sin(t * 0.2) * 4;
+        heroLogo.style.transform = 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(' + tz + 'px) scale(1)';
+        requestAnimationFrame(heroWobble);
+      }
+      // Start wobble after entrance completes
+      setTimeout(function() { requestAnimationFrame(heroWobble); }, 1200);
+    }
+  }
+
 /* ─── Animated number counters ──────────────────────────── */
   const counters = document.querySelectorAll('.stat-number[data-target]');
   if (counters.length && 'IntersectionObserver' in window) {
