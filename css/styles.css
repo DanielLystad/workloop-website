@@ -491,21 +491,16 @@ p { color: var(--text-secondary); }
 /* ── 7. Hero ─────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background: #1A2E44;
   padding-block: var(--s-24) var(--s-20);
   text-align: center;
   color: var(--white);
 }
 
-/* Hero mesh gradient
-   Key technique: blur on the CONTAINER, not individual blobs.
-   overflow:hidden stays on .hero (grandparent) to clip the page,
-   but .hero-mesh has NO overflow clipping so the blur can breathe. */
 .hero-mesh {
   position: absolute;
-  inset: -120px;          /* expand beyond .hero bounds so blur doesn't clip at edges */
-  filter: blur(80px);     /* blur the whole container — children stay sharp shapes */
+  inset: 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -513,20 +508,23 @@ p { color: var(--text-secondary); }
 .hero-mesh-glow {
   position: absolute;
   border-radius: 50%;
+  filter: blur(80px);
   will-change: transform;
 }
 
 .hm-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(61,155,225,0.6) 0%, rgba(61,155,225,0) 70%);
-  top: 0; right: 5%;
+  width: 500px; height: 500px;
+  background: #3D9BE1;
+  opacity: 0.3;
+  top: -20%; right: -5%;
   animation: hero-drift-1 10s ease-in-out infinite;
 }
 
 .hm-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(42,80,112,0.55) 0%, rgba(42,80,112,0) 70%);
-  bottom: 0; left: 5%;
+  width: 400px; height: 400px;
+  background: #3D9BE1;
+  opacity: 0.15;
+  bottom: -15%; left: 0;
   animation: hero-drift-2 13s ease-in-out infinite;
 }
 
