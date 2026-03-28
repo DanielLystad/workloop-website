@@ -13,58 +13,13 @@
     onScroll();
   }
 
-  /* ─── Mobile hamburger ──────────────────────────────────── */
-  const hamburger = document.getElementById('hamburger');
-  const mobilePanel = document.getElementById('navMobilePanel');
-  const overlay = document.getElementById('navOverlay');
-
-  if (hamburger && mobilePanel) {
-    const closeMobile = () => {
-      mobilePanel.classList.remove('open');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      if (overlay) overlay.classList.remove('visible');
-      document.body.style.overflow = '';
-    };
-
-    const openMobile = () => {
-      mobilePanel.classList.add('open');
-      hamburger.classList.add('active');
-      hamburger.setAttribute('aria-expanded', 'true');
-      if (overlay) overlay.classList.add('visible');
-      document.body.style.overflow = 'hidden';
-    };
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobilePanel.classList.contains('open');
-      isOpen ? closeMobile() : openMobile();
-    });
-
-    mobilePanel.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobile);
-    });
-
-    if (overlay) {
-      overlay.addEventListener('click', closeMobile);
-    }
-
-    document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && !mobilePanel.contains(e.target)) {
-        closeMobile();
-      }
-    });
-  }
-
   /* ─── Active nav link ───────────────────────────────────── */
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-center a, .nav-mobile-panel a:not(.nav-mobile-cta)').forEach(link => {
+  document.querySelectorAll('.nav-link').forEach(link => {
     const href = link.getAttribute('href').replace(/\/$/, '') || '/';
-    const shouldBeActive = href === currentPath;
-    const isActive = link.classList.contains('active');
-
-    if (shouldBeActive && !isActive) {
+    if (href === currentPath) {
       link.classList.add('active');
-    } else if (!shouldBeActive && isActive) {
+    } else {
       link.classList.remove('active');
     }
   });
