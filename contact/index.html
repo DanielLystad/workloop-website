@@ -112,8 +112,8 @@
         <span class="section-label">Kontaktinformasjon</span>
         <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">La oss ta en prat</h2>
         <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 2rem;">
-          Uansett om du har et konkret prosjekt eller bare er nysgjerrig på hva AI kan gjøre
-          for deg — ta kontakt. Alle henvendelser behandles innen 1 virkedag.
+          Uansett om du har et konkret prosjekt eller bare er nysgjerrig p&aring; hva AI kan gj&oslash;re
+          for deg &mdash; ta kontakt. Alle henvendelser behandles innen 1 virkedag.
         </p>
 
         <div class="contact-info-card">
@@ -128,72 +128,15 @@
           <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
           <div class="contact-info-text">
             <h4>Adresse</h4>
-            <p>Oslo, Norge<br>Vi jobber også digitalt med bedrifter over hele landet.</p>
+            <p>Oslo, Norge<br>Vi jobber ogs&aring; digitalt med bedrifter over hele landet.</p>
           </div>
         </div>
 
         <div class="contact-info-card">
           <div class="contact-info-icon"><i data-lucide="clock"></i></div>
           <div class="contact-info-text">
-            <h4>Åpningstider</h4>
-            <p>Mandag–fredag: 08:00–16:00<br>Responstid: &lt; 1 virkedag</p>
-          </div>
-        </div>
-
-
-        <!-- Booking form -->
-        <div id="booking" style="margin-top: 2rem;">
-          <h4 style="margin-bottom: 1rem;">Book en gratis 30 min samtale</h4>
-          <div class="booking-card">
-            <form id="bookingForm">
-              <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
-              <input type="hidden" name="subject" value="Ny booking fra WorkLoop.no">
-              <input type="hidden" name="from_name" value="WorkLoop Booking">
-              <div class="form-group">
-                <label for="bookName">Navn *</label>
-                <input type="text" id="bookName" name="name" required placeholder="Ditt fulle navn">
-              </div>
-              <div class="form-group">
-                <label for="bookEmail">E-post *</label>
-                <input type="email" id="bookEmail" name="email" required placeholder="navn@firma.no">
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="bookDate">Dato *</label>
-                  <input type="date" id="bookDate" name="date" required>
-                </div>
-                <div class="form-group">
-                  <label for="bookTime">Tidspunkt *</label>
-                  <select id="bookTime" name="time" required>
-                    <option value="">Velg tid</option>
-                    <option value="08:00">08:00</option>
-                    <option value="08:30">08:30</option>
-                    <option value="09:00">09:00</option>
-                    <option value="09:30">09:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="bookMessage">Melding (valgfritt)</label>
-                <textarea id="bookMessage" name="message" rows="2" placeholder="Hva kan vi hjelpe deg med?"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;">
-                <i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Send booking
-              </button>
-              <div id="bookingMessage" class="form-message" style="display:none;"></div>
-            </form>
+            <h4>&Aring;pningstider</h4>
+            <p>Mandag&ndash;fredag: 08:00&ndash;16:00<br>Responstid: &lt; 1 virkedag</p>
           </div>
         </div>
       </div>
@@ -201,14 +144,12 @@
       <!-- Right: Form -->
       <div class="form-card animate-on-scroll delay-2">
         <h3 style="margin-bottom: 0.5rem;">Send oss en melding</h3>
-        <p style="margin-bottom: 1.5rem; font-size:0.9375rem;">Fyll ut skjemaet under, så tar vi kontakt innen 1 virkedag.</p>
+        <p style="margin-bottom: 1.5rem; font-size:0.9375rem;">Fyll ut skjemaet under, s&aring; tar vi kontakt innen 1 virkedag.</p>
 
-        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms Access Key - Get yours free at https://web3forms.com -->
+        <form id="contactForm" novalidate>
           <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
           <input type="hidden" name="subject" value="Ny kontakthenvendelse fra WorkLoop.no">
           <input type="hidden" name="from_name" value="WorkLoop Nettside">
-          <input type="hidden" name="redirect" value="https://workloop.no/contact?success=true">
 
           <div class="form-row">
             <div class="form-group">
@@ -237,28 +178,56 @@
             <select id="interest" name="interest">
               <option value="">Velg...</option>
               <option value="automation">Automatisering</option>
-              <option value="consulting">Rådgivning</option>
+              <option value="consulting">R&aring;dgivning</option>
               <option value="integration">Integrasjon</option>
-              <option value="general">Generell forespørsel</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="employees">Antall ansatte</label>
-            <select id="employees" name="employees">
-              <option value="">Velg...</option>
-              <option value="1-5">1–5 ansatte</option>
-              <option value="6-15">6–15 ansatte</option>
-              <option value="16-50">16–50 ansatte</option>
-              <option value="50+">50+ ansatte</option>
+              <option value="general">Generell foresp&oslash;rsel</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="message">Fortell litt om bedriften og utfordringene dine *</label>
             <textarea id="message" name="message"
-              placeholder="Hva gjør dere, hvilke oppgaver tar mest tid, og hva ønsker du å oppnå med automatisering?"
+              placeholder="Hva gj&oslash;r dere, hvilke oppgaver tar mest tid, og hva &oslash;nsker du &aring; oppn&aring; med automatisering?"
               required></textarea>
+          </div>
+
+          <!-- Optional booking toggle -->
+          <div class="form-group" style="margin-bottom: 0.75rem;">
+            <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-weight:500;">
+              <input type="checkbox" id="wantBooking" style="width:18px; height:18px; accent-color:var(--blue-600);">
+              Jeg vil gjerne booke en gratis 30 min samtale
+            </label>
+          </div>
+
+          <div id="bookingFields" style="display:none; margin-bottom:1rem;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookDate">Dato</label>
+                <input type="date" id="bookDate" name="date">
+              </div>
+              <div class="form-group">
+                <label for="bookTime">Tidspunkt</label>
+                <select id="bookTime" name="time">
+                  <option value="">Velg tid</option>
+                  <option value="08:00">08:00</option>
+                  <option value="08:30">08:30</option>
+                  <option value="09:00">09:00</option>
+                  <option value="09:30">09:30</option>
+                  <option value="10:00">10:00</option>
+                  <option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option>
+                  <option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option>
+                  <option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option>
+                  <option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option>
+                  <option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option>
+                  <option value="15:30">15:30</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:1rem;">
@@ -266,7 +235,7 @@
           </button>
 
           <p style="font-size:0.8rem; color:var(--gray-400); margin-top:1rem; text-align:center;">
-            Vi behandler dine data i henhold til GDPR. Les vår <a href="#" style="color:var(--blue-600);">personvernerklæring</a>.
+            Vi behandler dine data i henhold til GDPR. Les v&aring;r <a href="#" style="color:var(--blue-600);">personvernerkl&aelig;ring</a>.
           </p>
 
           <div id="formMessage" class="form-message"></div>
@@ -421,12 +390,23 @@
   })();
 </script>
 <script>
-  // Booking form
+  // Booking toggle + date constraints
   (function() {
-    var form = document.getElementById('bookingForm');
+    var toggle = document.getElementById('wantBooking');
+    var fields = document.getElementById('bookingFields');
     var dateInput = document.getElementById('bookDate');
-    var msg = document.getElementById('bookingMessage');
-    if (!form || !dateInput) return;
+    var timeInput = document.getElementById('bookTime');
+    if (!toggle || !fields || !dateInput) return;
+
+    toggle.addEventListener('change', function() {
+      fields.style.display = this.checked ? 'block' : 'none';
+      dateInput.required = this.checked;
+      timeInput.required = this.checked;
+      if (!this.checked) {
+        dateInput.value = '';
+        timeInput.value = '';
+      }
+    });
 
     // Set min date to tomorrow
     var today = new Date();
@@ -447,97 +427,6 @@
       } else {
         this.setCustomValidity('');
       }
-    });
-
-    function generateICS(name, email, date, time) {
-      var start = date.replace(/-/g, '') + 'T' + time.replace(':', '') + '00';
-      var h = parseInt(time.split(':')[0]);
-      var m = parseInt(time.split(':')[1]) + 30;
-      if (m >= 60) { h++; m -= 60; }
-      var end = date.replace(/-/g, '') + 'T' + String(h).padStart(2,'0') + String(m).padStart(2,'0') + '00';
-      var now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
-
-      return 'BEGIN:VCALENDAR\r\n' +
-        'VERSION:2.0\r\n' +
-        'PRODID:-//WorkLoop//Booking//NO\r\n' +
-        'BEGIN:VEVENT\r\n' +
-        'DTSTART;TZID=Europe/Oslo:' + start + '\r\n' +
-        'DTEND;TZID=Europe/Oslo:' + end + '\r\n' +
-        'DTSTAMP:' + now + '\r\n' +
-        'SUMMARY:WorkLoop - Gratis samtale\r\n' +
-        'DESCRIPTION:Gratis 30 min samtale med WorkLoop.\\nKontakt: ' + name + ' (' + email + ')\r\n' +
-        'ORGANIZER;CN=WorkLoop:mailto:post@workloop.no\r\n' +
-        'ATTENDEE;CN=' + name + ':mailto:' + email + '\r\n' +
-        'STATUS:TENTATIVE\r\n' +
-        'END:VEVENT\r\n' +
-        'END:VCALENDAR';
-    }
-
-    function downloadICS(icsContent) {
-      var blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = 'workloop-booking.ics';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = form.querySelector('[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sender...';
-
-      var formData = new FormData(form);
-      formData.set('message',
-        'BOOKING\n\nNavn: ' + formData.get('name') +
-        '\nE-post: ' + formData.get('email') +
-        '\nDato: ' + formData.get('date') +
-        '\nTid: ' + formData.get('time') +
-        '\n\nMelding: ' + (formData.get('message') || 'Ingen')
-      );
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(json) {
-        if (json.success) {
-          var name = form.querySelector('#bookName').value;
-          var email = form.querySelector('#bookEmail').value;
-          var date = form.querySelector('#bookDate').value;
-          var time = form.querySelector('#bookTime').value;
-
-          msg.className = 'form-message success';
-          msg.innerHTML = 'Takk, ' + name + '! Bookingen er sendt. Vi bekrefter tidspunktet innen 1 virkedag.<br><br><a href="#" id="downloadIcs" style="color:#065f46;font-weight:600;">Last ned kalenderinvitasjon (.ics)</a>';
-          msg.style.display = 'block';
-
-          document.getElementById('downloadIcs').addEventListener('click', function(ev) {
-            ev.preventDefault();
-            downloadICS(generateICS(name, email, date, time));
-          });
-
-          form.reset();
-        } else {
-          msg.className = 'form-message error';
-          msg.textContent = json.message || 'Noe gikk galt. Prov igjen.';
-          msg.style.display = 'block';
-        }
-      })
-      .catch(function() {
-        msg.className = 'form-message error';
-        msg.textContent = 'Tilkoblingsfeil. Sjekk internett og prov igjen.';
-        msg.style.display = 'block';
-      })
-      .finally(function() {
-        btn.disabled = false;
-        btn.innerHTML = '<i data-lucide="calendar" style="width:16px;height:16px;display:inline-block;vertical-align:middle;"></i> &nbsp;Send booking';
-        if (window.lucide) lucide.createIcons();
-      });
     });
   })();
 </script>

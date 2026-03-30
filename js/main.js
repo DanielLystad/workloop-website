@@ -124,14 +124,55 @@
       window.history.replaceState({}, '', window.location.pathname);
     }
 
+    function generateICS(name, email, date, time) {
+      var start = date.replace(/-/g, '') + 'T' + time.replace(':', '') + '00';
+      var h = parseInt(time.split(':')[0]);
+      var m = parseInt(time.split(':')[1]) + 30;
+      if (m >= 60) { h++; m -= 60; }
+      var end = date.replace(/-/g, '') + 'T' + String(h).padStart(2,'0') + String(m).padStart(2,'0') + '00';
+      var now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+      return 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//WorkLoop//Booking//NO\r\nBEGIN:VEVENT\r\n' +
+        'DTSTART;TZID=Europe/Oslo:' + start + '\r\nDTEND;TZID=Europe/Oslo:' + end + '\r\n' +
+        'DTSTAMP:' + now + '\r\nSUMMARY:WorkLoop - Gratis samtale\r\n' +
+        'DESCRIPTION:Gratis 30 min samtale med WorkLoop.\\nKontakt: ' + name + ' (' + email + ')\r\n' +
+        'ORGANIZER;CN=WorkLoop:mailto:post@workloop.no\r\nATTENDEE;CN=' + name + ':mailto:' + email + '\r\n' +
+        'STATUS:TENTATIVE\r\nEND:VEVENT\r\nEND:VCALENDAR';
+    }
+
+    function downloadICS(content) {
+      var blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'workloop-booking.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sender…';
 
+      const wantBooking = document.getElementById('wantBooking');
+      const isBooking = wantBooking && wantBooking.checked;
+      const nameVal = contactForm.querySelector('#name').value;
+      const emailVal = contactForm.querySelector('#email').value;
+      const dateVal = contactForm.querySelector('#bookDate') ? contactForm.querySelector('#bookDate').value : '';
+      const timeVal = contactForm.querySelector('#bookTime') ? contactForm.querySelector('#bookTime').value : '';
+
       try {
         const formData = new FormData(contactForm);
+
+        if (isBooking && dateVal && timeVal) {
+          formData.set('subject', 'Ny booking fra WorkLoop.no');
+          const msg = formData.get('message') || '';
+          formData.set('message', 'BOOKING - ' + dateVal + ' kl. ' + timeVal + '\n\n' + msg);
+        }
+
         const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formData
@@ -140,8 +181,24 @@
 
         if (json.success) {
           formMsg.className = 'form-message success';
-          formMsg.textContent = 'Takk! Vi tar kontakt innen 1 virkedag.';
+
+          if (isBooking && dateVal && timeVal) {
+            formMsg.innerHTML = 'Takk, ' + nameVal + '! Vi bekrefter tidspunktet innen 1 virkedag.<br><br>' +
+              '<a href="#" id="downloadIcs" style="color:#065f46;font-weight:600;">Last ned kalenderinvitasjon (.ics)</a>';
+            setTimeout(() => {
+              var dl = document.getElementById('downloadIcs');
+              if (dl) dl.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                downloadICS(generateICS(nameVal, emailVal, dateVal, timeVal));
+              });
+            }, 0);
+          } else {
+            formMsg.textContent = 'Takk! Vi tar kontakt innen 1 virkedag.';
+          }
+
           contactForm.reset();
+          var bookingFields = document.getElementById('bookingFields');
+          if (bookingFields) bookingFields.style.display = 'none';
         } else {
           formMsg.className = 'form-message error';
           formMsg.textContent = json.message || 'Noe gikk galt. Prøv igjen.';
