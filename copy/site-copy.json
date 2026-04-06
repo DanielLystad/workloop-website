@@ -9,7 +9,8 @@
     "copyright": "© 2026 WorkLoop. Alle rettigheter forbeholdt.",
 
     "nav": {
-      "home": "Hjem",
+      "home": "Hva kan vi",
+      "about": "Hvem er vi",
       "contact": "Kontakt oss"
     },
 
@@ -83,11 +84,11 @@
     },
 
     "hero": {
-      "badge": "AI-automatisering for norske bedrifter",
-      "title": "Vi automatiserer det som <span class=\"highlight\">bremser deg</span>",
-      "subtitle": "Norske SMB-er mister timer hver uke på manuelt arbeid. Vi finner tidstyvene og bygger løsninger som faktisk virker.",
-      "ctaPrimary": "Ta kontakt →",
-      "ctaSecondary": "Snakk med oss →"
+      "badge": "Skreddersydde automasjonsløsninger",
+      "title": "Vi bygger teknologien<br/>som <span class=\"accent\">frigjør din bedrift</span>",
+      "subtitle": "Workloop leverer intelligent automasjon tilpasset din virksomhet — slik at du kan fokusere på vekst, mens systemene jobber for deg.",
+      "ctaPrimary": "Kom i gang",
+      "ctaSecondary": "Om oss"
     },
 
     "trustBar": [
@@ -182,42 +183,28 @@
 
     "whatWeDo": {
       "label": "Hva vi gjør",
-      "title": "Vi bygger fremtidens arbeidsprosesser for norske bedrifter",
-      "paragraphs": [
-        "WorkLoop spesialiserer seg på praktisk automatisering for små og mellomstore norske bedrifter. Vi tar ikke i bruk teknologi for teknologiens skyld — vi fokuserer på løsninger som faktisk sparer tid og penger fra dag én.",
-        "Vårt team kjenner den norske forretningshverdagen, og vi tilpasser hver løsning til din bransje og dine behov."
-      ],
+      "title": "Automasjon som faktisk leverer",
+      "subtitle": "Vi bygger løsninger som fjerner manuelt arbeid, kobler systemer sammen, og gir deg full oversikt — skreddersydd for din virksomhet.",
       "cards": [
         {
-          "icon": "hard-hat",
-          "title": "Prosessautomatisering",
-          "text": "Fjern manuelle og repetitive arbeidsoppgaver med smarte AI-løsninger.",
-          "outcome": "→ Typisk 5–10t spart per ansatt/uke"
+          "title": "Industriell automasjon",
+          "text": "PLC-programmering, maskinvision og styringssystemer. Vi kobler produksjonsgulvet til skyen med moderne OT/IT-integrasjon."
         },
         {
-          "icon": "bot",
-          "title": "AI-assistenter",
-          "text": "Egendefinerte chatboter og assistenter trenet på din bedrifts data.",
-          "outcome": "→ Besvarer 80% av henvendelser automatisk"
+          "title": "Arbeidsflytautomasjon",
+          "text": "Fra manuelle prosesser til smarte systemer som jobber på tvers av avdelinger — automatisk, pålitelig og skalerbart."
         },
         {
-          "icon": "bar-chart-2",
-          "title": "Datainnsikt",
-          "text": "Automatiserte rapporter og dashboards som gir deg oversikt i sanntid.",
-          "outcome": "→ Rapporter klare uten manuell jobb"
-        },
-        {
-          "icon": "link",
           "title": "Systemintegrasjon",
-          "text": "Koble eksisterende verktøy og systemer slik at de snakker sammen.",
-          "outcome": "→ Eliminerer dobbeltregistrering"
+          "text": "SCADA, OPC, ERP, SQL — vi binder systemene dine sammen slik at data flyter fritt og beslutninger tas raskere."
         }
       ]
     },
 
     "ctaSection": {
-      "title": "La oss automatisere det som bremser deg",
-      "subtitle": "Fortell oss hva dere bruker tid på. Vi finner ut hva som kan automatiseres — og bygger det."
+      "label": "Klar for å starte?",
+      "title": "La oss bygge noe som jobber for deg",
+      "subtitle": "Ta kontakt for en uforpliktende prat om hvordan automasjon kan frigjøre tid og ressurser i din bedrift."
     },
 
     "contactSection": {
@@ -242,9 +229,9 @@
     },
 
     "header": {
-      "breadcrumb": "Om oss",
-      "title": "Vi er WorkLoop",
-      "subtitle": "Et norsk teknologiselskap med én misjon: å gi norske bedrifter tilbake tiden de fortjener."
+      "breadcrumb": "Hvem vi er",
+      "title": "Fem spesialister. Én felles visjon.",
+      "subtitle": "Vi er et tverrfaglig team som kombinerer dyp teknisk kompetanse med forretningsforståelse — fordi de beste løsningene lever i krysningspunktet."
     },
 
     "story": {

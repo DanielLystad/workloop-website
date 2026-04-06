@@ -20,16 +20,17 @@
     if (currentPage === target || !pageAbout || !pageLanding) return;
 
     // Save outgoing page scroll position
-    scrollMemory[currentPage] = window.scrollY;
+    const outgoingEl = currentPage === 'about' ? pageAbout : pageLanding;
+    scrollMemory[currentPage] = outgoingEl.scrollTop;
 
     // Update nav button active states
     navBtns.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.target === target);
+      btn.classList.toggle('active', btn.dataset.page === target);
     });
 
     // Show/hide wiper edge glow
     if (wiperEdge) {
-      wiperEdge.classList.add('is-visible');
+      wiperEdge.classList.add('is-moving');
     }
 
     if (target === 'about') {
@@ -39,7 +40,10 @@
 
       // Change logo to dark navy
       if (headerLogo) {
-        headerLogo.style.color = '#1A2E44';
+        const logoColor = '#1A2E44';
+        headerLogo.querySelector('#workloop-logo').setAttribute('fill', logoColor);
+        headerLogo.querySelectorAll('#loop-icon path').forEach(p => p.setAttribute('fill', logoColor));
+        headerLogo.style.color = logoColor;
       }
 
       // Add light mode to header nav
@@ -57,7 +61,7 @@
       }, 400);
 
       // Restore scroll position
-      window.scrollTo(0, scrollMemory[target]);
+      pageAbout.scrollTop = scrollMemory[target];
     } else if (target === 'landing') {
       // Remove classes
       pageAbout.classList.remove('is-visible');
@@ -65,7 +69,10 @@
 
       // Set logo to white
       if (headerLogo) {
-        headerLogo.style.color = 'white';
+        const logoColor = '#ffffff';
+        headerLogo.querySelector('#workloop-logo').setAttribute('fill', logoColor);
+        headerLogo.querySelectorAll('#loop-icon path').forEach(p => p.setAttribute('fill', logoColor));
+        headerLogo.style.color = logoColor;
       }
 
       // Remove light mode from header nav
@@ -83,7 +90,7 @@
       }, 400);
 
       // Restore scroll position
-      window.scrollTo(0, scrollMemory[target]);
+      pageLanding.scrollTop = scrollMemory[target];
     }
 
     currentPage = target;
@@ -91,7 +98,7 @@
     // Clean up wiper edge after 1200ms
     if (wiperEdge) {
       setTimeout(() => {
-        wiperEdge.classList.remove('is-visible');
+        wiperEdge.classList.remove('is-moving');
       }, 1200);
     }
   }
@@ -109,7 +116,7 @@
         e.clientY >= rect.top &&
         e.clientY <= rect.bottom
       ) {
-        const target = btn.dataset.target;
+        const target = btn.dataset.page;
         if (target) {
           switchPage(target);
         }

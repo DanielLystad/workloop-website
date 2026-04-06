@@ -3,10 +3,8 @@
 
   /* ─── Performance & Accessibility Checks ───────────────── */
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobileOrLowPower = navigator.hardwareConcurrency < 4 || window.innerWidth < 768;
 
   if (prefersReducedMotion) {
-    // Static background for reduced motion preference
     const canvas = document.getElementById('loops');
     if (!canvas) return;
 
@@ -18,7 +16,7 @@
     ctx.scale(dpr, dpr);
 
     ctx.fillStyle = '#0d1b2a';
-    ctx.fillRect(0, window.innerWidth, window.innerWidth, window.innerHeight);
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
     const gradient = ctx.createLinearGradient(0, 0, 0, window.innerHeight);
     gradient.addColorStop(0, 'rgba(61, 155, 225, 0.05)');
@@ -33,175 +31,153 @@
   const canvas = document.getElementById('loops');
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d', { alpha: true });
-  let W = window.innerWidth;
-  let H = window.innerHeight;
-  let dpr = window.devicePixelRatio || 1;
+  const ctx = canvas.getContext('2d');
 
-  /* ─── Mouse Tracking & Animation State ───────────────── */
-  let mouse = { x: W / 2, y: H / 2 };
-  let smoothMouse = { x: W / 2, y: H / 2 };
+  let W, H, dpr;
+  let mouse      = { x: 0.5, y: 0.5 };
+  let smoothMouse = { x: 0.5, y: 0.5 };
   let time = 0;
 
-  /* ─── Color Palette ────────────────────────────────────── */
   const PALETTE = [
-    [48, 136, 203],   // shadow
-    [56, 148, 217],   // midtone
-    [66, 163, 234],   // highlight
-    [61, 155, 225],   // blue-600
-    [26, 46, 68],     // blue-900
+    [48,  136, 203],
+    [56,  148, 217],
+    [66,  163, 234],
+    [61,  155, 225],
+    [26,  46,  68 ],
   ];
 
-  /* ─── Animation Configuration ──────────────────────────── */
-  let LOOP_COUNT = isMobileOrLowPower ? 4 : 7;
-  let loops = [];
-
-  /* ─── Lemniscate (Infinity Loop) Shape ───────────────── */
   function lemniscate(t) {
-    const a = 1;
-    const r = a * Math.sqrt(Math.cos(2 * t));
-    const x = r * Math.cos(t);
-    const y = r * Math.sin(t);
-    return { x, y };
+    const s = Math.sin(t);
+    const c = Math.cos(t);
+    const d = 1 + s * s;
+    return { x: c / d, y: (s * c) / d };
   }
 
-  /* ─── Initialize Loops ─────────────────────────────────– */
+  const LOOP_COUNT = 7;
+  let loops = [];
+
   function initLoops() {
     loops = [];
     for (let i = 0; i < LOOP_COUNT; i++) {
-      const color = PALETTE[i % PALETTE.length];
+      const t = i / LOOP_COUNT;
+      const depth = 0.3 + t * 0.7;
+      const baseScale = Math.min(W, H);
       loops.push({
-        cx: W / 2,
-        cy: H / 2,
-        scaleX: 40 + i * 12,
-        scaleY: 30 + i * 10,
-        color: `rgb(${color[0]}, ${color[1]}, ${color[2]})`,
-        opacity: 0.15 + (i * 0.08),
-        lineWidth: 1.5 + (i * 0.3),
-        glowRadius: 8 + i * 2,
-        rotSpeed: 0.0003 + (Math.random() - 0.5) * 0.0001,
-        driftX: (Math.random() - 0.5) * 40,
-        driftY: (Math.random() - 0.5) * 30,
-        phaseOffset: Math.random() * Math.PI * 2,
-        parallax: 0.3 + (i * 0.08),
+        cx: 0.15 + t * 0.7 + Math.sin(i * 2.7) * 0.15,
+        cy: 0.2 + Math.cos(i * 1.9) * 0.3,
+        scaleX: baseScale * (0.25 + depth * 0.55),
+        scaleY: baseScale * (0.15 + depth * 0.35),
+        color: PALETTE[i % PALETTE.length],
+        opacity: 0.03 + depth * 0.06,
+        lineWidth: 1 + depth * 2.5,
+        glowRadius: 8 + depth * 20,
+        rotSpeed: (0.008 + t * 0.006) * (i % 2 === 0 ? 1 : -1),
+        driftX: Math.sin(i * 3.1) * 0.003,
+        driftY: Math.cos(i * 2.3) * 0.002,
+        phaseOffset: i * 0.9,
+        parallax: depth * 0.6,
       });
     }
   }
 
-  /* ─── Handle Window Resize ─────────────────────────────– */
   function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = window.innerWidth;
     H = window.innerHeight;
-    dpr = window.devicePixelRatio || 1;
-
-    canvas.width = W * dpr;
+    canvas.width  = W * dpr;
     canvas.height = H * dpr;
-    ctx.scale(dpr, dpr);
-
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     initLoops();
   }
 
-  /* ─── Draw Single Loop ─────────────────────────────────– */
   function drawLoop(loop, t) {
-    const phase = t * loop.rotSpeed + loop.phaseOffset;
-    const breathing = 1 + Math.sin(t * 0.0005) * 0.15;
-    const driftInfluence = (smoothMouse.x - W / 2) * loop.parallax * 0.02;
+    const rot = t * loop.rotSpeed + loop.phaseOffset;
+    const drift = t * 0.02;
+    const px = (smoothMouse.x - 0.5) * loop.parallax * W * 0.12;
+    const py = (smoothMouse.y - 0.5) * loop.parallax * H * 0.12;
+    const cx = loop.cx * W + Math.sin(drift + loop.driftX * 500) * W * 0.03 + px;
+    const cy = loop.cy * H + Math.cos(drift + loop.driftY * 500) * H * 0.02 + py;
+    const breathe = 1 + Math.sin(t * 0.15 + loop.phaseOffset) * 0.04;
+    const sx = loop.scaleX * breathe;
+    const sy = loop.scaleY * breathe;
 
     ctx.save();
-    ctx.globalAlpha = loop.opacity * (0.6 + Math.sin(t * 0.0004) * 0.4);
-
-    ctx.translate(loop.cx + driftInfluence + loop.driftX, loop.cy + loop.driftY);
-    ctx.rotate(phase);
-
-    ctx.strokeStyle = loop.color;
-    ctx.lineWidth = loop.lineWidth;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-
-    if (!isMobileOrLowPower) {
-      ctx.shadowColor = loop.color;
-      ctx.shadowBlur = loop.glowRadius;
-    }
+    ctx.translate(cx, cy);
+    ctx.rotate(rot);
 
     ctx.beginPath();
-    let firstPoint = true;
-    for (let i = 0; i <= Math.PI * 2; i += 0.1) {
-      const point = lemniscate(i);
-      const x = point.x * loop.scaleX * breathing;
-      const y = point.y * loop.scaleY * breathing;
-
-      if (firstPoint) {
-        ctx.moveTo(x, y);
-        firstPoint = false;
-      } else {
-        ctx.lineTo(x, y);
-      }
+    const steps = 120;
+    for (let i = 0; i <= steps; i++) {
+      const a = (i / steps) * Math.PI * 2;
+      const pt = lemniscate(a);
+      if (i === 0) ctx.moveTo(pt.x * sx, pt.y * sy);
+      else ctx.lineTo(pt.x * sx, pt.y * sy);
     }
-    ctx.stroke();
+    ctx.closePath();
 
+    const [r, g, b] = loop.color;
+    ctx.shadowColor = `rgba(${r},${g},${b},${loop.opacity * 1.5})`;
+    ctx.shadowBlur = loop.glowRadius;
+    ctx.strokeStyle = `rgba(${r},${g},${b},${loop.opacity})`;
+    ctx.lineWidth = loop.lineWidth;
+    ctx.stroke();
+    ctx.fillStyle = `rgba(${r},${g},${b},${loop.opacity * 0.15})`;
+    ctx.fill();
     ctx.restore();
   }
 
-  /* ─── Main Animation Loop ──────────────────────────────– */
   function frame(ts) {
-    time = ts || time + 16;
-
-    /* Smooth mouse interpolation */
+    time = ts * 0.001;
     smoothMouse.x += (mouse.x - smoothMouse.x) * 0.03;
     smoothMouse.y += (mouse.y - smoothMouse.y) * 0.03;
 
-    /* Dark background */
     ctx.fillStyle = '#0d1b2a';
     ctx.fillRect(0, 0, W, H);
 
-    /* Subtle gradient overlay */
-    const gradientBg = ctx.createLinearGradient(0, 0, 0, H);
-    gradientBg.addColorStop(0, 'rgba(61, 155, 225, 0.08)');
-    gradientBg.addColorStop(0.5, 'rgba(61, 155, 225, 0.02)');
-    gradientBg.addColorStop(1, 'rgba(26, 46, 68, 0.06)');
-    ctx.fillStyle = gradientBg;
+    const bg = ctx.createLinearGradient(0, 0, W * 0.4, H);
+    bg.addColorStop(0, 'rgba(26,46,68,0.4)');
+    bg.addColorStop(1, 'rgba(13,27,42,0)');
+    ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
 
-    /* Mouse glow (skip on low-power devices) */
-    if (!isMobileOrLowPower) {
-      const glowGradient = ctx.createRadialGradient(smoothMouse.x, smoothMouse.y, 0, smoothMouse.x, smoothMouse.y, 200);
-      glowGradient.addColorStop(0, 'rgba(61, 155, 225, 0.08)');
-      glowGradient.addColorStop(1, 'rgba(61, 155, 225, 0)');
-      ctx.fillStyle = glowGradient;
-      ctx.fillRect(smoothMouse.x - 200, smoothMouse.y - 200, 400, 400);
-    }
+    /* Mouse glow */
+    const gr = ctx.createRadialGradient(smoothMouse.x * W, smoothMouse.y * H, 0, smoothMouse.x * W, smoothMouse.y * H, Math.max(W, H) * 0.5);
+    gr.addColorStop(0, 'rgba(61,155,225,0.06)');
+    gr.addColorStop(0.3, 'rgba(56,148,217,0.025)');
+    gr.addColorStop(1, 'rgba(26,46,68,0)');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, W, H);
 
-    /* Draw all loops */
-    loops.forEach((loop) => {
-      drawLoop(loop, time);
-    });
+    for (let i = 0; i < loops.length; i++) drawLoop(loops[i], time);
 
-    /* Vignette effect */
-    const vignetteGradient = ctx.createRadialGradient(W / 2, H / 2, W * 0.3, W / 2, H / 2, W * 0.8);
-    vignetteGradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-    vignetteGradient.addColorStop(1, 'rgba(0, 0, 0, 0.15)');
-    ctx.fillStyle = vignetteGradient;
+    /* Vignette */
+    const vg = ctx.createRadialGradient(W / 2, H / 2, Math.max(W, H) * 0.22, W / 2, H / 2, Math.max(W, H) * 0.75);
+    vg.addColorStop(0, 'rgba(13,27,42,0)');
+    vg.addColorStop(1, 'rgba(13,27,42,0.5)');
+    ctx.fillStyle = vg;
     ctx.fillRect(0, 0, W, H);
 
     requestAnimationFrame(frame);
   }
 
-  /* ─── Event Listeners ──────────────────────────────────– */
+  /* ─── Events ──────────────────────────────────────────── */
   window.addEventListener('resize', resize, { passive: true });
 
   document.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.x = e.clientX / window.innerWidth;
+    mouse.y = e.clientY / window.innerHeight;
   }, { passive: true });
 
   document.addEventListener('touchmove', (e) => {
     if (e.touches.length > 0) {
-      mouse.x = e.touches[0].clientX;
-      mouse.y = e.touches[0].clientY;
+      mouse.x = e.touches[0].clientX / window.innerWidth;
+      mouse.y = e.touches[0].clientY / window.innerHeight;
     }
   }, { passive: true });
 
-  /* ─── Initialize & Start Animation ────────────────────– */
+  /* ─── Initialize & Start ──────────────────────────────── */
   resize();
   requestAnimationFrame(frame);
 
