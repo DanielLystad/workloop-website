@@ -124,74 +124,7 @@
     });
   });
 
-  // Show pointer cursor when hovering over nav buttons
-  document.addEventListener('mousemove', (e) => {
-    let isOverBtn = false;
-    navBtns.forEach(btn => {
-      const rect = btn.getBoundingClientRect();
-      if (
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      ) {
-        isOverBtn = true;
-      }
-    });
-    document.documentElement.style.cursor = isOverBtn ? 'pointer' : 'auto';
-  });
-
-  // Wiper edge tracking
-  function trackWiperEdge() {
-    if (!wiperEdge || !pageAbout) return;
-
-    const clipPathValue = window.getComputedStyle(pageAbout).clipPath;
-    if (clipPathValue && clipPathValue !== 'none') {
-      // Parse clip-path to find the rightmost point
-      const match = clipPathValue.match(/\d+(\.\d+)?%/g);
-      if (match && match.length > 0) {
-        const rightmost = Math.max(...match.map(val => parseFloat(val)));
-        const xPos = (rightmost / 100) * window.innerWidth;
-        wiperEdge.style.left = xPos + 'px';
-      }
-    }
-
-    requestAnimationFrame(trackWiperEdge);
-  }
-
-  if (wiperEdge && pageAbout) {
-    trackWiperEdge();
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 2: SCROLL REVEAL OBSERVER
-     ───────────────────────────────────────────────────────────── */
-
-  function observeReveals(root) {
-    const els = root ? root.querySelectorAll('.reveal') : document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-        }
-      });
-    }, { root: root || null, threshold: 0.15 });
-
-    els.forEach(el => {
-      el.classList.remove('is-visible');
-      obs.observe(el);
-    });
-  }
-
-  // Initial call for landing page
-  if (pageLanding) {
-    observeReveals(pageLanding);
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 3: ANIMATE ON SCROLL
-     ───────────────────────────────────────────────────────────── */
-
+  /* ─── Scroll animations (IntersectionObserver) ──────────── */
   const animateElements = document.querySelectorAll('.animate-on-scroll');
   if (animateElements.length && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -209,19 +142,13 @@
     animateElements.forEach(el => el.classList.add('visible'));
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 4: HERO LOGO FADE-IN
-     ───────────────────────────────────────────────────────────── */
-
+  /* ─── Hero logo fade-in ─────────────────────────────────── */
   var heroLogo = document.querySelector('.hero-logo-img');
   if (heroLogo) {
     setTimeout(function() { heroLogo.classList.add('visible'); }, 400);
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 5: ANIMATED NUMBER COUNTERS
-     ───────────────────────────────────────────────────────────── */
-
+/* ─── Animated number counters ──────────────────────────── */
   const counters = document.querySelectorAll('.stat-number[data-target]');
   if (counters.length && 'IntersectionObserver' in window) {
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
@@ -252,10 +179,7 @@
     counters.forEach(el => counterObserver.observe(el));
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 6: SMOOTH SCROLL FOR ANCHOR LINKS
-     ───────────────────────────────────────────────────────────── */
-
+  /* ─── Smooth scroll for anchor links ───────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
@@ -268,10 +192,7 @@
     });
   });
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 7: CONTACT FORM (WEB3FORMS)
-     ───────────────────────────────────────────────────────────── */
-
+  /* ─── Contact form Web3Forms ────────────────────────────── */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     const submitBtn  = contactForm.querySelector('[type="submit"]');
@@ -279,7 +200,7 @@
 
     // Check for success parameter in URL
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true' && formMsg) {
+    if (urlParams.get('success') === 'true') {
       formMsg.className = 'form-message success';
       formMsg.textContent = 'Takk for meldingen! Vi tar kontakt innen 1 virkedag.';
       formMsg.style.display = 'block';
@@ -321,8 +242,8 @@
 
       const wantBooking = document.getElementById('wantBooking');
       const isBooking = wantBooking && wantBooking.checked;
-      const nameVal = contactForm.querySelector('#name') ? contactForm.querySelector('#name').value : '';
-      const emailVal = contactForm.querySelector('#email') ? contactForm.querySelector('#email').value : '';
+      const nameVal = contactForm.querySelector('#name').value;
+      const emailVal = contactForm.querySelector('#email').value;
       const dateVal = contactForm.querySelector('#bookDate') ? contactForm.querySelector('#bookDate').value : '';
       const timeVal = contactForm.querySelector('#bookTime') ? contactForm.querySelector('#bookTime').value : '';
 
@@ -377,121 +298,14 @@
     });
   }
 
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 8: FAQ ACCORDION
-     ───────────────────────────────────────────────────────────── */
-
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = this.closest('.faq-item');
-      var wasOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(function(el) {
-        el.classList.remove('open');
-      });
-      // Toggle current
-      if (!wasOpen) item.classList.add('open');
+  /* ─── FAQ accordion (CSS-only fallback for JS-enhanced) ─── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
-  });
-
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 9: BACK TO TOP + MOBILE STICKY CTA
-     ───────────────────────────────────────────────────────────── */
-
-  const backToTop = document.getElementById('backToTop');
-  if (backToTop) {
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
-
-    backToTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  const mobileStickyCtA = document.getElementById('mobileStickyCtA');
-  if (mobileStickyCtA) {
-    window.addEventListener('scroll', () => {
-      mobileStickyCtA.classList.toggle('visible', window.scrollY > 500);
-    }, { passive: true });
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     SECTION 10: NAVBAR SCROLL SHADOW
-     ───────────────────────────────────────────────────────────── */
-
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    const onScroll = () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     COPY EMAIL TO CLIPBOARD
-     ───────────────────────────────────────────────────────────── */
-
-  window.copyEmail = function (e) {
-    if (e) e.preventDefault();
-    var email = 'kontakt@workloop.no';
-    navigator.clipboard.writeText(email).then(function () {
-      showCopyToast(email);
-    }).catch(function () {
-      /* Fallback for older browsers */
-      var ta = document.createElement('textarea');
-      ta.value = email;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand('copy');
-      document.body.removeChild(ta);
-      showCopyToast(email);
-    });
-  };
-
-  function showCopyToast(email) {
-    var existing = document.getElementById('copyToast');
-    if (existing) existing.remove();
-
-    var toast = document.createElement('div');
-    toast.id = 'copyToast';
-    toast.textContent = email + ' kopiert!';
-    toast.style.cssText =
-      'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);' +
-      'background:rgba(61,155,225,0.95);color:#fff;padding:0.75rem 1.5rem;border-radius:10px;' +
-      'font-family:inherit;font-size:0.9rem;font-weight:600;z-index:9999;' +
-      'opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none;' +
-      'backdrop-filter:blur(12px);box-shadow:0 8px 32px rgba(0,0,0,0.25);';
-    document.body.appendChild(toast);
-
-    requestAnimationFrame(function () {
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-    });
-
-    setTimeout(function () {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateX(-50%) translateY(20px)';
-      setTimeout(function () { toast.remove(); }, 300);
-    }, 2000);
-  }
-
-  /* ─────────────────────────────────────────────────────────────
-     ADDITIONAL: ACTIVE NAV LINK
-     ───────────────────────────────────────────────────────────── */
-
-  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href').replace(/\/$/, '') || '/';
-    if (href === currentPath) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
   });
 
 })();

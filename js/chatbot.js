@@ -25,79 +25,6 @@
     { keywords: ['sikker', 'gdpr', 'personvern', 'data', 'trygg'], response: 'Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.' }
   ];
 
-  // Load copy from copy-loader.js if available
-  if (window.CopyLoader) {
-    window.CopyLoader.onReady(function(copy) {
-      var cb = copy.chatbot;
-      if (!cb) return;
-
-      // Update CONFIG from copy
-      if (cb.config) {
-        if (cb.config.botName) CONFIG.botName = cb.config.botName;
-        if (cb.config.greeting) CONFIG.greeting = cb.config.greeting;
-        if (cb.config.placeholder) CONFIG.placeholder = cb.config.placeholder;
-        if (cb.config.suggestions) CONFIG.suggestions = cb.config.suggestions;
-      }
-
-      // Update KB responses from copy
-      if (cb.responses && cb.keywords) {
-        KB = [];
-        var responseMap = {
-          'greeting': cb.keywords.greeting,
-          'services': cb.keywords.services,
-          'pricing': cb.keywords.pricing,
-          'booking': cb.keywords.booking,
-          'chatbots': cb.keywords.chatbots,
-          'automation': cb.keywords.automation,
-          'microsoft': cb.keywords.microsoft,
-          'contact': cb.keywords.contact,
-          'team': cb.keywords.team,
-          'security': cb.keywords.security
-        };
-
-        var responseTexts = {
-          'greeting': cb.responses.greeting,
-          'services': cb.responses.services,
-          'pricing': cb.responses.pricing,
-          'booking': '__BOOKING__',
-          'chatbots': cb.responses.chatbots,
-          'automation': cb.responses.automation,
-          'microsoft': cb.responses.microsoft,
-          'contact': cb.responses.contact,
-          'team': cb.responses.team,
-          'security': cb.responses.security
-        };
-
-        for (var key in responseMap) {
-          if (responseMap[key] && responseTexts[key]) {
-            KB.push({ keywords: responseMap[key], response: responseTexts[key] });
-          }
-        }
-      }
-
-      // Update booking flow prompts from copy
-      if (cb.bookingFlow) {
-        if (cb.bookingFlow.namePrompt) STEPS[0].prompt = cb.bookingFlow.namePrompt;
-        if (cb.bookingFlow.nameError) STEPS[0].error = cb.bookingFlow.nameError;
-        if (cb.bookingFlow.emailPrompt) STEPS[1].prompt = cb.bookingFlow.emailPrompt;
-        if (cb.bookingFlow.emailError) STEPS[1].error = cb.bookingFlow.emailError;
-        if (cb.bookingFlow.datePrompt) STEPS[2].prompt = cb.bookingFlow.datePrompt;
-        if (cb.bookingFlow.dateError) STEPS[2].error = cb.bookingFlow.dateError;
-        if (cb.bookingFlow.timePrompt) STEPS[3].prompt = cb.bookingFlow.timePrompt;
-        if (cb.bookingFlow.timeError) STEPS[3].error = cb.bookingFlow.timeError;
-      }
-
-      // Store booking flow messages for later use
-      if (cb.bookingFlow) {
-        CONFIG._bookingStartMessage = cb.bookingFlow.startMessage;
-        CONFIG._bookingCancelledMessage = cb.bookingFlow.cancelledMessage;
-        CONFIG._bookingSuccessMessage = cb.bookingFlow.successMessage;
-        CONFIG._bookingErrorMessage = cb.bookingFlow.errorMessage;
-        CONFIG._bookingConnectionErrorMessage = cb.bookingFlow.connectionErrorMessage;
-      }
-    });
-  }
-
   // Booking flow
   var booking = { active: false, step: 0, data: {} };
   var STEPS = [
@@ -150,19 +77,10 @@
     .then(function(json) {
       hideTyping();
       if (json.success) {
-        var successMsg = CONFIG._bookingSuccessMessage || 'Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** ' + data.name + '\n- **Dato:** ' + formatDateNorwegian(data.date) + '\n- **Tid:** ' + data.time + '\n\nVi bekrefter tidspunktet innen 1 virkedag pa **' + data.email + '**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.';
-        successMsg = successMsg.replace(/\{name\}/g, data.name).replace(/\{date\}/g, formatDateNorwegian(data.date)).replace(/\{time\}/g, data.time).replace(/\{email\}/g, data.email);
-        addMessage(successMsg, 'bot');
-      } else {
-        var errorMsg = CONFIG._bookingErrorMessage || 'Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).';
-        addMessage(errorMsg, 'bot');
-      }
+        addMessage('Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** ' + data.name + '\n- **Dato:** ' + formatDateNorwegian(data.date) + '\n- **Tid:** ' + data.time + '\n\nVi bekrefter tidspunktet innen 1 virkedag pa **' + data.email + '**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.', 'bot');
+      } else { addMessage('Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).', 'bot'); }
     })
-    .catch(function() {
-      hideTyping();
-      var connErrorMsg = CONFIG._bookingConnectionErrorMessage || 'Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).';
-      addMessage(connErrorMsg, 'bot');
-    });
+    .catch(function() { hideTyping(); addMessage('Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).', 'bot'); });
   }
 
   function findResponse(message) {
@@ -174,8 +92,7 @@
       if (score > bestScore) { bestScore = score; bestMatch = KB[i]; }
     }
     if (bestMatch) return bestMatch.response;
-    var fallback = (window.__SITE_COPY && window.__SITE_COPY.chatbot && window.__SITE_COPY.chatbot.responses && window.__SITE_COPY.chatbot.responses.fallback) || 'Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [booke en gratis samtale](/contact#booking).';
-    return fallback;
+    return 'Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [booke en gratis samtale](/contact#booking).';
   }
 
   function formatMessage(text) {
@@ -365,8 +282,7 @@
       document.getElementById('wlBC').addEventListener('click', function() {
         booking.active = false; booking.step = 0; booking.data = {};
         progEl.innerHTML = '';
-        var cancelMsg = CONFIG._bookingCancelledMessage || 'Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?';
-        addMessage(cancelMsg, 'bot');
+        addMessage('Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?', 'bot');
       });
     }
 
@@ -406,8 +322,7 @@
         hideTyping();
         var response = findResponse(text);
         if (response === '__BOOKING__') {
-          var bookingStartMsg = CONFIG._bookingStartMessage || 'Supert! La meg hjelpe deg med a booke en gratis samtale.';
-          addMessage(bookingStartMsg, 'bot');
+          addMessage('Supert! La meg hjelpe deg med a booke en gratis samtale.', 'bot');
           setTimeout(function() { startBooking(); }, 500);
         } else { addMessage(response, 'bot'); }
         input.disabled = false; sendBtn.disabled = false; input.focus();

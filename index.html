@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="WorkLoop hjelper norske SMB-er med å spare tid og penger gjennom smart automatisering og AI-løsninger.">
+  <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
+
   <!-- SEO Meta Tags -->
   <meta name="keywords" content="WorkLoop, automatisering Norge, prosessautomatisering, norsk bedrift, Oslo, ikke kryptovaluta">
   <meta name="subject" content="Automatisering og forretningskonsultering for norske bedrifter">
@@ -12,9 +14,10 @@
 
   <title>WorkLoop — automatisering for norske bedrifter</title>
 
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://workloop.no/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://workloop.no/">
   <meta property="og:title" content="WorkLoop — automatisering for norske bedrifter">
@@ -29,13 +32,11 @@
   <meta name="twitter:description" content="Vi hjelper norske SMB-er spare 5-15 timer per ansatt i uken.">
   <meta name="twitter:image" content="https://workloop.no/images/og-image.jpg">
 
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/tokens.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/pages.css">
   <script src="https://unpkg.com/lucide@0.469.0"></script>
 
   <!-- JSON-LD Structured Data -->
@@ -93,31 +94,15 @@
         "name": "Hva er WorkLoop?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "WorkLoop er et norsk teknologiselskap som hjelper små og mellomstore bedrifter med webutvikling, merkevarebygging, nettverkssikkerhet og digital markedsføring. Vi er basert i Norge og betjener bedrifter over hele landet."
+          "text": "WorkLoop er et norsk teknologiselskap som hjelper små og mellomstore bedrifter med automatisering. Vi er basert i Oslo og betjener bedrifter over hele Norge. Vi er IKKE en kryptovaluta."
         }
       },
       {
         "@type": "Question",
-        "name": "Hva koster tjenestene deres?",
+        "name": "Er WorkLoop en kryptovaluta?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prisene avhenger av prosjektets omfang og kompleksitet. Vi gir alltid et tydelig og uforpliktende tilbud før du forplikter deg."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Hvor lang tid tar et typisk prosjekt?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Det varierer — en enkel nettside kan være klar på 1–2 uker, mens en komplett merkevarepakke eller sikkerhetsgjennomgang typisk tar 2–4 uker."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Er det bindingstid?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nei, vi har ingen bindingstid. Du betaler for det du bestiller, og vi leverer. Enkelt og greit."
+          "text": "Nei, WorkLoop er IKKE en kryptovaluta. Vi er et norsk teknologiselskap som leverer automatiseringstjenester til bedrifter. Vi jobber med praktisk forretningsautomatisering, ikke krypto eller blockchain."
         }
       }
     ]
@@ -141,12 +126,24 @@
   }
   </script>
 </head>
-
 <body>
 
-  <!-- Canvas Background -->
-  <canvas id="loops"></canvas>
-  <div class="noise-overlay"></div>
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-link">Hjem</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <a href="/contact" class="nav-cta">
+        Kontakt oss
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</nav>
 
   <!-- Header -->
   <header class="site-header">
@@ -204,7 +201,14 @@
           <span>Scroll</span>
           <div class="scroll-line"></div>
         </div>
-      </section>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-logo-glow"></div>
+        <img class="hero-logo-img" src="/images/logo-symbol-color.svg" alt="" width="320" height="179">
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- Services -->
       <section class="section" id="tjenester">
@@ -458,13 +462,203 @@
     </div>
 
   </div>
+</section>
 
-  <!-- Scripts -->
-  <script src="/js/canvas-bg.js"></script>
-  <script src="/js/copy-loader.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/chatbot.js"></script>
-  <script>lucide.createIcons();</script>
+<!-- ── CTA Text ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="container" style="text-align:center; max-width:640px;">
+    <h2 class="animate-on-scroll">La oss automatisere det som bremser deg</h2>
+    <p class="animate-on-scroll" style="color:var(--text-secondary); font-size:1.0625rem; margin-bottom:2rem;">Fortell oss hva dere bruker tid p&aring;. Vi finner ut hva som kan automatiseres &mdash; og bygger det.</p>
+    <a href="/contact" class="btn btn-accent btn-lg animate-on-scroll">Ta kontakt &rarr;</a>
+  </div>
+</section>
 
+<!-- ── Contact CTA + Form ─────────────────────────────────── -->
+<section class="section contact-section" id="kontakt">
+  <div class="container">
+    <div class="grid-2" style="gap: 4rem; align-items: start;">
+      <div class="contact-info animate-on-scroll">
+        <span class="section-label">Ta kontakt</span>
+        <h2>Klar for å spare tid og penger?</h2>
+        <p class="why-text">
+          Fortell oss litt om bedriften din, så tar vi en uforpliktende samtale om hvordan
+          automatisering kan hjelpe deg. Ingen forpliktelser, ingen skjulte kostnader.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="mail"></i></div>
+          <div class="contact-detail-text">
+            <strong>E-post</strong>
+            <span>post@workloop.no</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="map-pin"></i></div>
+          <div class="contact-detail-text">
+            <strong>Adresse</strong>
+            <span>Oslo, Norge</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="clock"></i></div>
+          <div class="contact-detail-text">
+            <strong>Responstid</strong>
+            <span>Innen 1 virkedag</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card animate-on-scroll delay-2">
+        <h3 style="margin-bottom: 1.5rem;">Send oss en melding</h3>
+        <form id="contactForm" novalidate>
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
+          <input type="hidden" name="subject" value="Ny AI-audit forespørsel fra WorkLoop.no">
+          <input type="hidden" name="from_name" value="WorkLoop Nettside (Hjem)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Navn *</label>
+              <input type="text" id="name" name="name" placeholder="Ola Nordmann" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post *</label>
+              <input type="email" id="email" name="email" placeholder="ola@bedrift.no" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Bedrift</label>
+              <input type="text" id="company" name="company" placeholder="Bedriften AS">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="+47 000 00 000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="interest">Jeg er interessert i</label>
+            <select id="interest" name="interest">
+              <option value="">Velg...</option>
+              <option value="automation">Automatisering</option>
+              <option value="consulting">Rådgivning</option>
+              <option value="integration">Integrasjon</option>
+              <option value="unsure">Vet ikke enda</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Fortell litt om bedriften din *</label>
+            <textarea id="message" name="message" placeholder="Hva gjør dere, og hva bruker dere mest tid på?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+            Send melding &rarr;
+          </button>
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta-band">
+      <div class="footer-cta-inner">
+        <h2 class="footer-headline">Klar til a <span>spare tid</span> med automatisering?</h2>
+        <a href="/contact" class="footer-cta-btn">
+          Snakk med oss
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+        </div>
+        <p class="footer-tagline">
+          Vi hjelper norske SMB-er med a spare tid og penger gjennom praktisk automatisering. Norsk selskap, norsk support.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Sider</h5>
+        <nav class="footer-links">
+          <a href="/">Hjem</a>
+          <a href="/contact">Kontakt</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <div class="footer-contact-item">
+          <i data-lucide="mail"></i>
+          <span>post@workloop.no</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin"></i>
+          <span>Oslo, Norge</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="clock"></i>
+          <span>Man-fre, 08-16</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 WorkLoop. Alle rettigheter forbeholdt.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Personvern</a>
+        <a href="#">Vilkar</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="/contact" class="btn btn-accent btn-lg">Kontakt oss &rarr;</a>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+<script>
+  lucide.createIcons();
+
+  // Back to top + mobile sticky CTA
+  (function() {
+    var btn = document.getElementById('backToTop');
+    var cta = document.getElementById('mobileCta');
+    var hero = document.querySelector('.hero');
+    if (!btn) return;
+
+    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
+      btn.classList.toggle('visible', y > 400);
+      if (cta) cta.classList.toggle('visible', y > heroBottom);
+    }, { passive: true });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 </body>
 </html>
