@@ -3,25 +3,125 @@
 (function () {
   'use strict';
 
-  /* ─── Navbar scroll shadow ─────────────────────────────── */
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    const onScroll = () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  /* ─────────────────────────────────────────────────────────────
+     SECTION 1: PAGE SWITCHING (WIPER TRANSITION)
+     ───────────────────────────────────────────────────────────── */
+
+  let currentPage = 'landing';
+  const pageAbout = document.getElementById('pageAbout');
+  const pageLanding = document.getElementById('pageLanding');
+  const wiperEdge = document.getElementById('wiperEdge');
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const scrollMemory = { landing: 0, about: 0 };
+  const headerLogo = document.getElementById('headerLogo');
+  const headerNav = document.getElementById('headerNav');
+
+  function switchPage(target) {
+    if (currentPage === target || !pageAbout || !pageLanding) return;
+
+    // Save outgoing page scroll position
+    const outgoingEl = currentPage === 'about' ? pageAbout : pageLanding;
+    scrollMemory[currentPage] = outgoingEl.scrollTop;
+
+    // Update nav button active states
+    navBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.page === target);
+    });
+
+    // Show/hide wiper edge glow
+    if (wiperEdge) {
+      wiperEdge.classList.add('is-moving');
+    }
+
+    if (target === 'about') {
+      // Add visible class to aboutPage
+      pageAbout.classList.add('is-visible');
+      pageLanding.classList.remove('is-visible');
+
+      // Change logo to dark navy
+      if (headerLogo) {
+        const logoColor = '#1A2E44';
+        headerLogo.querySelector('#workloop-logo').setAttribute('fill', logoColor);
+        headerLogo.querySelectorAll('#loop-icon path').forEach(p => p.setAttribute('fill', logoColor));
+        headerLogo.style.color = logoColor;
+      }
+
+      // Add light mode to header nav
+      if (headerNav) {
+        headerNav.classList.add('is-light');
+      }
+
+      // Manage pointer-events for scroll routing
+      pageAbout.style.pointerEvents = 'auto';
+      pageLanding.style.pointerEvents = 'none';
+
+      // Trigger reveal animations after 400ms delay
+      setTimeout(() => {
+        observeReveals(pageAbout);
+      }, 400);
+
+      // Restore scroll position
+      pageAbout.scrollTop = scrollMemory[target];
+    } else if (target === 'landing') {
+      // Remove classes
+      pageAbout.classList.remove('is-visible');
+      pageLanding.classList.add('is-visible');
+
+      // Set logo to white
+      if (headerLogo) {
+        const logoColor = '#ffffff';
+        headerLogo.querySelector('#workloop-logo').setAttribute('fill', logoColor);
+        headerLogo.querySelectorAll('#loop-icon path').forEach(p => p.setAttribute('fill', logoColor));
+        headerLogo.style.color = logoColor;
+      }
+
+      // Remove light mode from header nav
+      if (headerNav) {
+        headerNav.classList.remove('is-light');
+      }
+
+      // Manage pointer-events for scroll routing
+      pageLanding.style.pointerEvents = 'auto';
+      pageAbout.style.pointerEvents = 'none';
+
+      // Trigger reveal animations after 400ms delay
+      setTimeout(() => {
+        observeReveals(pageLanding);
+      }, 400);
+
+      // Restore scroll position
+      pageLanding.scrollTop = scrollMemory[target];
+    }
+
+    currentPage = target;
+
+    // Clean up wiper edge after 1200ms
+    if (wiperEdge) {
+      setTimeout(() => {
+        wiperEdge.classList.remove('is-moving');
+      }, 1200);
+    }
   }
 
-  /* ─── Active nav link ───────────────────────────────────── */
-  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href').replace(/\/$/, '') || '/';
-    if (href === currentPath) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+  // Make switchPage available globally
+  window.switchPage = switchPage;
+
+  // Coordinate-based click detection for nav buttons
+  document.addEventListener('click', (e) => {
+    navBtns.forEach(btn => {
+      const rect = btn.getBoundingClientRect();
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        const target = btn.dataset.page;
+        if (target) {
+          switchPage(target);
+        }
+      }
+    });
   });
 
   /* ─── Scroll animations (IntersectionObserver) ──────────── */
