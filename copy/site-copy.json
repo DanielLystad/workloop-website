@@ -1,0 +1,731 @@
+{
+  "global": {
+    "companyName": "WorkLoop",
+    "email": "post@workloop.no",
+    "location": "Oslo, Norge",
+    "hours": "Man-fre, 08-16",
+    "hoursLong": "Mandag–fredag: 08:00–16:00",
+    "responseTime": "Innen 1 virkedag",
+    "copyright": "© 2026 WorkLoop. Alle rettigheter forbeholdt.",
+
+    "nav": {
+      "home": "Hjem",
+      "contact": "Kontakt oss"
+    },
+
+    "footer": {
+      "ctaHeadline": "Klar til a <span>spare tid</span> med automatisering?",
+      "ctaButton": "Snakk med oss",
+      "tagline": "Vi hjelper norske SMB-er med a spare tid og penger gjennom praktisk automatisering. Norsk selskap, norsk support.",
+      "pagesTitle": "Sider",
+      "contactTitle": "Kontakt",
+      "links": {
+        "privacy": "Personvern",
+        "terms": "Vilkar",
+        "cookies": "Cookies"
+      }
+    },
+
+    "buttons": {
+      "taKontakt": "Ta kontakt →",
+      "snakkMedOss": "Snakk med oss",
+      "sendMelding": "Send melding →",
+      "kontaktOss": "Kontakt oss →"
+    },
+
+    "formMessages": {
+      "success": "Takk! Vi tar kontakt innen 1 virkedag.",
+      "bookingSuccess": "Takk, {name}! Vi bekrefter tidspunktet innen 1 virkedag.",
+      "calendarDownload": "Last ned kalenderinvitasjon (.ics)",
+      "error": "Noe gikk galt. Prøv igjen.",
+      "connectionError": "Tilkoblingsfeil. Sjekk internett og prøv igjen.",
+      "sending": "Sender…"
+    },
+
+    "formLabels": {
+      "name": "Navn *",
+      "email": "E-post *",
+      "company": "Bedrift",
+      "phone": "Telefon",
+      "message": "Fortell litt om bedriften din *",
+      "interest": "Jeg er interessert i",
+      "date": "Dato",
+      "time": "Tidspunkt"
+    },
+
+    "formPlaceholders": {
+      "name": "Ola Nordmann",
+      "email": "ola@bedrift.no",
+      "company": "Bedriften AS",
+      "phone": "+47 000 00 000",
+      "selectDefault": "Velg..."
+    },
+
+    "interestOptions": {
+      "automation": "Automatisering",
+      "consulting": "Rådgivning",
+      "integration": "Integrasjon",
+      "unsure": "Vet ikke enda",
+      "general": "Generell forespørsel"
+    },
+
+    "backToTop": "Tilbake til toppen",
+    "breadcrumbHome": "Hjem",
+    "gdprNote": "Vi behandler dine data i henhold til GDPR.",
+    "privacyLink": "personvernerklæring"
+  },
+
+  "home": {
+    "meta": {
+      "title": "WorkLoop — automatisering for norske bedrifter",
+      "description": "WorkLoop hjelper norske SMB-er med å spare tid og penger gjennom smart automatisering og AI-løsninger.",
+      "ogDescription": "Vi hjelper norske SMB-er spare 5-15 timer per ansatt i uken gjennom smart automatisering."
+    },
+
+    "hero": {
+      "badge": "AI-automatisering for norske bedrifter",
+      "title": "Vi automatiserer det som <span class=\"highlight\">bremser deg</span>",
+      "subtitle": "Norske SMB-er mister timer hver uke på manuelt arbeid. Vi finner tidstyvene og bygger løsninger som faktisk virker.",
+      "ctaPrimary": "Ta kontakt →",
+      "ctaSecondary": "Snakk med oss →"
+    },
+
+    "trustBar": [
+      { "icon": "lock", "text": "GDPR-kompatibelt" },
+      { "icon": "file-text", "text": "DPA-avtale inkludert" },
+      { "icon": "flag", "text": "Norsk selskap" },
+      { "icon": "zap", "text": "Svar innen 1 virkedag" },
+      { "icon": "unlock", "text": "Ingen bindingstid" }
+    ],
+
+    "icp": {
+      "label": "Hvem vi hjelper",
+      "title": "Vi kjenner din bransje",
+      "subtitle": "Vi spesialiserer oss på bransjer der manuelle prosesser stjeler mest tid — og der automatisering gir størst effekt.",
+      "cards": [
+        {
+          "icon": "briefcase",
+          "title": "Regnskapsbyråer",
+          "text": "Automatiser bokføring, fakturabehandling og klientrapportering. Frigjør rådgivertid."
+        },
+        {
+          "icon": "stethoscope",
+          "title": "Klinikker & Helse",
+          "text": "Timeplanlegging, pasientkommunikasjon og intern dokumentasjon uten ekstra administrasjon."
+        },
+        {
+          "icon": "hammer",
+          "title": "Håndverk & Bygg",
+          "text": "Tilbudsgiving, prosjektoppfølging og fakturering — automatisert slik at du kan fokusere på faget."
+        },
+        {
+          "icon": "trophy",
+          "title": "B2B Salg",
+          "text": "CRM-automatisering, lead-kvalifisering og salgsprosesser som jobber for deg døgnet rundt."
+        }
+      ],
+      "footer": "Ser du ikke din bransje her? Vi har hjulpet bedrifter i mange ulike sektorer. <a href=\"/contact\" style=\"color:var(--blue-600); font-weight:600;\">Ta kontakt</a> — vi finner sannsynligvis muligheter hos deg også."
+    },
+
+    "whyUs": {
+      "label": "Hvorfor WorkLoop",
+      "title": "Vi er ikke konsulenter — vi er partnere",
+      "paragraphs": [
+        "Som norske gründere vet vi hva det vil si å drive en SMB. Vi har selv erfart frustrasjonen av å drukne i manuelle oppgaver som burde vært automatisert for lenge siden.",
+        "Det er derfor vi startet WorkLoop — for å gi norske bedrifter tilgang til den samme AI-teknologien som store selskaper bruker, men tilpasset din virkelighet, ditt budsjett og din bransje.",
+        "Vi kommuniserer på norsk, leverer på norsk, og er tilgjengelige for deg på norsk — uten skjulte kostnader eller bindingstid."
+      ]
+    },
+
+    "team": {
+      "label": "Menneskene bak",
+      "title": "Møt teamet",
+      "subtitle": "Vi er et lite og dedikert team med bred erfaring fra teknologi, forretningsutvikling og norsk næringsliv.",
+      "members": [
+        {
+          "initials": "TH",
+          "name": "Tom Hynne",
+          "role": "Medgründer & CEO",
+          "bio": "Med 5+ år som IT-konsulent har Tom jobbet på tvers av bransjer, systemer og utfordringer. Han snakker både «teknolog» og «bedriftseier».",
+          "photo": null
+        },
+        {
+          "initials": "GW",
+          "name": "Gabriel Wollan",
+          "role": "Medgründer",
+          "bio": "Gabriel har automatisert alt fra enkle arbeidsflyter til komplekse industrisystemer. Er du usikker på om noe lar seg automatisere? Spør Gabriel.",
+          "photo": null
+        },
+        {
+          "initials": null,
+          "name": "Daniel Lystad",
+          "role": "Medgründer & CTO",
+          "bio": "Daniel er WorkLoops Microsoft 365-ekspert og spesialiserer seg på automatisering i Microsoft-økosystemet.",
+          "photo": "/images/team/daniel-lystad.jpg"
+        },
+        {
+          "initials": null,
+          "name": "Abdul-Rafeh Akvi",
+          "role": "Medgründer & Cybersecurity",
+          "bio": "Abdul sørger for at alt vi bygger er sikkert og etterprøvbart fra dag én.",
+          "photo": "/images/team/abdul-akvi.jpg?v=3"
+        },
+        {
+          "initials": "PT",
+          "name": "Philip Tordenskjold",
+          "role": "Marketing Manager",
+          "bio": "Philip leder markedsarbeidet i WorkLoop og sørger for at budskapet vårt treffer riktig.",
+          "photo": null
+        }
+      ]
+    },
+
+    "whatWeDo": {
+      "label": "Hva vi gjør",
+      "title": "Vi bygger fremtidens arbeidsprosesser for norske bedrifter",
+      "paragraphs": [
+        "WorkLoop spesialiserer seg på praktisk automatisering for små og mellomstore norske bedrifter. Vi tar ikke i bruk teknologi for teknologiens skyld — vi fokuserer på løsninger som faktisk sparer tid og penger fra dag én.",
+        "Vårt team kjenner den norske forretningshverdagen, og vi tilpasser hver løsning til din bransje og dine behov."
+      ],
+      "cards": [
+        {
+          "icon": "hard-hat",
+          "title": "Prosessautomatisering",
+          "text": "Fjern manuelle og repetitive arbeidsoppgaver med smarte AI-løsninger.",
+          "outcome": "→ Typisk 5–10t spart per ansatt/uke"
+        },
+        {
+          "icon": "bot",
+          "title": "AI-assistenter",
+          "text": "Egendefinerte chatboter og assistenter trenet på din bedrifts data.",
+          "outcome": "→ Besvarer 80% av henvendelser automatisk"
+        },
+        {
+          "icon": "bar-chart-2",
+          "title": "Datainnsikt",
+          "text": "Automatiserte rapporter og dashboards som gir deg oversikt i sanntid.",
+          "outcome": "→ Rapporter klare uten manuell jobb"
+        },
+        {
+          "icon": "link",
+          "title": "Systemintegrasjon",
+          "text": "Koble eksisterende verktøy og systemer slik at de snakker sammen.",
+          "outcome": "→ Eliminerer dobbeltregistrering"
+        }
+      ]
+    },
+
+    "ctaSection": {
+      "title": "La oss automatisere det som bremser deg",
+      "subtitle": "Fortell oss hva dere bruker tid på. Vi finner ut hva som kan automatiseres — og bygger det."
+    },
+
+    "contactSection": {
+      "label": "Ta kontakt",
+      "title": "Klar for å spare tid og penger?",
+      "text": "Fortell oss litt om bedriften din, så tar vi en uforpliktende samtale om hvordan automatisering kan hjelpe deg. Ingen forpliktelser, ingen skjulte kostnader.",
+      "formTitle": "Send oss en melding",
+      "formMessage": "Hva gjør dere, og hva bruker dere mest tid på?",
+      "contactDetails": {
+        "email": { "label": "E-post", "value": "post@workloop.no" },
+        "address": { "label": "Adresse", "value": "Oslo, Norge" },
+        "response": { "label": "Responstid", "value": "Innen 1 virkedag" }
+      }
+    }
+  },
+
+  "about": {
+    "meta": {
+      "title": "Om oss — WorkLoop",
+      "description": "Lær mer om WorkLoop — hvem vi er, hva vi tror på og hvorfor vi startet. Et norsk teknologiselskap, IKKE en kryptovaluta.",
+      "ogDescription": "Vi er et norsk teknologiselskap med én misjon: å gi norske bedrifter tilbake tiden de fortjener."
+    },
+
+    "header": {
+      "breadcrumb": "Om oss",
+      "title": "Vi er WorkLoop",
+      "subtitle": "Et norsk teknologiselskap med én misjon: å gi norske bedrifter tilbake tiden de fortjener."
+    },
+
+    "story": {
+      "label": "Vår historie",
+      "title": "Fra frustrasjon til forretningsidé",
+      "paragraphs": [
+        "Som norske gründere har vi selv erfart frustrasjonen av å bruke timevis på oppgaver som burde vært automatisert. Regneark sendt frem og tilbake. Manuelle fakturagjennomganger. Tidkrevende rapportering. Oppfølging av kunder som lett glemmes i en travel hverdag.",
+        "Teknologien for å løse dette har eksistert lenge, men veien dit har vært lang, kostbar og forbeholdt store selskaper med egne IT-avdelinger. Det mente vi var feil.",
+        "WorkLoop ble grunnlagt for å bygge broen mellom avansert teknologi og den norske forretningshverdagen. Vi tilpasser løsningene til din bransje, ditt budsjett og din virkelighet — og vi snakker norsk hele veien.",
+        "Med bakgrunn fra IT-konsulentvirksomhet, industriell automatisering og cybersecurity har vi kompetansen til å håndtere det meste norske bedrifter møter. Vi er akkurat store nok til å levere — og akkurat små nok til at du alltid vet hvem du snakker med."
+      ]
+    },
+
+    "missionVision": {
+      "label": "Vårt fundament",
+      "title": "Misjon og visjon",
+      "mission": {
+        "title": "Vår misjon",
+        "text": "Å gjøre automatisering tilgjengelig for alle norske bedrifter — uavhengig av størrelse eller teknisk kompetanse. Vi leverer enkle, effektive løsninger som gir målbare resultater fra dag én."
+      },
+      "vision": {
+        "title": "Vår visjon",
+        "text": "En fremtid der ingen norske gründere og ansatte bruker sin dyrebare tid på kjedelige, repetitive oppgaver. Menneskelig kreativitet og kompetanse skal brukes på det som faktisk skaper verdi."
+      }
+    },
+
+    "values": {
+      "label": "Det vi tror på",
+      "title": "Kjerneverdiene våre",
+      "items": [
+        {
+          "icon": "clipboard-list",
+          "title": "Ærlighet",
+          "text": "Vi sier tydelig fra dersom et prosjekt ikke vil gi verdi, og vi lover aldri mer enn vi kan levere."
+        },
+        {
+          "icon": "zap",
+          "title": "Effektivitet",
+          "text": "Tid er penger. Vi jobber raskt, strukturert og med klare mål for hvert prosjekt."
+        },
+        {
+          "icon": "handshake",
+          "title": "Partnerskap",
+          "text": "Vi ser på oss selv som en del av teamet ditt, ikke en ekstern leverandør du sender fakturaer til."
+        },
+        {
+          "icon": "bar-chart-2",
+          "title": "Resultater",
+          "text": "Alt vi gjør måles mot ett spørsmål: skapte dette faktisk verdi for kunden?"
+        }
+      ]
+    },
+
+    "teamExtended": {
+      "label": "Menneskene bak",
+      "title": "Møt teamet",
+      "subtitle": "Vi er et lite og dedikert team med bred erfaring fra teknologi, forretningsutvikling og norsk næringsliv.",
+      "members": [
+        {
+          "initials": "TH",
+          "name": "Tom Hynne",
+          "role": "Medgründer & CEO",
+          "bio": "Med 5+ år som IT-konsulent har Tom jobbet på tvers av bransjer, systemer og utfordringer. Han snakker både \"teknolog\" og \"bedriftseier\" — og sørger for at løsningene alltid treffer der det faktisk gjør vondt.",
+          "photo": null
+        },
+        {
+          "initials": "GW",
+          "name": "Gabriel Wollan",
+          "role": "Medgründer",
+          "bio": "Gabriel har automatisert alt fra enkle arbeidsflyter til komplekse industrisystemer. Er du usikker på om noe lar seg automatisere — spør Gabriel. Svaret er nesten alltid ja.",
+          "photo": null
+        },
+        {
+          "initials": null,
+          "name": "Daniel Lystad",
+          "role": "Medgründer & CTO",
+          "bio": "Daniel er WorkLoops Microsoft 365-ekspert og spesialiserer seg på automatisering i Microsoft-økosystemet. Med dyp kunnskap om Power Platform, Power Automate, Copilot og Azure Foundry-tjenester hjelper han bedrifter med å utnytte Microsoft 365 til fulle — ofte med løsninger som allerede er inkludert i lisensene de betaler for.",
+          "photo": "/images/team/daniel-lystad.jpg"
+        },
+        {
+          "initials": null,
+          "name": "Abdul-Rafeh Akvi",
+          "role": "Medgründer & Cybersecurity",
+          "bio": "Abdul sørger for at alt vi bygger er sikkert og etterprøvbart fra dag én. Med ham i teamet kan du automatisere med ro i magen — uansett bransje eller krav til datasikkerhet.",
+          "photo": "/images/team/abdul-akvi.jpg?v=3"
+        },
+        {
+          "initials": "PT",
+          "name": "Philip Tordenskjold",
+          "role": "Marketing Manager",
+          "bio": "Philip leder markedsarbeidet i WorkLoop og sørger for at budskapet vårt treffer riktig. Med et skarpt blikk for kommunikasjon og strategi bygger han synlighet og tillit i det norske markedet.",
+          "photo": null
+        }
+      ]
+    },
+
+    "cta": {
+      "title": "Bli vår neste suksesshistorie",
+      "subtitle": "Ta kontakt i dag for en uforpliktende samtale om hva AI kan gjøre for din bedrift."
+    }
+  },
+
+  "contact": {
+    "meta": {
+      "title": "Kontakt oss — WorkLoop",
+      "description": "Ta kontakt med WorkLoop — vi hjelper deg med automatisering og AI-løsninger.",
+      "ogDescription": "Vi svarer innen 1 virkedag. Ta kontakt for en uforpliktende samtale."
+    },
+
+    "header": {
+      "breadcrumb": "Kontakt",
+      "title": "Ta kontakt",
+      "subtitle": "Vi svarer innen 1 virkedag. Ta kontakt for en uforpliktende samtale."
+    },
+
+    "info": {
+      "label": "Kontaktinformasjon",
+      "title": "La oss ta en prat",
+      "text": "Uansett om du har et konkret prosjekt eller bare er nysgjerrig på hva AI kan gjøre for deg — ta kontakt. Alle henvendelser behandles innen 1 virkedag.",
+      "cards": {
+        "email": {
+          "title": "E-post",
+          "value": "post@workloop.no"
+        },
+        "address": {
+          "title": "Adresse",
+          "value": "Oslo, Norge",
+          "extra": "Vi jobber også digitalt med bedrifter over hele landet."
+        },
+        "hours": {
+          "title": "Åpningstider",
+          "value": "Mandag–fredag: 08:00–16:00",
+          "extra": "Responstid: < 1 virkedag"
+        }
+      }
+    },
+
+    "form": {
+      "title": "Send oss en melding",
+      "subtitle": "Fyll ut skjemaet under, så tar vi kontakt innen 1 virkedag.",
+      "interestLabel": "Hva kan vi hjelpe deg med?",
+      "messageLabel": "Fortell litt om bedriften og utfordringene dine *",
+      "messagePlaceholder": "Hva gjør dere, hvilke oppgaver tar mest tid, og hva ønsker du å oppnå med automatisering?",
+      "bookingCheckbox": "Jeg vil gjerne booke en gratis 30 min samtale",
+      "weekdayError": "Velg en ukedag (mandag-fredag)."
+    },
+
+    "faq": {
+      "label": "Har du spørsmål?",
+      "title": "Vanlige spørsmål",
+      "items": [
+        {
+          "question": "Er den første samtalen helt gratis og uforpliktende?",
+          "answer": "Ja, absolutt. Den første samtalen er alltid gratis og uforpliktende. Vi bruker 30 minutter på å forstå bedriften din og finne ut om vi kan hjelpe deg. Ingen salgspress, ingen skjult agenda."
+        },
+        {
+          "question": "Hvor lang tid tar det fra jeg kontakter dere til vi er i gang?",
+          "answer": "Vi svarer innen 1 virkedag og kan vanligvis ha en oppstartsamtale i løpet av uken etter. Tidsrammen avhenger av prosjektets omfang, men vi har vanligvis ledig kapasitet innen 2–4 uker."
+        },
+        {
+          "question": "Jobber dere bare i Oslo, eller hjelper dere bedrifter over hele Norge?",
+          "answer": "Vi jobber med bedrifter over hele Norge. De fleste møter gjennomføres digitalt via Teams eller Zoom. For større prosjekter kan vi reise til deg ved behov. Avstand er ikke et hinder."
+        },
+        {
+          "question": "Hva trenger jeg å forberede til den første samtalen?",
+          "answer": "Ingenting spesielt. Det holder at du tenker litt over hvilke oppgaver som tar mest tid i hverdagen din. Vi stiller spørsmålene og finner strukturen. Jo mer åpen du er, desto bedre kan vi hjelpe deg."
+        }
+      ]
+    }
+  },
+
+  "services": {
+    "meta": {
+      "title": "Tjenester — WorkLoop",
+      "description": "WorkLoop tilbyr gratis prosess-kartlegging, AI-Sprint og AI-Retainer for norske bedrifter. Se detaljer og priser.",
+      "ogDescription": "Gratis prosess-kartlegging, AI-Sprint fra 25 000 kr, og AI-Retainer fra 8 000 kr/mnd. Priser i NOK."
+    },
+
+    "header": {
+      "breadcrumb": "Tjenester",
+      "title": "Tjenester og priser",
+      "subtitle": "Tre klare tilbud, transparent prising og tydelige resultater. Velg det som passer din situasjon."
+    },
+
+    "navLinks": [
+      { "href": "#audit", "text": "Prosess-kartlegging" },
+      { "href": "#sprint", "text": "AI-Sprint" },
+      { "href": "#retainer", "text": "AI-Retainer" }
+    ],
+
+    "audit": {
+      "serviceNumber": "Tjeneste 1 av 3",
+      "title": "Prosess-kartlegging",
+      "paragraphs": [
+        "Vet du ikke helt hvor du skal starte? Det er det vanligste spørsmålet vi får. En grundig prosess-kartlegging gir deg et klart, konkret og handlingsrettet svar — uten å binde deg til noe.",
+        "I løpet av 2–4 timer går vi grundig gjennom bedriftens prosesser og identifiserer de tre tiltakene med høyest forventet ROI. Vi vurderer f.eks. AI til automatisering. Du sitter igjen med en rapport du kan handle på umiddelbart — uavhengig av om du velger å jobbe videre med oss."
+      ],
+      "features": [
+        "Grundig prosessgjennomgang (2–4 timer)",
+        "Top-3 automatiseringsmuligheter",
+        "ROI-estimat per tiltak",
+        "Detaljert skriftlig rapport",
+        "Prioritert handlingsplan",
+        "30 min oppfølgingssamtale",
+        "Ingen bindingstid",
+        "Leveres innen 5 virkedager"
+      ],
+      "pricing": {
+        "tier": "Alle bedrifter",
+        "price": "Gratis",
+        "description": "Vi tilbyr gratis prosess-kartlegging for å identifisere automatiseringsmuligheter."
+      },
+      "howItWorks": {
+        "title": "Slik fungerer det",
+        "steps": [
+          "Du fyller ut kontaktskjemaet",
+          "Vi ringer deg innen 1 virkedag",
+          "Vi gjennomfører kartleggingen (digitalt eller fysisk)",
+          "Du mottar rapporten innen 5 virkedager"
+        ]
+      },
+      "ctaButton": "Bestill gratis kartlegging →"
+    },
+
+    "sprint": {
+      "serviceNumber": "Tjeneste 2 av 3",
+      "title": "AI-Sprint",
+      "paragraphs": [
+        "Klar til å handle? En AI-Sprint er vår implementeringstjeneste der vi går fra idé til fungerende løsning i produksjon. Raskt, strukturert og med tett dialog hele veien.",
+        "Vi tilpasser løsningen til din eksisterende teknologi, trener teamet ditt og sikrer at alt fungerer slik det skal. Tre måneder med gratis support er inkludert."
+      ],
+      "features": [
+        "Skreddersydd AI-løsning",
+        "Integrasjon med eksisterende systemer",
+        "Testing og kvalitetssikring",
+        "Opplæring av ansatte",
+        "Teknisk dokumentasjon",
+        "3 mnd gratis support",
+        "Faste ukentlige statusmøter",
+        "Klare milepæler og leveranser"
+      ],
+      "pricing": [
+        {
+          "tier": "Standard Sprint",
+          "price": "25 000 – 75 000 kr",
+          "description": "Enkel automatisering, én prosess. 2–4 ukers leveringstid."
+        },
+        {
+          "tier": "Pro Sprint",
+          "price": "75 000 – 250 000 kr",
+          "description": "Komplekse løsninger, flere integrasjoner. 4–12 ukers leveringstid."
+        }
+      ],
+      "timeline": {
+        "title": "Typisk leveringstidslinje",
+        "steps": [
+          { "label": "Uke 1", "sub": "Kravspec & plan" },
+          { "label": "Uke 2–3", "sub": "Utvikling" },
+          { "label": "Uke 4", "sub": "Testing" },
+          { "label": "Uke 5", "sub": "Lansering" },
+          { "label": "Mnd 2–4", "sub": "Gratis support" }
+        ]
+      },
+      "ctaButton": "Start din sprint →"
+    },
+
+    "retainer": {
+      "serviceNumber": "Tjeneste 3 av 3",
+      "title": "AI-Retainer",
+      "paragraphs": [
+        "Vil du ha en dedikert AI-partner som hjelper deg å ligge i forkant? Med AI-Retainer blir WorkLoop en fast del av teamet ditt — vi optimerer, vedlikeholder og videreutvikler løsningene dine løpende.",
+        "Perfekt for bedrifter som allerede er i gang med AI og ønsker å kontinuerlig forbedre seg, eller som ønsker et fast månedlig budsjett uten overraskelser."
+      ],
+      "features": [
+        "Månedlig strategimøte (2 timer)",
+        "Løpende optimering av løsninger",
+        "Prioritert support (respons < 4 timer)",
+        "Ny funksjonalitet etter behov",
+        "Månedlig KPI-rapport",
+        "Tilgang til alle nye verktøy vi lanserer",
+        "Dedikert kontaktperson",
+        "Oppsigelse med 1 måneds varsel"
+      ],
+      "pricing": [
+        {
+          "tier": "Basis",
+          "price": "8 000 kr/mnd",
+          "description": "Support og løpende optimering. Maks 8 timer per måned."
+        },
+        {
+          "tier": "Vekst",
+          "price": "30 000 kr/mnd",
+          "description": "Full partner. Ubegrenset support og aktiv videreutvikling."
+        }
+      ],
+      "discount": {
+        "title": "Spar 15% med årsavtale",
+        "text": "Inngår du en årsavtale får du 15% rabatt på månedsprisen. Kontakt oss for tilbud."
+      },
+      "ctaButton": "Snakk med oss om retainer →"
+    },
+
+    "faq": {
+      "label": "Vanlige spørsmål",
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "Trenger vi teknisk kompetanse internt for å bruke løsningene?",
+          "answer": "Nei. Vi designer løsningene slik at dine ansatte kan bruke dem uten teknisk bakgrunn. Opplæring og brukerdokumentasjon er alltid inkludert i leveransen."
+        },
+        {
+          "question": "Hva skjer med dataene våre? Er det GDPR-sikkert?",
+          "answer": "Alle løsninger er designet i henhold til GDPR-regelverket. Vi signerer databehandleravtale (DPA) med alle kunder, og vi bruker kun GDPR-godkjente skytjenester med servere i EØS."
+        },
+        {
+          "question": "Hvor lang tid tar det å se resultater?",
+          "answer": "For de fleste kunder ser vi målbare resultater innen 30 dager etter at løsningen er i drift. Tidssparingsgevinsten er typisk umiddelbar, mens ROI-beregningen tar 2–3 måneder å verifisere."
+        },
+        {
+          "question": "Kan jeg avslutte samarbeidet når som helst?",
+          "answer": "Ja. Prosess-kartlegging og AI-Sprint er engangsprosjekter uten bindingstid. AI-Retainer har 1 måneds oppsigelsestid. Vi tror på å beholde kunder gjennom resultater, ikke kontrakter."
+        },
+        {
+          "question": "Hva om dere ikke leverer som lovet?",
+          "answer": "Vi har klare suksesskriterier og leveransegaranti i alle kontrakter. Dersom vi ikke oppfyller de avtalte målene, jobber vi kostnadsfritt til vi gjør det. Vi tar ansvaret fullt ut."
+        }
+      ]
+    },
+
+    "cta": {
+      "title": "Usikker på hvilken pakke som passer?",
+      "subtitle": "De aller fleste starter med en gratis prosess-kartlegging. Ring oss eller send en melding — vi finner ut av det sammen.",
+      "primaryButton": "Bestill gratis kartlegging →",
+      "secondaryButton": "Snakk med oss"
+    }
+  },
+
+  "prosjekter": {
+    "meta": {
+      "title": "Prosjekter & Innhold — WorkLoop",
+      "description": "Se våre prosjekter og lær om automatisering for norske bedrifter — videoer, artikler og case studies fra WorkLoop.",
+      "ogDescription": "Se våre prosjekter og lær om automatisering for norske bedrifter."
+    },
+
+    "header": {
+      "breadcrumb": "Prosjekter",
+      "title": "Prosjekter og innhold",
+      "subtitle": "Videoer, artikler, guider og case studies om AI-automatisering for norske bedrifter."
+    },
+
+    "featured": {
+      "label": "Utvalgt prosjekt",
+      "tag": "Case Study",
+      "title": "Slik automatiserte vi fakturabehandling for et regnskapsbyrå — fra 15 timer til 1 time per uke",
+      "text": "En detaljert gjennomgang av et reelt prosjekt: hva vi fant i kartleggingen, hva vi bygde og hva resultatet ble. Inkluderer kostnadsberegning og ROI-analyse.",
+      "duration": "22 min",
+      "category": "Regnskap & Økonomi",
+      "videoPlaceholder": "Video kommer snart",
+      "videoSubtext": "Erstatt med din YouTube video-ID"
+    },
+
+    "contentCards": [
+      {
+        "type": "video",
+        "tag": "Video",
+        "title": "5 prosesser du bør automatisere i din SMB i dag",
+        "text": "Vi går gjennom de vanligste tidstyvene og viser konkret hvordan AI eliminerer dem.",
+        "duration": "8 min",
+        "category": "Automatisering"
+      },
+      {
+        "type": "article",
+        "tag": "Artikkel",
+        "title": "Hva koster AI-automatisering egentlig for norske bedrifter?",
+        "text": "En ærlig gjennomgang av priser, skjulte kostnader og hva du faktisk kan forvente å spare.",
+        "duration": "6 min",
+        "category": "Økonomi"
+      },
+      {
+        "type": "guide",
+        "tag": "Guide",
+        "title": "Nybegynnerguide: Kom i gang med AI i din bedrift på 30 dager",
+        "text": "En steg-for-steg guide for deg som aldri har jobbet med AI-automatisering før.",
+        "duration": "12 min",
+        "category": "Guide"
+      },
+      {
+        "type": "case",
+        "tag": "Case Study",
+        "title": "Rørleggerbedrift sparte 12 timer per uke med automatisert tilbudsgivning",
+        "text": "Hele prosjektet fra A til Å — hva vi bygde, utfordringene vi møtte og sluttresultatet.",
+        "duration": "7 min",
+        "category": "Case Study"
+      },
+      {
+        "type": "video",
+        "tag": "Video",
+        "title": "AI-chatbot for kundeservice: Slik satte vi opp en på 3 dager",
+        "text": "Live-demonstrasjon av oppsett, konfigurasjon og integrasjon mot eksisterende systemer.",
+        "duration": "15 min",
+        "category": "Demo"
+      },
+      {
+        "type": "article",
+        "tag": "Artikkel",
+        "title": "GDPR og AI: Alt du trenger å vite som norsk bedrift i 2025",
+        "text": "Hvilke regler gjelder, hva du må passe på og hvordan vi sikrer at våre løsninger er trygge.",
+        "duration": "9 min",
+        "category": "Jus & Compliance"
+      }
+    ],
+
+    "newsletter": {
+      "label": "Nyhetsbrev",
+      "title": "Bli med 500+ norske gründere",
+      "text": "Få praktiske AI-tips, case studies og eksklusive tilbud rett i innboksen din. Én e-post per uke — aldri spam.",
+      "placeholder": "din@epost.no",
+      "button": "Meld meg på →",
+      "disclaimer": "Du kan melde deg av når som helst. Vi behandler data i henhold til GDPR."
+    },
+
+    "cta": {
+      "title": "Klar til å handle?",
+      "subtitle": "Ta kontakt for en uforpliktende samtale om hva vi kan gjøre for din bedrift."
+    }
+  },
+
+  "chatbot": {
+    "config": {
+      "botName": "WorkLoop",
+      "greeting": "Hei! Jeg er WorkLoops AI-assistent. Hvordan kan jeg hjelpe deg i dag?",
+      "placeholder": "Skriv en melding...",
+      "subtitle": "AI-assistent",
+      "suggestions": [
+        "Hva tilbyr WorkLoop?",
+        "Hva koster det?",
+        "Book en gratis samtale"
+      ]
+    },
+
+    "bookingFlow": {
+      "namePrompt": "La oss sette opp en gratis samtale! Hva heter du?",
+      "nameError": "Vennligst oppgi navnet ditt.",
+      "emailPrompt": "Hva er din e-postadresse?",
+      "emailError": "Det ser ikke ut som en gyldig e-postadresse. Prov igjen.",
+      "datePrompt": "Hvilken dato passer? (skriv f.eks. **2026-04-01** eller **mandag**)",
+      "dateError": "Jeg forstod ikke datoen. Skriv f.eks. **2026-04-01**, **mandag**, **tirsdag**, eller **neste uke**.",
+      "timePrompt": "Hvilket tidspunkt? Vi har tider mellom 08:00 og 15:30 (30-min intervaller).",
+      "timeError": "Velg et tidspunkt mellom 08:00 og 15:30. Skriv f.eks. **10:00** eller **14:30**.",
+      "startMessage": "Supert! La meg hjelpe deg med a booke en gratis samtale.",
+      "cancelMessage": "Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?",
+      "successMessage": "Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** {name}\n- **Dato:** {date}\n- **Tid:** {time}\n\nVi bekrefter tidspunktet innen 1 virkedag pa **{email}**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.",
+      "errorMessage": "Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).",
+      "connectionError": "Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).",
+      "cancelLabel": "Avbryt booking"
+    },
+
+    "responses": {
+      "greeting": "Hei! Hyggelig at du tar kontakt. Hva kan jeg hjelpe deg med?",
+      "services": "WorkLoop hjelper bedrifter med:\n\n- **Automatisering** av repetitive oppgaver\n- **AI-løsninger** tilpasset din bedrift\n- **Integrasjoner** mellom systemer\n- **Rådgivning** om digitalisering\n\nVi tilpasser alltid løsningen til dine behov. Vil du ta en prat?",
+      "pricing": "Prisene våre avhenger av prosjektets omfang og kompleksitet. Vi gir alltid et tydelig og uforpliktende tilbud før du forplikter deg til noe.\n\nTa kontakt for en samtale, så finner vi den beste løsningen for ditt budsjett!",
+      "chatbots": "Vi bygger skreddersydde AI-chatboter som kan:\n\n- Svare pa kundehenvendelser 24/7\n- Booke timer og mater\n- Fange opp og kvalifisere leads\n- Integreres med kalendere, CRM og epost\n\nAlt tilpasset din bedrifts tone-of-voice og behov. Vil du hore mer?",
+      "automation": "Vi spesialiserer oss pa automatisering av repetitive oppgaver ved hjelp av AI og verktoy som n8n, Power Automate og Azure.\n\nEksempler pa hva vi automatiserer:\n- Fakturahendtering og regnskap\n- Kundeoppfolging og lead-hendtering\n- Rapportering og datautveksling\n- Booking og timeplanlegging\n\nHva slags oppgaver bruker din bedrift mest tid pa?",
+      "microsoft": "Vi er eksperter pa Microsoft 365-okosystemet! Vi hjelper bedrifter med a utnytte verktoyene de allerede betaler for:\n\n- **Power Automate** for arbeidsflyter\n- **Power Apps** for skreddersydde apper\n- **Copilot** og AI-integrasjoner\n- **Azure** for skalerbare losninger\n\nMange bedrifter bruker bare en brodel av det Microsoft 365 kan tilby.",
+      "contact": "Du kan na oss pa flere mater:\n\n**E-post:** post@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa booke en gratis samtale direkte her i chatten!",
+      "team": "WorkLoop er grunnlagt av et norsk team med bred erfaring innen teknologi:\n\n- **Tom Hynne** — CEO, 5+ ar som IT-konsulent\n- **Daniel Lystad** — CTO, Microsoft 365-ekspert\n- **Gabriel Wollan** — Medgrunder, automatiseringsekspert\n- **Abdul-Rafeh Akvi** — Cybersecurity\n- **Philip Tordenskjold** — Marketing Manager\n\nSe mer om oss pa forsiden!",
+      "security": "Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.",
+      "fallback": "Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [booke en gratis samtale](/contact#booking)."
+    },
+
+    "keywords": {
+      "greeting": ["hei", "hallo", "heisann", "yo", "morn"],
+      "services": ["tilbyr", "tjenester", "hva gjor", "hva gjør", "produkter", "losninger", "løsninger"],
+      "pricing": ["pris", "kost", "betale", "billig", "dyr", "budsjett", "investering"],
+      "booking": ["bestill", "book", "avtale", "mote", "møte", "samtale", "time"],
+      "chatbots": ["chatbot", "chat", "bot", "kundeservice", "agent"],
+      "automation": ["automat", "n8n", "workflow", "arbeidsflyt", "effektiv"],
+      "microsoft": ["microsoft", "365", "power", "azure", "teams", "sharepoint"],
+      "contact": ["kontakt", "ring", "epost", "mail", "snakke"],
+      "team": ["hvem", "teamet", "grunder", "om dere", "bakgrunn"],
+      "security": ["sikker", "gdpr", "personvern", "data", "trygg"]
+    }
+  }
+}

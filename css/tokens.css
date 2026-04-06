@@ -1,0 +1,83 @@
+/* ================================================================
+   WorkLoop AS — Design Tokens
+   Brand colors, spacing, typography, shadows, and transitions
+   ================================================================ */
+
+:root {
+  /* ── Brand Colors ───────────────────────────────────────────── */
+  --blue-600: #3D9BE1;
+  --blue-900: #1A2E44;
+  --shadow: #3088CB;
+  --midtone: #3894D9;
+  --highlight: #42A3EA;
+
+  /* ── Extended Palette ──────────────────────────────────────── */
+  --blue-800: #1E3A52;
+  --blue-700: #2A5070;
+  --blue-500: #5AADE8;
+  --blue-400: #7DC0EE;
+  --blue-200: #B8DAF4;
+  --blue-100: #E0EFF9;
+  --blue-50:  #F0F7FD;
+
+  /* ── Accent & Status ───────────────────────────────────────── */
+  --red:  #C0392B;
+  --accent: #3D9BE1;
+
+  /* ── Grays ─────────────────────────────────────────────────── */
+  --gray-900: #111827;
+  --gray-800: #1F2937;
+  --gray-700: #374151;
+  --gray-600: #4B5563;
+  --gray-500: #6B7280;
+  --gray-400: #9CA3AF;
+  --gray-300: #D1D5DB;
+  --gray-200: #E5E7EB;
+  --gray-100: #F3F4F6;
+  --gray-50:  #F9FAFB;
+
+  /* ── Semantic Colors ───────────────────────────────────────── */
+  --bg-dark: #0d1b2a;
+  --bg-light: #F8FAFC;
+  --text-primary: #1A2E44;
+  --text-primary-inverted: #ffffff;
+  --text-secondary: #4B5563;
+  --text-secondary-inverted: rgba(255, 255, 255, 0.7);
+  --border: #E5E7EB;
+  --white: #ffffff;
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-family: 'Plus Jakarta Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* ── Spacing Scale ─────────────────────────────────────────── */
+  --s-1:  0.25rem;
+  --s-2:  0.5rem;
+  --s-3:  0.75rem;
+  --s-4:  1rem;
+  --s-5:  1.25rem;
+  --s-6:  1.5rem;
+  --s-8:  2rem;
+  --s-10: 2.5rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --s-20: 5rem;
+  --s-24: 6rem;
+
+  /* ── Border Radius ─────────────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-xl: 0 8px 32px rgba(0,0,0,0.10);
+
+  /* ── Transitions ───────────────────────────────────────────── */
+  --t: 0.2s ease;
+  --t-slow: 0.4s ease;
+}

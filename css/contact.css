@@ -1,0 +1,165 @@
+/* ===== Contact Page Styles ===== */
+
+/* Background & Page Layout */
+body.contact-page {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a3a52 50%, #0f2542 100%);
+  background-attachment: fixed;
+  color: var(--text-primary-inverted);
+  min-height: 100vh;
+  overflow-y: auto;
+  height: auto;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='400' height='400' fill='%230d1b2a' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Contact Section */
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Info Block */
+.contact-info {
+  color: var(--text-primary-inverted);
+}
+
+.contact-info h1 {
+  color: var(--text-primary-inverted);
+}
+
+.contact-info .section-sub {
+  color: var(--text-secondary-inverted);
+}
+
+/* Contact Detail Cards */
+.contact-detail {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--t);
+}
+
+.contact-detail:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-detail-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(61, 155, 225, 0.15);
+  border: 1px solid rgba(61, 155, 225, 0.3);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  color: #42A3EA;
+}
+
+.contact-detail-text strong {
+  display: block;
+  color: var(--text-primary-inverted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contact-detail-text span {
+  color: var(--text-secondary-inverted);
+  font-size: 0.9375rem;
+}
+
+/* Form Card */
+.form-card {
+  background: rgba(26, 46, 68, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.form-card h3 {
+  color: var(--text-primary-inverted);
+}
+
+.form-group label {
+  color: var(--text-primary-inverted);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary-inverted);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(61, 155, 225, 0.5);
+  box-shadow: 0 0 0 2px rgba(61, 155, 225, 0.1);
+}
+
+.form-group select option {
+  background: #1a2e44;
+  color: var(--text-primary-inverted);
+}
+
+/* Booking Toggle */
+.booking-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary-inverted);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius);
+  transition: background var(--t);
+}
+
+.booking-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.booking-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue-600);
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .contact-detail {
+    padding: 1rem;
+  }
+}
