@@ -106,23 +106,7 @@
   // Make switchPage available globally
   window.switchPage = switchPage;
 
-  // Coordinate-based click detection for nav buttons
-  document.addEventListener('click', (e) => {
-    navBtns.forEach(btn => {
-      const rect = btn.getBoundingClientRect();
-      if (
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom
-      ) {
-        const target = btn.dataset.page;
-        if (target) {
-          switchPage(target);
-        }
-      }
-    });
-  });
+  // Nav buttons use onclick handlers directly (pointer-events restored)
 
   /* ─── Scroll animations (IntersectionObserver) ──────────── */
   const animateElements = document.querySelectorAll('.animate-on-scroll');
@@ -218,7 +202,7 @@
         'DTSTART;TZID=Europe/Oslo:' + start + '\r\nDTEND;TZID=Europe/Oslo:' + end + '\r\n' +
         'DTSTAMP:' + now + '\r\nSUMMARY:WorkLoop - Gratis samtale\r\n' +
         'DESCRIPTION:Gratis 30 min samtale med WorkLoop.\\nKontakt: ' + name + ' (' + email + ')\r\n' +
-        'ORGANIZER;CN=WorkLoop:mailto:post@workloop.no\r\nATTENDEE;CN=' + name + ':mailto:' + email + '\r\n' +
+        'ORGANIZER;CN=WorkLoop:mailto:kontakt@workloop.no\r\nATTENDEE;CN=' + name + ':mailto:' + email + '\r\n' +
         'STATUS:TENTATIVE\r\nEND:VEVENT\r\nEND:VCALENDAR';
     }
 
@@ -303,8 +287,14 @@
     btn.addEventListener('click', () => {
       const item   = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 

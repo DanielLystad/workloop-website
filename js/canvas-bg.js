@@ -129,6 +129,7 @@
   }
 
   function frame(ts) {
+    if (document.hidden) { requestAnimationFrame(frame); return; }
     time = ts * 0.001;
     smoothMouse.x += (mouse.x - smoothMouse.x) * 0.03;
     smoothMouse.y += (mouse.y - smoothMouse.y) * 0.03;

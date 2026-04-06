@@ -17,19 +17,19 @@
     { keywords: ['tilbyr', 'tjenester', 'hva gjor', 'hva gjør', 'produkter', 'losninger', 'løsninger'], response: 'WorkLoop hjelper bedrifter med:\n\n- **Automatisering** av repetitive oppgaver\n- **AI-løsninger** tilpasset din bedrift\n- **Integrasjoner** mellom systemer\n- **Rådgivning** om digitalisering\n\nVi tilpasser alltid løsningen til dine behov. Vil du ta en prat?' },
     { keywords: ['pris', 'kost', 'betale', 'billig', 'dyr', 'budsjett', 'investering'], response: 'Prisene våre avhenger av prosjektets omfang og kompleksitet. Vi gir alltid et tydelig og uforpliktende tilbud før du forplikter deg til noe.\n\nTa kontakt for en samtale, så finner vi den beste løsningen for ditt budsjett!' },
     { keywords: ['bestill', 'book', 'avtale', 'mote', 'møte', 'samtale', 'time'], response: '__BOOKING__' },
-    { keywords: ['chatbot', 'chat', 'bot', 'kundeservice', 'agent'], response: 'Vi bygger skreddersydde AI-chatboter som kan:\n\n- Svare pa kundehenvendelser 24/7\n- Booke timer og mater\n- Fange opp og kvalifisere leads\n- Integreres med kalendere, CRM og epost\n\nAlt tilpasset din bedrifts tone-of-voice og behov. Vil du hore mer?' },
-    { keywords: ['automat', 'n8n', 'workflow', 'arbeidsflyt', 'effektiv'], response: 'Vi spesialiserer oss pa automatisering av repetitive oppgaver ved hjelp av AI og verktoy som n8n, Power Automate og Azure.\n\nEksempler pa hva vi automatiserer:\n- Fakturahendtering og regnskap\n- Kundeoppfolging og lead-hendtering\n- Rapportering og datautveksling\n- Booking og timeplanlegging\n\nHva slags oppgaver bruker din bedrift mest tid pa?' },
-    { keywords: ['microsoft', '365', 'power', 'azure', 'teams', 'sharepoint'], response: 'Vi er eksperter pa Microsoft 365-okosystemet! Vi hjelper bedrifter med a utnytte verktoyene de allerede betaler for:\n\n- **Power Automate** for arbeidsflyter\n- **Power Apps** for skreddersydde apper\n- **Copilot** og AI-integrasjoner\n- **Azure** for skalerbare losninger\n\nMange bedrifter bruker bare en brodel av det Microsoft 365 kan tilby.' },
-    { keywords: ['kontakt', 'ring', 'epost', 'mail', 'snakke'], response: 'Du kan na oss pa flere mater:\n\n**E-post:** post@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa booke en gratis samtale direkte her i chatten!' },
-    { keywords: ['hvem', 'teamet', 'grunder', 'om dere', 'bakgrunn'], response: 'WorkLoop er grunnlagt av et norsk team med bred erfaring innen teknologi:\n\n- **Tom Hynne** — CEO, 5+ ar som IT-konsulent\n- **Daniel Lystad** — CTO, Microsoft 365-ekspert\n- **Gabriel Wollan** — Medgrunder, automatiseringsekspert\n- **Abdul-Rafeh Akvi** — Cybersecurity\n- **Philip Tordenskjold** — Marketing Manager\n\nSe mer om oss pa forsiden!' },
-    { keywords: ['sikker', 'gdpr', 'personvern', 'data', 'trygg'], response: 'Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.' }
+    { keywords: ['chatbot', 'chat', 'bot', 'kundeservice', 'agent'], response: 'Vi bygger skreddersydde AI-chatboter som kan:\n\n- Svare på kundehenvendelser 24/7\n- Booke timer og møter\n- Fange opp og kvalifisere leads\n- Integreres med kalendere, CRM og epost\n\nAlt tilpasset din bedrifts tone-of-voice og behov. Vil du høre mer?' },
+    { keywords: ['automat', 'n8n', 'workflow', 'arbeidsflyt', 'effektiv'], response: 'Vi spesialiserer oss på automatisering av repetitive oppgaver ved hjelp av AI og verktøy som n8n, Power Automate og Azure.\n\nEksempler på hva vi automatiserer:\n- Fakturahåndtering og regnskap\n- Kundeoppfølging og lead-håndtering\n- Rapportering og datautveksling\n- Booking og timeplanlegging\n\nHva slags oppgaver bruker din bedrift mest tid på?' },
+    { keywords: ['microsoft', '365', 'power', 'azure', 'teams', 'sharepoint'], response: 'Vi er eksperter på Microsoft 365-økosystemet! Vi hjelper bedrifter med å utnytte verktøyene de allerede betaler for:\n\n- **Power Automate** for arbeidsflyter\n- **Power Apps** for skreddersydde apper\n- **Copilot** og AI-integrasjoner\n- **Azure** for skalerbare løsninger\n\nMange bedrifter bruker bare en brøkdel av det Microsoft 365 kan tilby.' },
+    { keywords: ['kontakt', 'ring', 'epost', 'mail', 'snakke'], response: 'Du kan nå oss på flere måter:\n\n**E-post:** kontakt@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan også booke en gratis samtale direkte her i chatten!' },
+    { keywords: ['hvem', 'teamet', 'grunder', 'om dere', 'bakgrunn'], response: 'WorkLoop er grunnlagt av et norsk team med bred erfaring innen teknologi:\n\n- **Tom Hynne** — CEO, 5+ år som IT-konsulent\n- **Daniel Lystad** — CTO, Microsoft 365-ekspert\n- **Gabriel Wollan** — Medgrunder, automatiseringsekspert\n- **Abdul-Rafeh Akvi** — Cybersecurity\n- **Philip Tordenskjold** — Marketing Manager\n\nSe mer om oss på forsiden!' },
+    { keywords: ['sikker', 'gdpr', 'personvern', 'data', 'trygg'], response: 'Sikkerhet står høyest hos oss. Vi følger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngås med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert på teamet\n\nDu kan automatisere med ro i magen.' }
   ];
 
   // Booking flow
   var booking = { active: false, step: 0, data: {} };
   var STEPS = [
     { key: 'name', prompt: 'La oss sette opp en gratis samtale! Hva heter du?', validate: function(v) { return v.length >= 2; }, error: 'Vennligst oppgi navnet ditt.' },
-    { key: 'email', prompt: 'Hva er din e-postadresse?', validate: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }, error: 'Det ser ikke ut som en gyldig e-postadresse. Prov igjen.' },
+    { key: 'email', prompt: 'Hva er din e-postadresse?', validate: function(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }, error: 'Det ser ikke ut som en gyldig e-postadresse. Prøv igjen.' },
     { key: 'date', prompt: 'Hvilken dato passer? (skriv f.eks. **2026-04-01** eller **mandag**)', validate: function(v) { return parseDate(v) !== null; }, error: 'Jeg forstod ikke datoen. Skriv f.eks. **2026-04-01**, **mandag**, **tirsdag**, eller **neste uke**.' },
     { key: 'time', prompt: 'Hvilket tidspunkt? Vi har tider mellom 08:00 og 15:30 (30-min intervaller).', validate: function(v) { return parseTime(v) !== null; }, error: 'Velg et tidspunkt mellom 08:00 og 15:30. Skriv f.eks. **10:00** eller **14:30**.' }
   ];
@@ -58,7 +58,7 @@
 
   function formatDateNorwegian(dateStr) {
     var d = new Date(dateStr + 'T12:00:00');
-    var days = ['sondag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lordag'];
+    var days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'];
     var months = ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'];
     return days[d.getDay()] + ' ' + d.getDate() + '. ' + months[d.getMonth()];
   }
@@ -77,10 +77,10 @@
     .then(function(json) {
       hideTyping();
       if (json.success) {
-        addMessage('Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** ' + data.name + '\n- **Dato:** ' + formatDateNorwegian(data.date) + '\n- **Tid:** ' + data.time + '\n\nVi bekrefter tidspunktet innen 1 virkedag pa **' + data.email + '**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.', 'bot');
-      } else { addMessage('Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).', 'bot'); }
+        addMessage('Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** ' + data.name + '\n- **Dato:** ' + formatDateNorwegian(data.date) + '\n- **Tid:** ' + data.time + '\n\nVi bekrefter tidspunktet innen 1 virkedag på **' + data.email + '**.\n\nDu kan også [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden vår.', 'bot');
+      } else { addMessage('Beklager, noe gikk galt. Du kan også booke via [kontaktsiden vår](/contact#booking).', 'bot'); }
     })
-    .catch(function() { hideTyping(); addMessage('Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).', 'bot'); });
+    .catch(function() { hideTyping(); addMessage('Tilkoblingsfeil. Prøv igjen, eller book via [kontaktsiden vår](/contact#booking).', 'bot'); });
   }
 
   function findResponse(message) {
@@ -92,7 +92,7 @@
       if (score > bestScore) { bestScore = score; bestMatch = KB[i]; }
     }
     if (bestMatch) return bestMatch.response;
-    return 'Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [booke en gratis samtale](/contact#booking).';
+    return 'Beklager, jeg er ikke helt sikker på hva du mener. Kan du prøve å formulere det på en annen måte?\n\nDu kan også kontakte oss direkte på **kontakt@workloop.no** eller [booke en gratis samtale](/contact#booking).';
   }
 
   function formatMessage(text) {
@@ -206,7 +206,7 @@
   function createWidget() {
     var fab = document.createElement('button');
     fab.className = 'wl-fab';
-    fab.setAttribute('aria-label', 'Apne chat');
+    fab.setAttribute('aria-label', 'Åpne chat');
     fab.innerHTML = '<svg class="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h10v2H7zm0-3h10v2H7z"/></svg><svg class="ic-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
 
     var win = document.createElement('div');
@@ -322,7 +322,7 @@
         hideTyping();
         var response = findResponse(text);
         if (response === '__BOOKING__') {
-          addMessage('Supert! La meg hjelpe deg med a booke en gratis samtale.', 'bot');
+          addMessage('Supert! La meg hjelpe deg med å booke en gratis samtale.', 'bot');
           setTimeout(function() { startBooking(); }, 500);
         } else { addMessage(response, 'bot'); }
         input.disabled = false; sendBtn.disabled = false; input.focus();
@@ -346,6 +346,29 @@
 
     sendBtn.addEventListener('click', function() { handleInput(input.value); });
     input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleInput(input.value); });
+
+    // Focus trap: keep Tab within chatbot when open
+    win.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        isOpen = false;
+        fab.classList.remove('open');
+        win.classList.add('closing');
+        setTimeout(function() { win.classList.remove('vis', 'closing'); }, 200);
+        fab.focus();
+        return;
+      }
+      if (e.key === 'Tab') {
+        var focusable = win.querySelectorAll('input, button, [tabindex]:not([tabindex="-1"]), a[href]');
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

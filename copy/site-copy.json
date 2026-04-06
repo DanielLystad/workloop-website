@@ -1,7 +1,7 @@
 {
   "global": {
     "companyName": "WorkLoop",
-    "email": "post@workloop.no",
+    "email": "kontakt@workloop.no",
     "location": "Oslo, Norge",
     "hours": "Man-fre, 08-16",
     "hoursLong": "Mandag–fredag: 08:00–16:00",
@@ -214,7 +214,7 @@
       "formTitle": "Send oss en melding",
       "formMessage": "Hva gjør dere, og hva bruker dere mest tid på?",
       "contactDetails": {
-        "email": { "label": "E-post", "value": "post@workloop.no" },
+        "email": { "label": "E-post", "value": "kontakt@workloop.no" },
         "address": { "label": "Adresse", "value": "Oslo, Norge" },
         "response": { "label": "Responstid", "value": "Innen 1 virkedag" }
       }
@@ -354,7 +354,7 @@
       "cards": {
         "email": {
           "title": "E-post",
-          "value": "post@workloop.no"
+          "value": "kontakt@workloop.no"
         },
         "address": {
           "title": "Adresse",
@@ -696,10 +696,10 @@
       "chatbots": "Vi bygger skreddersydde AI-chatboter som kan:\n\n- Svare pa kundehenvendelser 24/7\n- Booke timer og mater\n- Fange opp og kvalifisere leads\n- Integreres med kalendere, CRM og epost\n\nAlt tilpasset din bedrifts tone-of-voice og behov. Vil du hore mer?",
       "automation": "Vi spesialiserer oss pa automatisering av repetitive oppgaver ved hjelp av AI og verktoy som n8n, Power Automate og Azure.\n\nEksempler pa hva vi automatiserer:\n- Fakturahendtering og regnskap\n- Kundeoppfolging og lead-hendtering\n- Rapportering og datautveksling\n- Booking og timeplanlegging\n\nHva slags oppgaver bruker din bedrift mest tid pa?",
       "microsoft": "Vi er eksperter pa Microsoft 365-okosystemet! Vi hjelper bedrifter med a utnytte verktoyene de allerede betaler for:\n\n- **Power Automate** for arbeidsflyter\n- **Power Apps** for skreddersydde apper\n- **Copilot** og AI-integrasjoner\n- **Azure** for skalerbare losninger\n\nMange bedrifter bruker bare en brodel av det Microsoft 365 kan tilby.",
-      "contact": "Du kan na oss pa flere mater:\n\n**E-post:** post@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa booke en gratis samtale direkte her i chatten!",
+      "contact": "Du kan na oss pa flere mater:\n\n**E-post:** kontakt@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa booke en gratis samtale direkte her i chatten!",
       "team": "WorkLoop er grunnlagt av et norsk team med bred erfaring innen teknologi:\n\n- **Tom Hynne** — CEO, 5+ ar som IT-konsulent\n- **Daniel Lystad** — CTO, Microsoft 365-ekspert\n- **Gabriel Wollan** — Medgrunder, automatiseringsekspert\n- **Abdul-Rafeh Akvi** — Cybersecurity\n- **Philip Tordenskjold** — Marketing Manager\n\nSe mer om oss pa forsiden!",
       "security": "Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.",
-      "fallback": "Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **post@workloop.no** eller [booke en gratis samtale](/contact#booking)."
+      "fallback": "Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **kontakt@workloop.no** eller [booke en gratis samtale](/contact#booking)."
     },
 
     "keywords": {
