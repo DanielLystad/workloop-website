@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="WorkLoop hjelper norske SMB-er med å spare tid og penger gjennom smart automatisering og AI-løsninger.">
+  <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
+
   <!-- SEO Meta Tags -->
   <meta name="keywords" content="WorkLoop, automatisering Norge, prosessautomatisering, norsk bedrift, Oslo, ikke kryptovaluta">
   <meta name="subject" content="Automatisering og forretningskonsultering for norske bedrifter">
@@ -12,9 +14,10 @@
 
   <title>WorkLoop — automatisering for norske bedrifter</title>
 
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://workloop.no/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://workloop.no/">
   <meta property="og:title" content="WorkLoop — automatisering for norske bedrifter">
@@ -29,13 +32,11 @@
   <meta name="twitter:description" content="Vi hjelper norske SMB-er spare 5-15 timer per ansatt i uken.">
   <meta name="twitter:image" content="https://workloop.no/images/og-image.jpg">
 
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/tokens.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/pages.css">
   <script src="https://unpkg.com/lucide@0.469.0"></script>
 
   <!-- JSON-LD Structured Data -->
@@ -93,31 +94,15 @@
         "name": "Hva er WorkLoop?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "WorkLoop er et norsk teknologiselskap som hjelper små og mellomstore bedrifter med webutvikling, merkevarebygging, nettverkssikkerhet og digital markedsføring. Vi er basert i Norge og betjener bedrifter over hele landet."
+          "text": "WorkLoop er et norsk teknologiselskap som hjelper små og mellomstore bedrifter med automatisering. Vi er basert i Oslo og betjener bedrifter over hele Norge. Vi er IKKE en kryptovaluta."
         }
       },
       {
         "@type": "Question",
-        "name": "Hva koster tjenestene deres?",
+        "name": "Er WorkLoop en kryptovaluta?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prisene avhenger av prosjektets omfang og kompleksitet. Vi gir alltid et tydelig og uforpliktende tilbud før du forplikter deg."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Hvor lang tid tar et typisk prosjekt?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Det varierer — en enkel nettside kan være klar på 1–2 uker, mens en komplett merkevarepakke eller sikkerhetsgjennomgang typisk tar 2–4 uker."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Er det bindingstid?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nei, vi har ingen bindingstid. Du betaler for det du bestiller, og vi leverer. Enkelt og greit."
+          "text": "Nei, WorkLoop er IKKE en kryptovaluta. Vi er et norsk teknologiselskap som leverer automatiseringstjenester til bedrifter. Vi jobber med praktisk forretningsautomatisering, ikke krypto eller blockchain."
         }
       }
     ]
@@ -141,329 +126,427 @@
   }
   </script>
 </head>
-
 <body>
 
-  <!-- Canvas Background -->
-  <canvas id="loops"></canvas>
-  <div class="noise-overlay"></div>
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-link">Hjem</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <a href="/contact" class="nav-cta">
+        Kontakt oss
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</nav>
 
-  <!-- Header -->
-  <header class="site-header">
-    <svg class="header-logo" id="headerLogo" width="120" height="26" viewBox="0 0 254 54" xmlns="http://www.w3.org/2000/svg">
-      <g id="workloop-logo" fill="#ffffff">
-        <text id="p" xml:space="preserve" x="210" y="45" font-family="Plus Jakarta Sans" font-size="53" font-weight="800">p</text>
-        <text id="workl" xml:space="preserve" x="2" y="45" font-family="Plus Jakarta Sans" font-size="53" font-weight="800">workl</text>
-        <g id="loop-icon">
-          <path fill="currentColor" d="M 165.04715 43.487396 C 162.027176 43.212456 159.54837 42.25235 157.322678 40.493614 C 156.742249 40.035381 155.476639 38.734871 155.044601 38.154446 C 153.962311 36.709927 153.281494 35.405052 152.74472 33.742329 C 152.138092 31.870121 151.858795 29.801533 152.068283 28.688683 C 152.430496 26.716105 153.399338 24.883179 154.808929 23.477934 C 155.742859 22.548376 156.881897 21.762836 157.977295 21.295876 C 158.335144 21.143131 158.422424 21.108219 158.937393 20.920563 C 159.26033 20.802731 160.255356 20.558342 160.792145 20.46233 C 161.398758 20.35323 162.703613 20.35323 163.388794 20.457966 C 165.435562 20.772179 167.251022 21.588272 169.315262 23.115713 C 169.533463 23.281548 169.716751 23.425562 169.716751 23.434292 C 169.716751 23.44302 169.572739 23.38192 169.393814 23.299006 C 167.809647 22.570196 165.959259 22.452366 164.436172 22.984789 C 163.55899 23.294638 162.773453 23.805241 162.105743 24.503498 C 161.285294 25.367594 160.787766 26.305878 160.50412 27.536558 C 160.364456 28.147533 160.342636 29.138187 160.456116 29.805899 C 160.67868 31.088947 161.211105 32.166885 162.092651 33.083351 C 162.974197 34.008537 164.030304 34.59333 165.309006 34.872631 C 165.885071 34.999191 167.181213 34.990463 167.787827 34.855179 C 170.061523 34.344574 171.89444 33.052799 174.473648 30.133205 C 175.110794 29.413128 175.21553 29.304026 175.280991 29.304026 C 175.315918 29.304026 175.673767 29.692429 176.075272 30.163755 C 178.362061 32.847687 179.204346 33.820881 180.282272 35.007923 C 180.670685 35.4356 181.028534 35.828373 181.080917 35.885105 L 181.168198 35.985481 L 180.819061 36.33461 C 180.164444 37.002319 178.471161 38.529762 178.095856 38.795971 C 178.026031 38.843975 177.733627 39.070911 177.441238 39.297844 C 177.148834 39.52478 176.860809 39.742985 176.808441 39.777897 C 176.756073 39.812813 176.537857 39.961193 176.324036 40.105206 C 175.857071 40.423786 175.905075 40.393234 175.37265 40.737999 C 174.927505 41.021667 174.748566 41.122047 174.189972 41.41008 C 173.915039 41.549725 173.766647 41.628281 173.557175 41.750477 C 173.448074 41.811573 173.343338 41.855213 172.762909 42.090878 C 172.575256 42.16943 172.413788 42.247986 172.396317 42.269806 C 172.383224 42.291626 172.33522 42.309082 172.287216 42.309082 C 172.243576 42.309082 172.121384 42.348362 172.016647 42.392002 C 171.815903 42.483646 170.973633 42.758587 170.349548 42.937515 C 169.756027 43.107712 168.787201 43.3041 168.045303 43.404476 C 167.294678 43.504852 165.723587 43.548492 165.04715 43.487396 Z"/>
-          <path fill="currentColor" d="M 195.879608 43.500484 C 192.431961 43.203728 189.084686 41.881401 185.973083 39.581512 C 184.598373 38.564674 183.681915 37.770409 182.324677 36.417526 C 180.888885 34.981735 179.85022 33.825245 177.000473 30.482334 C 175.865799 29.151279 175.708679 28.967987 175.110794 28.278458 C 172.845825 25.686174 171.183105 24.014717 169.694931 22.840771 C 169.219254 22.465456 168.219864 21.793388 167.665619 21.479168 C 164.62384 19.764076 161.459854 19.47604 158.466064 20.641258 C 156.31456 21.483532 154.4729 22.980421 153.216034 24.904999 C 152.945465 25.31959 152.417419 26.428074 152.234116 26.964859 C 152.142471 27.23107 152.059555 27.418726 152.050827 27.388178 C 151.998459 27.226706 152.255936 25.712358 152.5047 24.743526 C 153.547714 20.680538 156.244736 17.276527 159.866959 15.46542 C 161.014709 14.889359 162.581436 14.365662 163.454254 14.269653 C 163.598267 14.252193 163.833939 14.212921 163.977951 14.182369 C 164.453629 14.077629 165.230438 14.016537 166.116364 14.012169 C 169.612015 14.003441 173.325867 15.351952 176.852081 17.909325 C 179.213074 19.620056 181.578415 22.002863 185.955627 27.078325 C 186.256744 27.427456 186.872086 28.143171 187.325943 28.671228 C 190.014236 31.804661 191.991196 33.790333 193.653915 35.042831 C 194.893326 35.972389 196.102188 36.631371 197.437607 37.093967 C 199.506195 37.814049 201.688263 37.875145 203.78302 37.272892 C 206.122192 36.600822 208.177689 35.1563 209.543655 33.231728 C 210.01062 32.57711 210.311737 32.018501 210.634689 31.224234 C 210.85289 30.674355 210.94017 30.60453 210.89653 31.010393 C 210.713242 32.616386 210.006256 34.811539 209.185806 36.308426 C 208.801758 37.011047 208.251877 37.831505 207.763107 38.43375 C 207.344147 38.953079 206.301117 40.013557 205.812332 40.415058 C 205.458847 40.707455 204.241257 41.527908 203.822296 41.754841 C 203.652115 41.846489 203.433899 41.964317 203.333527 42.021053 C 203.233154 42.077782 203.097855 42.14325 203.02803 42.16943 C 202.96257 42.195618 202.722549 42.29599 202.499985 42.392002 C 201.238739 42.946243 199.632751 43.339012 197.996201 43.487396 C 197.533615 43.526672 196.289841 43.5354 195.879608 43.500484 Z"/>
-          <path fill="currentColor" d="M 200.003708 37.067783 C 198.323532 36.884491 196.547318 36.221146 194.87587 35.1563 C 194.247437 34.759163 194.037949 34.602058 194.072876 34.562782 C 194.090332 34.54969 194.334717 34.606422 194.618378 34.689342 C 195.93634 35.064651 197.276138 35.07338 198.384613 34.711159 C 198.794846 34.580238 199.488739 34.235474 199.890244 33.969261 C 200.309189 33.689957 201.020554 33.013519 201.356583 32.57711 C 202.194489 31.472988 202.635269 30.155025 202.63089 28.775967 C 202.617813 25.620712 200.265549 22.976059 197.197586 22.66621 C 196.268021 22.57456 195.09407 22.744762 194.077225 23.124439 C 193.496811 23.342646 192.130844 24.084545 191.95192 24.280928 C 191.908279 24.333298 191.855896 24.372576 191.834076 24.372576 C 191.812271 24.372576 191.554779 24.564596 191.262375 24.795895 C 190.625214 25.306496 189.054153 26.868851 188.329712 27.724215 C 188.041656 28.060251 187.78418 28.335192 187.758011 28.330828 C 187.727463 28.326462 187.426331 27.999155 187.085922 27.60202 C 186.082184 26.441166 185.986176 26.3277 184.899506 25.092653 C 184.332169 24.446768 183.41571 23.425562 182.857101 22.823315 L 181.848984 21.732288 L 182.844009 20.750359 C 184.550369 19.057087 185.903244 17.979149 187.801636 16.800838 C 188.377701 16.442978 190.267365 15.469784 190.385193 15.469784 C 190.415741 15.469784 190.507385 15.430508 190.585938 15.386864 C 190.664505 15.343224 190.808517 15.290855 190.900162 15.273399 C 190.99617 15.255943 191.122742 15.207935 191.179474 15.159931 C 191.24057 15.116291 191.314758 15.077011 191.349655 15.077011 C 191.380219 15.077011 191.585327 15.007187 191.799179 14.924267 C 192.567245 14.623146 194.203796 14.204189 194.605301 14.204189 C 194.679489 14.204189 194.884598 14.178005 195.067886 14.143093 C 195.744324 14.016537 196.765533 13.968529 197.620895 14.020897 C 199.733139 14.160549 201.273651 14.548958 202.993118 15.378139 C 205.057358 16.377518 206.768082 17.826405 208.190781 19.777164 C 209.652756 21.784657 210.643417 24.37694 210.935806 26.947403 C 211.023087 27.719852 211.023087 28.749783 210.931442 29.221106 C 210.70015 30.47797 210.102264 31.848303 209.351624 32.860779 C 209.015594 33.314644 208.024948 34.344574 207.706375 34.575874 C 207.588531 34.663155 207.41832 34.794079 207.335419 34.868271 C 206.99501 35.165028 205.969452 35.780369 205.249359 36.125137 C 204.376541 36.535362 203.521179 36.801575 202.469421 36.984863 C 201.862823 37.089603 200.592865 37.133247 200.003708 37.067783 Z"/>
-        </g>
-      </g>
-    </svg>
-
-    <nav class="header-nav" id="headerNav">
-      <button class="nav-btn active" data-page="landing" onclick="switchPage('landing')" data-copy="global.nav.home">Hjem</button>
-      <button class="nav-btn" data-page="about" onclick="switchPage('about')" data-copy="about.nav.label">Om oss</button>
-    </nav>
-  </header>
-
-  <div class="wiper-edge" id="wiperEdge"></div>
-
-  <!-- Page Wrapper -->
-  <div class="page-wrapper">
-
-    <!-- PAGE 1: LANDING -->
-    <div class="page page--landing" id="pageLanding">
-
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-content">
-          <p class="hero-tagline" data-copy="home.hero.badge">AI-automatisering for norske bedrifter</p>
-          <h1 class="hero-heading" data-copy="home.hero.title">Vi automatiserer det som <span class="accent">bremser deg</span></h1>
-          <p class="hero-sub" data-copy="home.hero.subtitle">Norske SMB-er mister timer hver uke på manuelt arbeid. Vi finner tidstyvene og bygger løsninger som faktisk virker.</p>
-          <div class="hero-cta">
-            <a href="javascript:void(0)" class="btn btn-primary" onclick="copyEmail(event)" data-copy="home.hero.ctaPrimary">Ta kontakt →</a>
-            <a href="javascript:void(0)" class="btn btn-secondary" onclick="switchPage('about')" data-copy="home.hero.ctaSecondary">Snakk med oss</a>
-          </div>
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-mesh" aria-hidden="true">
+    <div class="hero-mesh-glow hm-1"></div>
+    <div class="hero-mesh-glow hm-2"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge animate-on-scroll">
+          <span class="badge-dot"></span>
+          AI-automatisering for norske bedrifter
         </div>
-        <div class="scroll-indicator">
-          <span>Scroll</span>
-          <div class="scroll-line"></div>
+        <h1 class="hero-title animate-on-scroll">
+          Vi automatiserer det som <span class="highlight">bremser deg</span>
+        </h1>
+        <p class="hero-subtitle animate-on-scroll">
+          Norske SMB-er mister timer hver uke p&aring; manuelt arbeid. Vi finner tidstyvene og bygger l&oslash;sninger som faktisk virker.
+        </p>
+        <div class="hero-ctas animate-on-scroll">
+          <a href="/contact" class="btn btn-accent btn-lg">Ta kontakt &rarr;</a>
+          <a href="#kontakt" class="hero-text-link">Snakk med oss &rarr;</a>
         </div>
-      </section>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-logo-glow"></div>
+        <img class="hero-logo-img" src="/images/logo-symbol-color.svg" alt="" width="320" height="179">
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Trust Bar -->
-      <div class="trust-bar">
-        <div class="trust-bar-inner">
-          <span class="trust-item"><i data-lucide="lock" style="width:16px;height:16px;"></i> GDPR-kompatibelt</span>
-          <span class="trust-vdivider"></span>
-          <span class="trust-item"><i data-lucide="file-text" style="width:16px;height:16px;"></i> DPA-avtale inkludert</span>
-          <span class="trust-vdivider"></span>
-          <span class="trust-item"><i data-lucide="flag" style="width:16px;height:16px;"></i> Norsk selskap</span>
-          <span class="trust-vdivider"></span>
-          <span class="trust-item"><i data-lucide="zap" style="width:16px;height:16px;"></i> Svar innen 1 virkedag</span>
-          <span class="trust-vdivider"></span>
-          <span class="trust-item"><i data-lucide="unlock" style="width:16px;height:16px;"></i> Ingen bindingstid</span>
+<!-- ── Trust Bar ──────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="container trust-bar-inner">
+    <span class="trust-item"><i data-lucide="lock" style="width:16px;height:16px;"></i> GDPR-kompatibelt</span>
+    <span class="trust-vdivider"></span>
+    <span class="trust-item"><i data-lucide="file-text" style="width:16px;height:16px;"></i> DPA-avtale inkludert</span>
+    <span class="trust-vdivider"></span>
+    <span class="trust-item"><i data-lucide="flag" style="width:16px;height:16px;"></i> Norsk selskap</span>
+    <span class="trust-vdivider"></span>
+    <span class="trust-item"><i data-lucide="zap" style="width:16px;height:16px;"></i> Svar innen 1 virkedag</span>
+    <span class="trust-vdivider"></span>
+    <span class="trust-item"><i data-lucide="unlock" style="width:16px;height:16px;"></i> Ingen bindingstid</span>
+  </div>
+</div>
+
+<!-- ── Who We Help (ICP) ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label animate-on-scroll">Hvem vi hjelper</span>
+      <h2 class="animate-on-scroll">Vi kjenner din bransje</h2>
+      <p class="animate-on-scroll">Vi spesialiserer oss p&aring; bransjer der manuelle prosesser stjeler mest tid &mdash; og der automatisering gir st&oslash;rst effekt.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="icp-card animate-on-scroll delay-1">
+        <div class="icp-icon"><i data-lucide="briefcase"></i></div>
+        <h3>Regnskapsbyråer</h3>
+        <p>Automatiser bokføring, fakturabehandling og klientrapportering. Frigjør rådgivertid.</p>
+      </div>
+      <div class="icp-card animate-on-scroll delay-2">
+        <div class="icp-icon"><i data-lucide="stethoscope"></i></div>
+        <h3>Klinikker &amp; Helse</h3>
+        <p>Timeplanlegging, pasientkommunikasjon og intern dokumentasjon uten ekstra administrasjon.</p>
+      </div>
+      <div class="icp-card animate-on-scroll delay-3">
+        <div class="icp-icon"><i data-lucide="hammer"></i></div>
+        <h3>Håndverk &amp; Bygg</h3>
+        <p>Tilbudsgiving, prosjektoppfølging og fakturering — automatisert slik at du kan fokusere på faget.</p>
+      </div>
+      <div class="icp-card animate-on-scroll delay-4">
+        <div class="icp-icon"><i data-lucide="trophy"></i></div>
+        <h3>B2B Salg</h3>
+        <p>CRM-automatisering, lead-kvalifisering og salgsprosesser som jobber for deg døgnet rundt.</p>
+      </div>
+    </div>
+
+    <p class="animate-on-scroll" style="text-align:center; margin-top:2.5rem; color:var(--text-secondary); font-size:1.0625rem;">Ser du ikke din bransje her? Vi har hjulpet bedrifter i mange ulike sektorer. <a href="/contact" style="color:var(--blue-600); font-weight:600;">Ta kontakt</a> &mdash; vi finner sannsynligvis muligheter hos deg ogs&aring;.</p>
+  </div>
+</section>
+
+<!-- ── Why Choose Us ──────────────────────────────────────── -->
+<section class="section why-us">
+  <div class="container">
+    <div class="grid-2" style="align-items: center; gap: 5rem;">
+      <div class="animate-on-scroll">
+        <span class="section-label">Hvorfor WorkLoop</span>
+        <h2>Vi er ikke konsulenter &mdash; vi er partnere</h2>
+        <p class="why-text">
+          Som norske gr&uuml;ndere vet vi hva det vil si &aring; drive en SMB. Vi har selv erfart
+          frustrasjonen av &aring; drukne i manuelle oppgaver som burde v&aelig;rt automatisert for lenge siden.
+        </p>
+        <p class="why-text">
+          Det er derfor vi startet WorkLoop &mdash; for &aring; gi norske bedrifter tilgang til den samme
+          AI-teknologien som store selskaper bruker, men tilpasset din virkelighet, ditt budsjett
+          og din bransje.
+        </p>
+        <p class="why-text">
+          Vi kommuniserer p&aring; norsk, leverer p&aring; norsk, og er tilgjengelige for deg p&aring; norsk &mdash;
+          uten skjulte kostnader eller bindingstid.
+        </p>
+        <a href="/contact" class="btn btn-outline mt-4">Ta kontakt &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Team ────────────────────────────────────────────────── -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label animate-on-scroll">Menneskene bak</span>
+      <h2 class="animate-on-scroll">M&oslash;t teamet</h2>
+      <p class="animate-on-scroll">Vi er et lite og dedikert team med bred erfaring fra teknologi, forretningsutvikling og norsk n&aelig;ringsliv.</p>
+    </div>
+
+    <div class="grid-5">
+      <div class="team-card animate-on-scroll delay-1">
+        <div class="team-photo-placeholder">TH</div>
+        <h4>Tom Hynne</h4>
+        <div class="team-role">Medgr&uuml;nder &amp; CEO</div>
+        <p>Med 5+ &aring;r som IT-konsulent har Tom jobbet p&aring; tvers av bransjer, systemer og utfordringer. Han snakker b&aring;de &laquo;teknolog&raquo; og &laquo;bedriftseier&raquo;.</p>
+      </div>
+
+      <div class="team-card animate-on-scroll delay-2">
+        <div class="team-photo-placeholder">GW</div>
+        <h4>Gabriel Wollan</h4>
+        <div class="team-role">Medgr&uuml;nder</div>
+        <p>Gabriel har automatisert alt fra enkle arbeidsflyter til komplekse industrisystemer. Er du usikker p&aring; om noe lar seg automatisere? Sp&oslash;r Gabriel.</p>
+      </div>
+
+      <div class="team-card animate-on-scroll delay-3">
+        <img src="/images/team/daniel-lystad.jpg" alt="Daniel Lystad" class="team-photo" loading="lazy">
+        <h4>Daniel Lystad</h4>
+        <div class="team-role">Medgr&uuml;nder &amp; CTO</div>
+        <p>Daniel er WorkLoops Microsoft 365-ekspert og spesialiserer seg p&aring; automatisering i Microsoft-&oslash;kosystemet.</p>
+      </div>
+
+      <div class="team-card animate-on-scroll delay-4">
+        <img src="/images/team/abdul-akvi.jpg?v=3" alt="Abdul-Rafeh Akvi" class="team-photo" loading="lazy">
+        <h4>Abdul-Rafeh Akvi</h4>
+        <div class="team-role">Medgr&uuml;nder &amp; Cybersecurity</div>
+        <p>Abdul s&oslash;rger for at alt vi bygger er sikkert og etterpr&oslash;vbart fra dag &eacute;n.</p>
+      </div>
+
+      <div class="team-card animate-on-scroll delay-5">
+        <div class="team-photo-placeholder">PT</div>
+        <h4>Philip Tordenskjold</h4>
+        <div class="team-role">Marketing Manager</div>
+        <p>Philip leder markedsarbeidet i WorkLoop og s&oslash;rger for at budskapet v&aring;rt treffer riktig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What We Do ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items: center;">
+      <div class="mini-cards-grid animate-on-scroll">
+        <div class="mini-card">
+          <div class="mini-card-icon"><i data-lucide="hard-hat"></i></div>
+          <h4>Prosessautomatisering</h4>
+          <p>Fjern manuelle og repetitive arbeidsoppgaver med smarte AI-løsninger.</p>
+          <span class="mini-card-outcome">&rarr; Typisk 5&ndash;10t spart per ansatt/uke</span>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon"><i data-lucide="bot"></i></div>
+          <h4>AI-assistenter</h4>
+          <p>Egendefinerte chatboter og assistenter trenet p&aring; din bedrifts data.</p>
+          <span class="mini-card-outcome">&rarr; Besvarer 80% av henvendelser automatisk</span>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon"><i data-lucide="bar-chart-2"></i></div>
+          <h4>Datainnsikt</h4>
+          <p>Automatiserte rapporter og dashboards som gir deg oversikt i sanntid.</p>
+          <span class="mini-card-outcome">&rarr; Rapporter klare uten manuell jobb</span>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-icon"><i data-lucide="link"></i></div>
+          <h4>Systemintegrasjon</h4>
+          <p>Koble eksisterende verkt&oslash;y og systemer slik at de snakker sammen.</p>
+          <span class="mini-card-outcome">&rarr; Eliminerer dobbeltregistrering</span>
         </div>
       </div>
 
-      <!-- Services Section -->
-      <section class="services-section">
-        <div class="services-wrapper">
-          <div class="section-label" data-copy="home.whatWeDo.label">Hva vi gjør</div>
-          <h2 class="section-title" data-copy="home.whatWeDo.title">Vi bygger fremtidens arbeidsprosesser for norske bedrifter</h2>
-
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon"><i data-lucide="hard-hat"></i></div>
-              <h3 class="service-title">Prosessautomatisering</h3>
-              <p class="service-text">Fjern manuelle og repetitive arbeidsoppgaver med smarte AI-løsninger.</p>
-              <p class="service-outcome">→ Typisk 5–10t spart per ansatt/uke</p>
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon"><i data-lucide="bot"></i></div>
-              <h3 class="service-title">AI-assistenter</h3>
-              <p class="service-text">Egendefinerte chatboter og assistenter trenet på din bedrifts data.</p>
-              <p class="service-outcome">→ Besvarer 80% av henvendelser automatisk</p>
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon"><i data-lucide="bar-chart-2"></i></div>
-              <h3 class="service-title">Datainnsikt</h3>
-              <p class="service-text">Automatiserte rapporter og dashboards som gir deg oversikt i sanntid.</p>
-              <p class="service-outcome">→ Rapporter klare uten manuell jobb</p>
-            </div>
-
-            <div class="service-card">
-              <div class="service-icon"><i data-lucide="link"></i></div>
-              <h3 class="service-title">Systemintegrasjon</h3>
-              <p class="service-text">Koble eksisterende verktøy og systemer slik at de snakker sammen.</p>
-              <p class="service-outcome">→ Eliminerer dobbeltregistrering</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ICP Section -->
-      <section class="icp-section">
-        <div class="icp-wrapper">
-          <div class="section-label" data-copy="home.icp.label">Hvem vi hjelper</div>
-          <h2 class="section-title" data-copy="home.icp.title">Vi kjenner din bransje</h2>
-          <p class="section-subtitle" data-copy="home.icp.subtitle">Vi spesialiserer oss på bransjer der manuelle prosesser stjeler mest tid — og der automatisering gir størst effekt.</p>
-
-          <div class="icp-grid">
-            <div class="icp-card">
-              <div class="icp-icon"><i data-lucide="briefcase"></i></div>
-              <h3>Regnskapsbyråer</h3>
-              <p>Automatiser bokføring, fakturabehandling og klientrapportering. Frigjør rådgivertid.</p>
-            </div>
-            <div class="icp-card">
-              <div class="icp-icon"><i data-lucide="stethoscope"></i></div>
-              <h3>Klinikker & Helse</h3>
-              <p>Timeplanlegging, pasientkommunikasjon og intern dokumentasjon uten ekstra administrasjon.</p>
-            </div>
-            <div class="icp-card">
-              <div class="icp-icon"><i data-lucide="hammer"></i></div>
-              <h3>Håndverk & Bygg</h3>
-              <p>Tilbudsgiving, prosjektoppfølging og fakturering — automatisert slik at du kan fokusere på faget.</p>
-            </div>
-            <div class="icp-card">
-              <div class="icp-icon"><i data-lucide="trophy"></i></div>
-              <h3>B2B Salg</h3>
-              <p>CRM-automatisering, lead-kvalifisering og salgsprosesser som jobber for deg døgnet rundt.</p>
-            </div>
-          </div>
-
-          <p class="icp-footer">Ser du ikke din bransje her? Vi har hjulpet bedrifter i mange ulike sektorer. <a href="javascript:void(0)" onclick="scrollToContact()">Ta kontakt</a> — vi finner sannsynligvis muligheter hos deg også.</p>
-        </div>
-      </section>
-
-      <!-- Why Us Section -->
-      <section class="why-us-section">
-        <div class="why-us-wrapper">
-          <div class="section-label" data-copy="home.whyUs.label">Hvorfor WorkLoop</div>
-          <h2 class="section-title" data-copy="home.whyUs.title">Vi er ikke konsulenter — vi er partnere</h2>
-          <div class="why-us-content">
-            <p>Som norske gründere vet vi hva det vil si å drive en SMB. Vi har selv erfart frustrasjonen av å drukne i manuelle oppgaver som burde vært automatisert for lenge siden.</p>
-            <p>Det er derfor vi startet WorkLoop — for å gi norske bedrifter tilgang til den samme AI-teknologien som store selskaper bruker, men tilpasset din virkelighet, ditt budsjett og din bransje.</p>
-            <p>Vi kommuniserer på norsk, leverer på norsk, og er tilgjengelige for deg på norsk — uten skjulte kostnader eller bindingstid.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Team Section -->
-      <section class="team-section">
-        <div class="team-wrapper">
-          <div class="section-label" data-copy="home.team.label">Menneskene bak</div>
-          <h2 class="section-title" data-copy="home.team.title">Møt teamet</h2>
-          <p class="section-subtitle" data-copy="home.team.subtitle">Vi er et lite og dedikert team med bred erfaring fra teknologi, forretningsutvikling og norsk næringsliv.</p>
-          <div class="team-grid"></div>
-        </div>
-      </section>
-
-      <!-- CTA Section -->
-      <section class="cta-section">
-        <div class="cta-wrapper">
-          <h2 class="cta-title">La oss automatisere det som bremser deg</h2>
-          <p class="cta-subtitle">Fortell oss hva dere bruker tid på. Vi finner ut hva som kan automatiseres — og bygger det.</p>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section class="contact-section" id="contact-section">
-        <div class="contact-wrapper">
-          <div class="section-label" data-copy="home.contactSection.label">Kontakt</div>
-          <h2 class="section-title" data-copy="home.contactSection.title">Klar for å spare tid og penger?</h2>
-          <p class="contact-intro">Fortell oss litt om bedriften din, så tar vi en uforpliktende samtale om hvordan automatisering kan hjelpe deg. Ingen forpliktelser, ingen skjulte kostnader.</p>
-
-          <div class="contact-content">
-            <div class="contact-form">
-              <h3>Send oss en melding</h3>
-              <form id="contactForm">
-                <div class="form-group"><input type="text" placeholder="Navn" required></div>
-                <div class="form-group"><input type="email" placeholder="E-post" required></div>
-                <div class="form-group"><textarea placeholder="Hva gjør dere, og hva bruker dere mest tid på?" required></textarea></div>
-                <button type="submit" class="btn btn-primary">Send melding →</button>
-              </form>
-            </div>
-            <div class="contact-details">
-              <div class="detail-item">
-                <span class="detail-label">E-post</span>
-                <a href="mailto:post@workloop.no">post@workloop.no</a>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Adresse</span>
-                <span>Oslo, Norge</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Responstid</span>
-                <span>Innen 1 virkedag</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-content">
-          <div class="footer-section"><h4>WorkLoop</h4><p>Skreddersydde automasjonsløsninger for norske bedrifter.</p></div>
-          <div class="footer-section"><h4>Sider</h4><ul><li><a href="javascript:void(0)" onclick="switchPage('landing')">Hjem</a></li><li><a href="javascript:void(0)" onclick="switchPage('about')">Om oss</a></li></ul></div>
-          <div class="footer-section"><h4>Kontakt</h4><p><a href="mailto:post@workloop.no">post@workloop.no</a></p><p>Oslo, Norge</p></div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2026 WorkLoop. Alle rettigheter forbeholdt.</p>
-          <ul class="footer-links">
-            <li><a href="#">Personvern</a></li>
-            <li><a href="#">Vilkar</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </div>
-      </footer>
+      <div class="what-we-do-content animate-on-scroll delay-2">
+        <span class="section-label">Hva vi gj&oslash;r</span>
+        <h2>Vi bygger fremtidens arbeidsprosesser for norske bedrifter</h2>
+        <p>
+          WorkLoop spesialiserer seg p&aring; praktisk automatisering for sm&aring; og mellomstore
+          norske bedrifter. Vi tar ikke i bruk teknologi for teknologiens skyld &mdash; vi fokuserer
+          p&aring; l&oslash;sninger som faktisk sparer tid og penger fra dag &eacute;n.
+        </p>
+        <p>
+          V&aring;rt team kjenner den norske forretningshverdagen, og vi tilpasser hver l&oslash;sning
+          til din bransje og dine behov.
+        </p>
+        <a href="/contact" class="btn btn-outline mt-6">Ta kontakt &rarr;</a>
+      </div>
     </div>
-
-    <!-- PAGE 2: ABOUT -->
-    <div class="page page--about" id="pageAbout">
-
-      <!-- About Header -->
-      <section class="about-header">
-        <div class="about-header-content">
-          <p class="breadcrumb">Om oss</p>
-          <h1 class="about-title">Vi er WorkLoop</h1>
-          <p class="about-subtitle">Et norsk teknologiselskap med én misjon: å gi norske bedrifter tilbake tiden de fortjener.</p>
-        </div>
-      </section>
-
-      <!-- Story Section -->
-      <section class="story-section">
-        <div class="story-wrapper">
-          <div class="section-label">Vår historie</div>
-          <h2 class="section-title">Fra frustrasjon til forretningsidé</h2>
-          <div class="story-content">
-            <p>Som norske gründere har vi selv erfart frustrasjonen av å bruke timevis på oppgaver som burde vært automatisert. Regneark sendt frem og tilbake. Manuelle fakturagjennomganger. Tidkrevende rapportering. Oppfølging av kunder som lett glemmes i en travel hverdag.</p>
-            <p>Teknologien for å løse dette har eksistert lenge, men veien dit har vært lang, kostbar og forbeholdt store selskaper med egne IT-avdelinger. Det mente vi var feil.</p>
-            <p>WorkLoop ble grunnlagt for å bygge broen mellom avansert teknologi og den norske forretningshverdagen. Vi tilpasser løsningene til din bransje, ditt budsjett og din virkelighet — og vi snakker norsk hele veien.</p>
-            <p>Med bakgrunn fra IT-konsulentvirksomhet, industriell automatisering og cybersecurity har vi kompetansen til å håndtere det meste norske bedrifter møter. Vi er akkurat store nok til å levere — og akkurat små nok til at du alltid vet hvem du snakker med.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Mission & Vision Section -->
-      <section class="mission-vision-section">
-        <div class="mission-vision-wrapper">
-          <div class="section-label">Vårt fundament</div>
-          <h2 class="section-title">Misjon og visjon</h2>
-          <div class="mission-vision-grid">
-            <div class="mission-card">
-              <h3>Vår misjon</h3>
-              <p>Å gjøre automatisering tilgjengelig for alle norske bedrifter — uavhengig av størrelse eller teknisk kompetanse. Vi leverer enkle, effektive løsninger som gir målbare resultater fra dag én.</p>
-            </div>
-            <div class="vision-card">
-              <h3>Vår visjon</h3>
-              <p>En fremtid der ingen norske gründere og ansatte bruker sin dyrebare tid på kjedelige, repetitive oppgaver. Menneskelig kreativitet og kompetanse skal brukes på det som faktisk skaper verdi.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Values Section -->
-      <section class="values-section">
-        <div class="values-wrapper">
-          <div class="section-label">Det vi tror på</div>
-          <h2 class="section-title">Kjerneverdiene våre</h2>
-          <div class="values-grid">
-            <div class="value-card">
-              <div class="value-icon"><i data-lucide="clipboard-list"></i></div>
-              <h3>Ærlighet</h3>
-              <p>Vi sier tydelig fra dersom et prosjekt ikke vil gi verdi, og vi lover aldri mer enn vi kan levere.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-icon"><i data-lucide="zap"></i></div>
-              <h3>Effektivitet</h3>
-              <p>Tid er penger. Vi jobber raskt, strukturert og med klare mål for hvert prosjekt.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-icon"><i data-lucide="handshake"></i></div>
-              <h3>Partnerskap</h3>
-              <p>Vi ser på oss selv som en del av teamet ditt, ikke en ekstern leverandør du sender fakturaer til.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-icon"><i data-lucide="bar-chart-2"></i></div>
-              <h3>Resultater</h3>
-              <p>Alt vi gjør måles mot ett spørsmål: skapte dette faktisk verdi for kunden?</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer on About Page -->
-      <footer class="site-footer">
-        <div class="footer-content">
-          <div class="footer-section"><h4>WorkLoop</h4><p>Skreddersydde automasjonsløsninger for norske bedrifter.</p></div>
-          <div class="footer-section"><h4>Sider</h4><ul><li><a href="javascript:void(0)" onclick="switchPage('landing')">Hjem</a></li><li><a href="javascript:void(0)" onclick="switchPage('about')">Om oss</a></li></ul></div>
-          <div class="footer-section"><h4>Kontakt</h4><p><a href="mailto:post@workloop.no">post@workloop.no</a></p><p>Oslo, Norge</p></div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2026 WorkLoop. Alle rettigheter forbeholdt.</p>
-          <ul class="footer-links">
-            <li><a href="#">Personvern</a></li>
-            <li><a href="#">Vilkar</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
   </div>
+</section>
 
-  <!-- Scripts -->
-  <script src="/js/canvas-bg.js"></script>
-  <script src="/js/copy-loader.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/chatbot.js"></script>
-  <script>lucide.createIcons();</script>
+<!-- ── CTA Text ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="container" style="text-align:center; max-width:640px;">
+    <h2 class="animate-on-scroll">La oss automatisere det som bremser deg</h2>
+    <p class="animate-on-scroll" style="color:var(--text-secondary); font-size:1.0625rem; margin-bottom:2rem;">Fortell oss hva dere bruker tid p&aring;. Vi finner ut hva som kan automatiseres &mdash; og bygger det.</p>
+    <a href="/contact" class="btn btn-accent btn-lg animate-on-scroll">Ta kontakt &rarr;</a>
+  </div>
+</section>
 
+<!-- ── Contact CTA + Form ─────────────────────────────────── -->
+<section class="section contact-section" id="kontakt">
+  <div class="container">
+    <div class="grid-2" style="gap: 4rem; align-items: start;">
+      <div class="contact-info animate-on-scroll">
+        <span class="section-label">Ta kontakt</span>
+        <h2>Klar for å spare tid og penger?</h2>
+        <p class="why-text">
+          Fortell oss litt om bedriften din, så tar vi en uforpliktende samtale om hvordan
+          automatisering kan hjelpe deg. Ingen forpliktelser, ingen skjulte kostnader.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="mail"></i></div>
+          <div class="contact-detail-text">
+            <strong>E-post</strong>
+            <span>post@workloop.no</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="map-pin"></i></div>
+          <div class="contact-detail-text">
+            <strong>Adresse</strong>
+            <span>Oslo, Norge</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i data-lucide="clock"></i></div>
+          <div class="contact-detail-text">
+            <strong>Responstid</strong>
+            <span>Innen 1 virkedag</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card animate-on-scroll delay-2">
+        <h3 style="margin-bottom: 1.5rem;">Send oss en melding</h3>
+        <form id="contactForm" novalidate>
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
+          <input type="hidden" name="subject" value="Ny AI-audit forespørsel fra WorkLoop.no">
+          <input type="hidden" name="from_name" value="WorkLoop Nettside (Hjem)">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Navn *</label>
+              <input type="text" id="name" name="name" placeholder="Ola Nordmann" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post *</label>
+              <input type="email" id="email" name="email" placeholder="ola@bedrift.no" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Bedrift</label>
+              <input type="text" id="company" name="company" placeholder="Bedriften AS">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="+47 000 00 000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="interest">Jeg er interessert i</label>
+            <select id="interest" name="interest">
+              <option value="">Velg...</option>
+              <option value="automation">Automatisering</option>
+              <option value="consulting">Rådgivning</option>
+              <option value="integration">Integrasjon</option>
+              <option value="unsure">Vet ikke enda</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Fortell litt om bedriften din *</label>
+            <textarea id="message" name="message" placeholder="Hva gjør dere, og hva bruker dere mest tid på?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+            Send melding &rarr;
+          </button>
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta-band">
+      <div class="footer-cta-inner">
+        <h2 class="footer-headline">Klar til a <span>spare tid</span> med automatisering?</h2>
+        <a href="/contact" class="footer-cta-btn">
+          Snakk med oss
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+        </div>
+        <p class="footer-tagline">
+          Vi hjelper norske SMB-er med a spare tid og penger gjennom praktisk automatisering. Norsk selskap, norsk support.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Sider</h5>
+        <nav class="footer-links">
+          <a href="/">Hjem</a>
+          <a href="/contact">Kontakt</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <div class="footer-contact-item">
+          <i data-lucide="mail"></i>
+          <span>post@workloop.no</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin"></i>
+          <span>Oslo, Norge</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="clock"></i>
+          <span>Man-fre, 08-16</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 WorkLoop. Alle rettigheter forbeholdt.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Personvern</a>
+        <a href="#">Vilkar</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- Mobile sticky CTA -->
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="/contact" class="btn btn-accent btn-lg">Kontakt oss &rarr;</a>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/chatbot.js"></script>
+<script>
+  lucide.createIcons();
+
+  // Back to top + mobile sticky CTA
+  (function() {
+    var btn = document.getElementById('backToTop');
+    var cta = document.getElementById('mobileCta');
+    var hero = document.querySelector('.hero');
+    if (!btn) return;
+
+    var heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
+      btn.classList.toggle('visible', y > 400);
+      if (cta) cta.classList.toggle('visible', y > heroBottom);
+    }, { passive: true });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 </body>
 </html>
