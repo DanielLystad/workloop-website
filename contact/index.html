@@ -3,264 +3,432 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Kontakt WorkLoop for en uforpliktende prat om automatisering for din bedrift. Svar innen 1 virkedag.">
+  <meta name="description" content="Ta kontakt med WorkLoop — vi hjelper deg med automatisering og AI-løsninger.">
+  <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
+
   <title>Kontakt oss — WorkLoop</title>
-  <link rel="canonical" href="https://workloop.no/contact/">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://workloop.no/contact">
+
+  <!-- Open Graph Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://workloop.no/contact/">
+  <meta property="og:url" content="https://workloop.no/contact">
   <meta property="og:title" content="Kontakt oss — WorkLoop">
-  <meta property="og:description" content="Ta kontakt for en uforpliktende samtale om automatisering.">
-  <meta property="og:image" content="https://workloop.no/images/og-image.jpg">
+  <meta property="og:description" content="Vi svarer innen 1 virkedag. Ta kontakt for en uforpliktende samtale.">
+  <meta property="og:image" content="https://workloop.no/images/og-contact.jpg">
   <meta property="og:locale" content="nb_NO">
-  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta property="og:site_name" content="WorkLoop">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kontakt oss — WorkLoop">
+  <meta name="twitter:description" content="Vi svarer innen 1 virkedag. Ta kontakt for en uforpliktende samtale.">
+  <meta name="twitter:image" content="https://workloop.no/images/og-contact.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/tokens.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/contact.css">
   <script src="https://unpkg.com/lucide@0.469.0"></script>
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--s-6);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s-4);
+      margin-bottom: var(--s-4);
+      transition: box-shadow var(--t);
+    }
+    .contact-info-card:hover { box-shadow: var(--shadow); }
+    .contact-info-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .contact-info-text h4 { margin-bottom: 0.25rem; font-size: 0.9375rem; }
+    .contact-info-text p  { font-size: 0.9375rem; margin-bottom: 0; }
+    .contact-info-text a  { color: var(--blue-600); }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
 </head>
-<body class="contact-page">
+<body>
 
-  <!-- Noise overlay -->
-  <div class="noise-overlay"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="/" class="nav-logo">
-        <img src="../images/logo-horizontal.svg" alt="WorkLoop">
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-link">Hjem</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <a href="/contact" class="nav-cta">
+        Kontakt oss
+        <i data-lucide="arrow-right"></i>
       </a>
-      <div class="nav-actions">
-        <a href="/" class="nav-link" data-copy="global.nav.home">Hjem</a>
-        <span class="nav-dot" aria-hidden="true"></span>
-        <a href="javascript:void(0)" class="nav-cta active" onclick="copyEmail(event)" data-copy="global.nav.contactEmail">
-          kontakt@workloop.no
-          <i data-lucide="copy"></i>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Hjem</a>
+      <span>&#8250;</span>
+      <span>Kontakt</span>
+    </div>
+    <h1>Ta kontakt</h1>
+    <p>Vi svarer innen 1 virkedag. Ta kontakt for en uforpliktende samtale.</p>
+  </div>
+</div>
+
+<!-- Contact Form + Info -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="animate-on-scroll">
+        <span class="section-label">Kontaktinformasjon</span>
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">La oss ta en prat</h2>
+        <p style="font-size: 1.0625rem; line-height: 1.75; margin-bottom: 2rem;">
+          Uansett om du har et konkret prosjekt eller bare er nysgjerrig p&aring; hva AI kan gj&oslash;re
+          for deg &mdash; ta kontakt. Alle henvendelser behandles innen 1 virkedag.
+        </p>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i data-lucide="mail"></i></div>
+          <div class="contact-info-text">
+            <h4>E-post</h4>
+            <p><a href="mailto:post@workloop.no">post@workloop.no</a></p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
+          <div class="contact-info-text">
+            <h4>Adresse</h4>
+            <p>Oslo, Norge<br>Vi jobber ogs&aring; digitalt med bedrifter over hele landet.</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon"><i data-lucide="clock"></i></div>
+          <div class="contact-info-text">
+            <h4>&Aring;pningstider</h4>
+            <p>Mandag&ndash;fredag: 08:00&ndash;16:00<br>Responstid: &lt; 1 virkedag</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="form-card animate-on-scroll delay-2">
+        <h3 style="margin-bottom: 0.5rem;">Send oss en melding</h3>
+        <p style="margin-bottom: 1.5rem; font-size:0.9375rem;">Fyll ut skjemaet under, s&aring; tar vi kontakt innen 1 virkedag.</p>
+
+        <form id="contactForm" novalidate>
+          <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
+          <input type="hidden" name="subject" value="Ny kontakthenvendelse fra WorkLoop.no">
+          <input type="hidden" name="from_name" value="WorkLoop Nettside">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Navn *</label>
+              <input type="text" id="name" name="name" placeholder="Ola Nordmann" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post *</label>
+              <input type="email" id="email" name="email" placeholder="ola@bedrift.no" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Bedrift</label>
+              <input type="text" id="company" name="company" placeholder="Bedriften AS">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="+47 000 00 000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Hva kan vi hjelpe deg med?</label>
+            <select id="interest" name="interest">
+              <option value="">Velg...</option>
+              <option value="automation">Automatisering</option>
+              <option value="consulting">R&aring;dgivning</option>
+              <option value="integration">Integrasjon</option>
+              <option value="general">Generell foresp&oslash;rsel</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Fortell litt om bedriften og utfordringene dine *</label>
+            <textarea id="message" name="message"
+              placeholder="Hva gj&oslash;r dere, hvilke oppgaver tar mest tid, og hva &oslash;nsker du &aring; oppn&aring; med automatisering?"
+              required></textarea>
+          </div>
+
+          <!-- Optional booking toggle -->
+          <div class="form-group" style="margin-bottom: 0.75rem;">
+            <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-weight:500;">
+              <input type="checkbox" id="wantBooking" style="width:18px; height:18px; accent-color:var(--blue-600);">
+              Jeg vil gjerne booke en gratis 30 min samtale
+            </label>
+          </div>
+
+          <div id="bookingFields" style="display:none; margin-bottom:1rem;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookDate">Dato</label>
+                <input type="date" id="bookDate" name="date">
+              </div>
+              <div class="form-group">
+                <label for="bookTime">Tidspunkt</label>
+                <select id="bookTime" name="time">
+                  <option value="">Velg tid</option>
+                  <option value="08:00">08:00</option>
+                  <option value="08:30">08:30</option>
+                  <option value="09:00">09:00</option>
+                  <option value="09:30">09:30</option>
+                  <option value="10:00">10:00</option>
+                  <option value="10:30">10:30</option>
+                  <option value="11:00">11:00</option>
+                  <option value="11:30">11:30</option>
+                  <option value="12:00">12:00</option>
+                  <option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option>
+                  <option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option>
+                  <option value="14:30">14:30</option>
+                  <option value="15:00">15:00</option>
+                  <option value="15:30">15:30</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:1rem;">
+            Send melding &rarr;
+          </button>
+
+          <p style="font-size:0.8rem; color:var(--gray-400); margin-top:1rem; text-align:center;">
+            Vi behandler dine data i henhold til GDPR. Les v&aring;r <a href="#" style="color:var(--blue-600);">personvernerkl&aelig;ring</a>.
+          </p>
+
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label animate-on-scroll">Har du spørsmål?</span>
+      <h2 class="animate-on-scroll">Vanlige spørsmål</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Er den første samtalen helt gratis og uforpliktende?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ja, absolutt. Den første samtalen er alltid gratis og uforpliktende. Vi bruker 30 minutter
+            på å forstå bedriften din og finne ut om vi kan hjelpe deg. Ingen salgspress, ingen skjult agenda.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hvor lang tid tar det fra jeg kontakter dere til vi er i gang?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vi svarer innen 1 virkedag og kan vanligvis ha en oppstartsamtale i løpet av uken etter.
+            Tidsrammen avhenger av prosjektets omfang, men vi har vanligvis ledig kapasitet innen 2–4 uker.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Jobber dere bare i Oslo, eller hjelper dere bedrifter over hele Norge?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Vi jobber med bedrifter over hele Norge. De fleste møter gjennomføres digitalt via Teams
+            eller Zoom. For større prosjekter kan vi reise til deg ved behov. Avstand er ikke et hinder.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item animate-on-scroll">
+        <button class="faq-question">
+          Hva trenger jeg å forberede til den første samtalen?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Ingenting spesielt. Det holder at du tenker litt over hvilke oppgaver som tar mest tid
+            i hverdagen din. Vi stiller spørsmålene og finner strukturen. Jo mer åpen du er, desto
+            bedre kan vi hjelpe deg.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cta-band">
+      <div class="footer-cta-inner">
+        <h2 class="footer-headline">Klar til a <span>spare tid</span> med automatisering?</h2>
+        <a href="/contact" class="footer-cta-btn">
+          Snakk med oss
+          <i data-lucide="arrow-right"></i>
         </a>
       </div>
     </div>
-  </nav>
 
-  <!-- Contact Section -->
-  <section class="section contact-section" id="kontakt" style="padding-top: 120px;">
-    <div class="container">
-      <div class="grid-2" style="gap: 4rem; align-items: start;">
-        <!-- Left: Contact info -->
-        <div class="contact-info animate-on-scroll">
-          <span class="section-label" data-copy="contact.info.label">Kontaktinformasjon</span>
-          <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;" data-copy="contact.info.title">La oss ta en prat</h1>
-          <p class="section-sub" style="max-width: 100%; font-size: 1.0625rem; line-height: 1.75; margin-bottom: 2rem;" data-copy="contact.info.text">
-            Uansett om du har et konkret prosjekt eller bare er nysgjerrig på hva AI kan gjøre for deg — ta kontakt. Alle henvendelser behandles innen 1 virkedag.
-          </p>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="mail"></i></div>
-            <div class="contact-detail-text">
-              <strong data-copy="contact.info.cards.email.title">E-post</strong>
-              <span data-copy="contact.info.cards.email.value">post@workloop.no</span>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="map-pin"></i></div>
-            <div class="contact-detail-text">
-              <strong data-copy="contact.info.cards.address.title">Adresse</strong>
-              <span data-copy="contact.info.cards.address.value">Oslo, Norge</span>
-            </div>
-          </div>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon"><i data-lucide="clock"></i></div>
-            <div class="contact-detail-text">
-              <strong data-copy="contact.info.cards.hours.title">Åpningstider</strong>
-              <span data-copy="contact.info.cards.hours.value">Mandag–fredag: 08:00–16:00</span>
-            </div>
-          </div>
+    <div class="footer-content">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <img src="/images/logo-horizontal.svg" alt="WorkLoop">
         </div>
+        <p class="footer-tagline">
+          Vi hjelper norske SMB-er med a spare tid og penger gjennom praktisk automatisering. Norsk selskap, norsk support.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+        </div>
+      </div>
 
-        <!-- Right: Form -->
-        <div class="form-card animate-on-scroll delay-2">
-          <h3 style="margin-bottom: 1.5rem;" data-copy="contact.form.title">Send oss en melding</h3>
-          <form id="contactForm" novalidate>
-            <input type="hidden" name="access_key" value="767f7c2f-a4c5-4561-8125-ae3544cf7bc8">
-            <input type="hidden" name="subject" value="Ny forespørsel fra WorkLoop.no">
-            <input type="hidden" name="from_name" value="WorkLoop Nettside (Kontakt)">
+      <div class="footer-col">
+        <h5>Sider</h5>
+        <nav class="footer-links">
+          <a href="/">Hjem</a>
+          <a href="/contact">Kontakt</a>
+        </nav>
+      </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Navn *</label>
-                <input type="text" id="name" name="name" placeholder="Ola Nordmann" required>
-              </div>
-              <div class="form-group">
-                <label for="email">E-post *</label>
-                <input type="email" id="email" name="email" placeholder="ola@bedrift.no" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="company">Bedrift</label>
-                <input type="text" id="company" name="company" placeholder="Bedriften AS">
-              </div>
-              <div class="form-group">
-                <label for="phone">Telefon</label>
-                <input type="tel" id="phone" name="phone" placeholder="+47 000 00 000">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="interest" data-copy="contact.form.interestLabel">Hva kan vi hjelpe deg med?</label>
-              <select id="interest" name="interest">
-                <option value="">Velg...</option>
-                <option value="web">Webutvikling</option>
-                <option value="branding">Merkevare-pakke</option>
-                <option value="security">Nettverkssikkerhet</option>
-                <option value="seo-smm">SEO & Sosiale medier</option>
-                <option value="unsure">Vet ikke enda</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message" data-copy="contact.form.messageLabel">Fortell litt om bedriften og utfordringene dine *</label>
-              <textarea id="message" name="message" placeholder="Hva gjør dere, hvilke oppgaver tar mest tid, og hva ønsker du å oppnå med automatisering?" required></textarea>
-            </div>
-
-            <!-- Booking toggle -->
-            <label class="booking-toggle">
-              <input type="checkbox" id="wantBooking">
-              <span data-copy="contact.form.bookingCheckbox">Jeg vil gjerne booke en gratis 30 min samtale</span>
-            </label>
-
-            <div id="bookingFields" style="display:none;">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="bookDate">Ønsket dato</label>
-                  <input type="date" id="bookDate" name="bookDate">
-                </div>
-                <div class="form-group">
-                  <label for="bookTime">Ønsket tid</label>
-                  <input type="time" id="bookTime" name="bookTime" value="10:00">
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-              Send melding →
-            </button>
-            <div id="formMessage" class="form-message"></div>
-          </form>
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <div class="footer-contact-item">
+          <i data-lucide="mail"></i>
+          <span>post@workloop.no</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="map-pin"></i>
+          <span>Oslo, Norge</span>
+        </div>
+        <div class="footer-contact-item">
+          <i data-lucide="clock"></i>
+          <span>Man-fre, 08-16</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-cta-band">
-        <div class="footer-cta-inner">
-          <h2 class="footer-headline">Klar til a <span>spare tid</span> med automatisering?</h2>
-          <a href="/contact" class="footer-cta-btn">
-            Snakk med oss
-            <i data-lucide="arrow-right"></i>
-          </a>
-        </div>
-      </div>
+    <hr class="footer-divider">
 
-      <div class="footer-content">
-        <div class="footer-brand-col">
-          <div class="footer-logo">
-            <img src="../images/logo-horizontal.svg" alt="WorkLoop">
-          </div>
-          <p class="footer-tagline">
-            Vi hjelper norske SMB-er med a spare tid og penger gjennom praktisk automatisering. Norsk selskap, norsk support.
-          </p>
-          <div class="footer-social">
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-            <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h5>Sider</h5>
-          <nav class="footer-links">
-            <a href="/">Hjem</a>
-            <a href="javascript:void(0)" onclick="copyEmail(event)">kontakt@workloop.no</a>
-          </nav>
-        </div>
-
-        <div class="footer-col">
-          <h5>Kontakt</h5>
-          <div class="footer-contact-item">
-            <i data-lucide="mail"></i>
-            <span>post@workloop.no</span>
-          </div>
-          <div class="footer-contact-item">
-            <i data-lucide="map-pin"></i>
-            <span>Oslo, Norge</span>
-          </div>
-          <div class="footer-contact-item">
-            <i data-lucide="clock"></i>
-            <span>Man-fre, 08-16</span>
-          </div>
-        </div>
-      </div>
-
-      <hr class="footer-divider">
-
-      <div class="footer-bottom">
-        <span>&copy; 2026 WorkLoop. Alle rettigheter forbeholdt.</span>
-        <div class="footer-bottom-links">
-          <a href="#">Personvern</a>
-          <a href="#">Vilkar</a>
-          <a href="#">Cookies</a>
-        </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 WorkLoop. Alle rettigheter forbeholdt.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Personvern</a>
+        <a href="#">Vilkar</a>
+        <a href="#">Cookies</a>
       </div>
     </div>
-  </footer>
-
-  <!-- Back to top -->
-  <button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
-
-  <!-- Mobile sticky CTA -->
-  <div class="mobile-sticky-cta" id="mobileCta">
-    <a href="javascript:void(0)" class="btn btn-accent btn-lg" onclick="copyEmail(event)">kontakt@workloop.no</a>
   </div>
+</footer>
 
-  <script src="/js/main.js"></script>
-  <script src="/js/chatbot.js"></script>
-  <script>
-    lucide.createIcons();
+<button class="back-to-top" id="backToTop" aria-label="Tilbake til toppen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
-    // Booking toggle
-    var wantBooking = document.getElementById('wantBooking');
-    var bookingFields = document.getElementById('bookingFields');
-    if (wantBooking && bookingFields) {
-      wantBooking.addEventListener('change', function() {
-        bookingFields.style.display = this.checked ? 'block' : 'none';
-      });
-    }
+<script src="/js/main.js"></script>
+<script src="/js/chatbot.js"></script>
+<script>
+  lucide.createIcons();
+  (function() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', function() { btn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+    btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script>
+  // Booking toggle + date constraints
+  (function() {
+    var toggle = document.getElementById('wantBooking');
+    var fields = document.getElementById('bookingFields');
+    var dateInput = document.getElementById('bookDate');
+    var timeInput = document.getElementById('bookTime');
+    if (!toggle || !fields || !dateInput) return;
 
-    // Back to top + mobile sticky CTA
-    (function() {
-      var btn = document.getElementById('backToTop');
-      var cta = document.getElementById('mobileCta');
-      if (!btn) return;
+    toggle.addEventListener('change', function() {
+      fields.style.display = this.checked ? 'block' : 'none';
+      dateInput.required = this.checked;
+      timeInput.required = this.checked;
+      if (!this.checked) {
+        dateInput.value = '';
+        timeInput.value = '';
+      }
+    });
 
-      window.addEventListener('scroll', function() {
-        var y = window.scrollY;
-        btn.classList.toggle('visible', y > 400);
-        if (cta) cta.classList.toggle('visible', y > 400);
-      }, { passive: true });
+    // Set min date to tomorrow
+    var today = new Date();
+    today.setDate(today.getDate() + 1);
+    dateInput.min = today.toISOString().split('T')[0];
 
-      btn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
-  </script>
+    // Set max date to 4 weeks out
+    var maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 28);
+    dateInput.max = maxDate.toISOString().split('T')[0];
+
+    // Block weekends
+    dateInput.addEventListener('input', function() {
+      var d = new Date(this.value + 'T12:00:00');
+      var day = d.getDay();
+      if (day === 0 || day === 6) {
+        this.setCustomValidity('Velg en ukedag (mandag-fredag).');
+      } else {
+        this.setCustomValidity('');
+      }
+    });
+  })();
+</script>
 </body>
 </html>
