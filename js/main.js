@@ -4,7 +4,7 @@
   'use strict';
 
   /* ─────────────────────────────────────────────────────────────
-     SECTION 1: PAGE SWITCHING (WIPER TRANSITION)
+     SECTION 1: PAGE SWITCHING (SWIPE TRANSITION)
      ───────────────────────────────────────────────────────────── */
 
   let currentPage = 'landing';
@@ -15,6 +15,10 @@
   const scrollMemory = { landing: 0, about: 0 };
   const headerLogo = document.getElementById('headerLogo');
   const headerNav = document.getElementById('headerNav');
+
+  /* Duration must match the CSS transition on .page (0.7s = 700ms) */
+  const SWIPE_DURATION = 700;
+  let swipeRafId = null;
 
   function switchPage(target) {
     if (currentPage === target || !pageAbout || !pageLanding) return;
@@ -28,15 +32,33 @@
       btn.classList.toggle('active', btn.dataset.page === target);
     });
 
-    // Show/hide wiper edge glow
+    /* ── Animate wiper edge along the seam ── */
     if (wiperEdge) {
       wiperEdge.classList.add('is-moving');
+      // Animate the glow line from one side to the other
+      const startX = target === 'about' ? window.innerWidth : 0;
+      const endX   = target === 'about' ? 0 : window.innerWidth;
+      const t0 = performance.now();
+      if (swipeRafId) cancelAnimationFrame(swipeRafId);
+
+      (function moveEdge(now) {
+        const p = Math.min((now - t0) / SWIPE_DURATION, 1);
+        // Match the CSS cubic-bezier(0.22, 0.68, 0.35, 1) approximation
+        const ease = 1 - Math.pow(1 - p, 2.6);
+        wiperEdge.style.left = (startX + (endX - startX) * ease) + 'px';
+        if (p < 1) {
+          swipeRafId = requestAnimationFrame(moveEdge);
+        } else {
+          wiperEdge.classList.remove('is-moving');
+          swipeRafId = null;
+        }
+      })(performance.now());
     }
 
     if (target === 'about') {
-      // Add visible class to aboutPage
+      // Swipe: landing slides left, about slides in from right
+      pageLanding.classList.add('is-swiped');
       pageAbout.classList.add('is-visible');
-      pageLanding.classList.remove('is-visible');
 
       // Change logo to dark navy
       if (headerLogo) {
@@ -55,17 +77,17 @@
       pageAbout.style.pointerEvents = 'auto';
       pageLanding.style.pointerEvents = 'none';
 
-      // Trigger reveal animations after 400ms delay
+      // Trigger reveal animations after transition completes
       setTimeout(() => {
         observeReveals(pageAbout);
-      }, 400);
+      }, SWIPE_DURATION);
 
       // Restore scroll position
       pageAbout.scrollTop = scrollMemory[target];
     } else if (target === 'landing') {
-      // Remove classes
+      // Swipe: about slides right, landing slides back in from left
       pageAbout.classList.remove('is-visible');
-      pageLanding.classList.add('is-visible');
+      pageLanding.classList.remove('is-swiped');
 
       // Set logo to white
       if (headerLogo) {
@@ -84,10 +106,10 @@
       pageLanding.style.pointerEvents = 'auto';
       pageAbout.style.pointerEvents = 'none';
 
-      // Trigger reveal animations after 400ms delay
+      // Trigger reveal animations after transition completes
       setTimeout(() => {
         observeReveals(pageLanding);
-      }, 400);
+      }, SWIPE_DURATION);
 
       // Restore scroll position
       pageLanding.scrollTop = scrollMemory[target];
@@ -95,16 +117,38 @@
 
     currentPage = target;
 
-    // Clean up wiper edge after 1200ms
-    if (wiperEdge) {
-      setTimeout(() => {
-        wiperEdge.classList.remove('is-moving');
-      }, 1200);
+    // Update browser history
+    const newUrl = target === 'about' ? '/?page=about' : '/';
+    if (window.location.search !== new URL(newUrl, window.location.origin).search) {
+      history.pushState({ page: target }, '', newUrl);
+    }
+
+    // Announce page switch to screen readers
+    const announcer = document.getElementById('srAnnounce');
+    if (announcer) {
+      announcer.textContent = target === 'about' ? 'Hvem er vi – side lastet' : 'Hva kan vi – side lastet';
+    }
+
+    // Notify canvas to pause/resume
+    if (typeof window.setCanvasPaused === 'function') {
+      window.setCanvasPaused(target === 'about');
     }
   }
 
   // Make switchPage available globally
   window.switchPage = switchPage;
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', (e) => {
+    const target = (e.state && e.state.page) || 'landing';
+    switchPage(target);
+  });
+
+  // Handle initial URL state (e.g. /?page=about)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('page') === 'about') {
+    switchPage('about');
+  }
 
   // Nav buttons use onclick handlers directly (pointer-events restored)
 

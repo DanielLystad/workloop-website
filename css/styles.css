@@ -1557,6 +1557,29 @@ p { color: var(--text-secondary); }
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ── Standalone slim footer ── */
+.footer-slim {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+}
+
+.footer-slim--light {
+  border-top: 1px solid var(--border);
+  background: var(--gray-50);
+}
+
+.footer-slim--light .footer-bottom {
+  color: var(--text-secondary);
+}
+
+.footer-slim--light .footer-bottom-links a {
+  color: var(--text-secondary);
+}
+
+.footer-slim--light .footer-bottom-links a:hover {
+  color: var(--text-primary);
+}
+
 /* ── 22. Value/About Cards ───────────────────────────────────── */
 .value-card {
   background: var(--white);

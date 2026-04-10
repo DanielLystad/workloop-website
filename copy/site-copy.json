@@ -30,44 +30,7 @@
     "buttons": {
       "taKontakt": "Ta kontakt →",
       "snakkMedOss": "Snakk med oss",
-      "sendMelding": "Send melding →",
-      "kontaktOss": "Kontakt oss →"
-    },
-
-    "formMessages": {
-      "success": "Takk! Vi tar kontakt innen 1 virkedag.",
-      "bookingSuccess": "Takk, {name}! Vi bekrefter tidspunktet innen 1 virkedag.",
-      "calendarDownload": "Last ned kalenderinvitasjon (.ics)",
-      "error": "Noe gikk galt. Prøv igjen.",
-      "connectionError": "Tilkoblingsfeil. Sjekk internett og prøv igjen.",
-      "sending": "Sender…"
-    },
-
-    "formLabels": {
-      "name": "Navn *",
-      "email": "E-post *",
-      "company": "Bedrift",
-      "phone": "Telefon",
-      "message": "Fortell litt om bedriften din *",
-      "interest": "Jeg er interessert i",
-      "date": "Dato",
-      "time": "Tidspunkt"
-    },
-
-    "formPlaceholders": {
-      "name": "Ola Nordmann",
-      "email": "ola@bedrift.no",
-      "company": "Bedriften AS",
-      "phone": "+47 000 00 000",
-      "selectDefault": "Velg..."
-    },
-
-    "interestOptions": {
-      "automation": "Automatisering",
-      "consulting": "Rådgivning",
-      "integration": "Integrasjon",
-      "unsure": "Vet ikke enda",
-      "general": "Generell forespørsel"
+      "kontaktOss": "Send oss en e-post →"
     },
 
     "backToTop": "Tilbake til toppen",
@@ -656,63 +619,6 @@
     "cta": {
       "title": "Klar til å handle?",
       "subtitle": "Ta kontakt for en uforpliktende samtale om hva vi kan gjøre for din bedrift."
-    }
-  },
-
-  "chatbot": {
-    "config": {
-      "botName": "WorkLoop",
-      "greeting": "Hei! Jeg er WorkLoops AI-assistent. Hvordan kan jeg hjelpe deg i dag?",
-      "placeholder": "Skriv en melding...",
-      "subtitle": "AI-assistent",
-      "suggestions": [
-        "Hva tilbyr WorkLoop?",
-        "Hva koster det?",
-        "Book en gratis samtale"
-      ]
-    },
-
-    "bookingFlow": {
-      "namePrompt": "La oss sette opp en gratis samtale! Hva heter du?",
-      "nameError": "Vennligst oppgi navnet ditt.",
-      "emailPrompt": "Hva er din e-postadresse?",
-      "emailError": "Det ser ikke ut som en gyldig e-postadresse. Prov igjen.",
-      "datePrompt": "Hvilken dato passer? (skriv f.eks. **2026-04-01** eller **mandag**)",
-      "dateError": "Jeg forstod ikke datoen. Skriv f.eks. **2026-04-01**, **mandag**, **tirsdag**, eller **neste uke**.",
-      "timePrompt": "Hvilket tidspunkt? Vi har tider mellom 08:00 og 15:30 (30-min intervaller).",
-      "timeError": "Velg et tidspunkt mellom 08:00 og 15:30. Skriv f.eks. **10:00** eller **14:30**.",
-      "startMessage": "Supert! La meg hjelpe deg med a booke en gratis samtale.",
-      "cancelMessage": "Bookingen er avbrutt. Hva annet kan jeg hjelpe deg med?",
-      "successMessage": "Bookingen er sendt! Her er oppsummeringen:\n\n- **Navn:** {name}\n- **Dato:** {date}\n- **Tid:** {time}\n\nVi bekrefter tidspunktet innen 1 virkedag pa **{email}**.\n\nDu kan ogsa [laste ned kalenderinvitasjonen](/contact#booking) fra kontaktsiden var.",
-      "errorMessage": "Beklager, noe gikk galt. Du kan ogsa booke via [kontaktsiden var](/contact#booking).",
-      "connectionError": "Tilkoblingsfeil. Prov igjen, eller book via [kontaktsiden var](/contact#booking).",
-      "cancelLabel": "Avbryt booking"
-    },
-
-    "responses": {
-      "greeting": "Hei! Hyggelig at du tar kontakt. Hva kan jeg hjelpe deg med?",
-      "services": "WorkLoop hjelper bedrifter med:\n\n- **Automatisering** av repetitive oppgaver\n- **AI-løsninger** tilpasset din bedrift\n- **Integrasjoner** mellom systemer\n- **Rådgivning** om digitalisering\n\nVi tilpasser alltid løsningen til dine behov. Vil du ta en prat?",
-      "pricing": "Prisene våre avhenger av prosjektets omfang og kompleksitet. Vi gir alltid et tydelig og uforpliktende tilbud før du forplikter deg til noe.\n\nTa kontakt for en samtale, så finner vi den beste løsningen for ditt budsjett!",
-      "chatbots": "Vi bygger skreddersydde AI-chatboter som kan:\n\n- Svare pa kundehenvendelser 24/7\n- Booke timer og mater\n- Fange opp og kvalifisere leads\n- Integreres med kalendere, CRM og epost\n\nAlt tilpasset din bedrifts tone-of-voice og behov. Vil du hore mer?",
-      "automation": "Vi spesialiserer oss pa automatisering av repetitive oppgaver ved hjelp av AI og verktoy som n8n, Power Automate og Azure.\n\nEksempler pa hva vi automatiserer:\n- Fakturahendtering og regnskap\n- Kundeoppfolging og lead-hendtering\n- Rapportering og datautveksling\n- Booking og timeplanlegging\n\nHva slags oppgaver bruker din bedrift mest tid pa?",
-      "microsoft": "Vi er eksperter pa Microsoft 365-okosystemet! Vi hjelper bedrifter med a utnytte verktoyene de allerede betaler for:\n\n- **Power Automate** for arbeidsflyter\n- **Power Apps** for skreddersydde apper\n- **Copilot** og AI-integrasjoner\n- **Azure** for skalerbare losninger\n\nMange bedrifter bruker bare en brodel av det Microsoft 365 kan tilby.",
-      "contact": "Du kan na oss pa flere mater:\n\n**E-post:** kontakt@workloop.no\n**Nettside:** [workloop.no/contact](/contact)\n\nVi er tilgjengelige mandag til fredag, 08-16. Du kan ogsa booke en gratis samtale direkte her i chatten!",
-      "team": "WorkLoop er grunnlagt av et norsk team med bred erfaring innen teknologi:\n\n- **Tom Hynne** — CEO, 5+ ar som IT-konsulent\n- **Daniel Lystad** — CTO, Microsoft 365-ekspert\n- **Gabriel Wollan** — Medgrunder, automatiseringsekspert\n- **Abdul-Rafeh Akvi** — Cybersecurity\n- **Philip Tordenskjold** — Marketing Manager\n\nSe mer om oss pa forsiden!",
-      "security": "Sikkerhet star hoyest hos oss. Vi folger:\n\n- **GDPR** — All databehandling innenfor EOS\n- **Databehandleravtale** inngars med alle kunder\n- **Kryptering** av data i transit og i ro\n- Dedikert cybersecurity-ekspert pa teamet\n\nDu kan automatisere med ro i magen.",
-      "fallback": "Beklager, jeg er ikke helt sikker pa hva du mener. Kan du prove a formulere det pa en annen mate?\n\nDu kan ogsa kontakte oss direkte pa **kontakt@workloop.no** eller [booke en gratis samtale](/contact#booking)."
-    },
-
-    "keywords": {
-      "greeting": ["hei", "hallo", "heisann", "yo", "morn"],
-      "services": ["tilbyr", "tjenester", "hva gjor", "hva gjør", "produkter", "losninger", "løsninger"],
-      "pricing": ["pris", "kost", "betale", "billig", "dyr", "budsjett", "investering"],
-      "booking": ["bestill", "book", "avtale", "mote", "møte", "samtale", "time"],
-      "chatbots": ["chatbot", "chat", "bot", "kundeservice", "agent"],
-      "automation": ["automat", "n8n", "workflow", "arbeidsflyt", "effektiv"],
-      "microsoft": ["microsoft", "365", "power", "azure", "teams", "sharepoint"],
-      "contact": ["kontakt", "ring", "epost", "mail", "snakke"],
-      "team": ["hvem", "teamet", "grunder", "om dere", "bakgrunn"],
-      "security": ["sikker", "gdpr", "personvern", "data", "trygg"]
     }
   }
 }

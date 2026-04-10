@@ -37,6 +37,12 @@
   let mouse      = { x: 0.5, y: 0.5 };
   let smoothMouse = { x: 0.5, y: 0.5 };
   let time = 0;
+  let canvasPaused = false;
+
+  // Expose pause control to main.js
+  window.setCanvasPaused = function(paused) {
+    canvasPaused = paused;
+  };
 
   const PALETTE = [
     [48,  136, 203],
@@ -129,7 +135,7 @@
   }
 
   function frame(ts) {
-    if (document.hidden) { requestAnimationFrame(frame); return; }
+    if (document.hidden || canvasPaused) { requestAnimationFrame(frame); return; }
     time = ts * 0.001;
     smoothMouse.x += (mouse.x - smoothMouse.x) * 0.03;
     smoothMouse.y += (mouse.y - smoothMouse.y) * 0.03;
