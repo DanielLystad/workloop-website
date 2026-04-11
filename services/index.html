@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="WorkLoop tilbyr gratis prosess-kartlegging, AI-Sprint og AI-Retainer for norske bedrifter. Se detaljer og priser.">
+  <meta name="description" content="WorkLoop tilbyr prosess-kartlegging, AI-Sprint og AI-Retainer — skreddersydde automasjonsløsninger for norske bedrifter.">
   <meta name="indexnow-key" content="e2cbfd4236580bfa85fddef51df85401c1a5c61e252e0e60cc3eda4f0465e119">
 
   <title>Tjenester — WorkLoop</title>
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://workloop.no/services">
   <meta property="og:title" content="Tjenester — WorkLoop">
-  <meta property="og:description" content="Gratis prosess-kartlegging, AI-Sprint fra 25 000 kr, og AI-Retainer fra 8 000 kr/mnd. Priser i NOK.">
+  <meta property="og:description" content="Prosess-kartlegging, AI-Sprint og AI-Retainer — skreddersydde automasjonsløsninger tilpasset din bedrift.">
   <meta property="og:image" content="https://workloop.no/images/og-services.jpg">
   <meta property="og:locale" content="nb_NO">
   <meta property="og:site_name" content="WorkLoop">
@@ -23,13 +23,11 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tjenester — WorkLoop">
-  <meta name="twitter:description" content="Gratis prosess-kartlegging, AI-Sprint fra 25 000 kr, og AI-Retainer fra 8 000 kr/mnd.">
+  <meta name="twitter:description" content="Prosess-kartlegging, AI-Sprint og AI-Retainer — skreddersydde automasjonsløsninger tilpasset din bedrift.">
   <meta name="twitter:image" content="https://workloop.no/images/og-services.jpg">
 
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/vendors/lucide.min.js"></script>
 
@@ -44,45 +42,21 @@
         "name": "Prosess-kartlegging",
         "provider": { "@type": "Organization", "name": "WorkLoop" },
         "areaServed": { "@type": "Country", "name": "Norge" },
-        "description": "Gratis AI-audit for norske bedrifter",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "NOK"
-        }
+        "description": "Grundig prosessgjennomgang som identifiserer automatiseringsmuligheter med konkret handlingsplan."
       },
       {
         "@type": "Service",
         "name": "AI-Sprint",
         "provider": { "@type": "Organization", "name": "WorkLoop" },
         "areaServed": { "@type": "Country", "name": "Norge" },
-        "description": "Skreddersydd AI-løsning fra idé til produksjon",
-        "offers": {
-          "@type": "Offer",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "25000",
-            "maxPrice": "250000",
-            "priceCurrency": "NOK"
-          }
-        }
+        "description": "Skreddersydd AI-løsning fra idé til produksjon, med opplæring og support inkludert."
       },
       {
         "@type": "Service",
         "name": "AI-Retainer",
         "provider": { "@type": "Organization", "name": "WorkLoop" },
         "areaServed": { "@type": "Country", "name": "Norge" },
-        "description": "Løpende AI-partner for kontinuerlig forbedring",
-        "offers": {
-          "@type": "Offer",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "minPrice": "8000",
-            "maxPrice": "30000",
-            "priceCurrency": "NOK",
-            "unitText": "MONTH"
-          }
-        }
+        "description": "Løpende AI-partnerskap med dedikert kontaktperson, optimering og videreutvikling."
       }
     ]
   }
@@ -186,19 +160,32 @@
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" style="position:relative;">
   <div class="container nav-container">
     <a href="/" class="nav-logo">
-      <img src="/images/logo-horizontal.svg" alt="WorkLoop">
+      <img src="/images/TextLogo.svg" alt="WorkLoop">
     </a>
     <div class="nav-actions">
       <a href="/" class="nav-link">Hjem</a>
+      <a href="/?page=about" class="nav-link">Om oss</a>
       <span class="nav-dot" aria-hidden="true"></span>
       <a href="mailto:kontakt@workloop.no" class="nav-cta">
         Kontakt oss
         <i data-lucide="arrow-right"></i>
       </a>
     </div>
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburgerBtn"
+            aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Mobile slide-down menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobilmeny">
+    <a href="/">Hjem</a>
+    <a href="/?page=about">Om oss</a>
+    <a href="/services">Tjenester</a>
+    <a href="mailto:kontakt@workloop.no" class="mobile-cta">Kontakt oss &rarr;</a>
   </div>
 </nav>
 
@@ -210,8 +197,8 @@
       <span>&#8250;</span>
       <span>Tjenester</span>
     </div>
-    <h1>Tjenester og priser</h1>
-    <p>Tre klare tilbud, transparent prising og tydelige resultater. Velg det som passer din situasjon.</p>
+    <h1>Våre tjenester</h1>
+    <p>Tre klare tilbud og tydelige resultater. Velg det som passer din situasjon.</p>
   </div>
 </div>
 
@@ -262,24 +249,26 @@
       </div>
 
       <div class="animate-on-scroll delay-2">
-        <div class="price-tiers">
-          <div class="price-tier" style="border-color: var(--blue-300);">
-            <h5>Alle bedrifter</h5>
-            <div class="amount">Gratis</div>
-            <p>Vi tilbyr gratis prosess-kartlegging for å identifisere automatiseringsmuligheter.</p>
-          </div>
+        <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">Hvorfor starte her?</h4>
+          <p style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem;">
+            Kartleggingen gir deg en uavhengig vurdering av bedriftens automatiseringspotensial — med konkrete tiltak du kan handle på umiddelbart, uansett hvem som gjennomfører dem.
+          </p>
+          <p style="font-size: 0.9375rem; line-height: 1.7;">
+            Rapporten er din, uten forpliktelser.
+          </p>
         </div>
 
-        <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+        <div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
           <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">Slik fungerer det</h4>
-          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">1. Du fyller ut kontaktskjemaet</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">1. Du sender oss en e-post på kontakt@workloop.no</p>
           <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">2. Vi ringer deg innen 1 virkedag</p>
           <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">3. Vi gjennomfører kartleggingen (digitalt eller fysisk)</p>
           <p style="font-size: 0.9rem;">4. Du mottar rapporten innen 5 virkedager</p>
         </div>
 
         <a href="mailto:kontakt@workloop.no" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;">
-          Bestill gratis kartlegging &rarr;
+          Bestill kartlegging &rarr;
         </a>
       </div>
     </div>
@@ -305,7 +294,7 @@
         </p>
         <p style="font-size: 1.0625rem; line-height: 1.75;">
           Vi tilpasser løsningen til din eksisterende teknologi, trener teamet ditt og sikrer
-          at alt fungerer slik det skal. Tre måneder med gratis support er inkludert.
+          at alt fungerer slik det skal. Tre måneder med support er inkludert.
         </p>
 
         <div class="feature-list">
@@ -314,24 +303,21 @@
           <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> Testing og kvalitetssikring</div>
           <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> Opplæring av ansatte</div>
           <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> Teknisk dokumentasjon</div>
-          <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> 3 mnd gratis support</div>
+          <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> 3 mnd inkludert support</div>
           <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> Faste ukentlige statusmøter</div>
           <div class="feature-item"><span class="check"><i data-lucide="check" style="width:14px;height:14px;"></i></span> Klare milepæler og leveranser</div>
         </div>
       </div>
 
       <div class="animate-on-scroll delay-2">
-        <div class="price-tiers">
-          <div class="price-tier">
-            <h5>Standard Sprint</h5>
-            <div class="amount">25 000 – 75 000 kr</div>
-            <p>Enkel automatisering, én prosess. 2–4 ukers leveringstid.</p>
-          </div>
-          <div class="price-tier" style="border-color: var(--blue-300);">
-            <h5>Pro Sprint</h5>
-            <div class="amount">75 000 – 250 000 kr</div>
-            <p>Komplekse løsninger, flere integrasjoner. 4–12 ukers leveringstid.</p>
-          </div>
+        <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">Skreddersydd — ikke hyllevare</h4>
+          <p style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem;">
+            Hver bedrift har unike prosesser, systemer og utfordringer. Derfor gir vi alltid et tilpasset tilbud basert på en kartlegging av ditt faktiske behov — ikke en standard prisliste.
+          </p>
+          <p style="font-size: 0.9375rem; line-height: 1.7;">
+            Ta kontakt så finner vi ut hva som gir mest verdi for akkurat din virksomhet.
+          </p>
         </div>
 
         <div style="margin-top: 1.5rem;">
@@ -360,7 +346,7 @@
             <div class="timeline-item">
               <div class="timeline-dot"><i data-lucide="check" style="width:12px;height:12px;"></i></div>
               <div class="timeline-label">Mnd 2–4</div>
-              <div class="timeline-sub">Gratis support</div>
+              <div class="timeline-sub">Inkludert support</div>
             </div>
           </div>
         </div>
@@ -409,22 +395,22 @@
       </div>
 
       <div class="animate-on-scroll delay-2">
-        <div class="price-tiers">
-          <div class="price-tier">
-            <h5>Basis</h5>
-            <div class="amount">8 000 kr/mnd</div>
-            <p>Support og l&oslash;pende optimering. Maks 8 timer per m&aring;ned.</p>
-          </div>
-          <div class="price-tier" style="border-color: var(--blue-300);">
-            <h5>Vekst</h5>
-            <div class="amount">30 000 kr/mnd</div>
-            <p>Full partner. Ubegrenset support og aktiv videreutvikling.</p>
-          </div>
+        <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">En forlengelse av teamet ditt</h4>
+          <p style="font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem;">
+            I stedet for å ansette en intern spesialist får du tilgang til et helt team som kjenner bedriften din og systemene du bruker. Vi tilpasser omfanget etter dine behov — fra løpende vedlikehold til aktiv videreutvikling.
+          </p>
+          <p style="font-size: 0.9375rem; line-height: 1.7;">
+            Fleksibelt, forutsigbart og med kun 1 måneds oppsigelsestid.
+          </p>
         </div>
 
-        <div style="background: #FFF8E1; border: 1px solid #FFE082; border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
-          <h4 style="margin-bottom: 0.5rem; color: #5D4037;"><i data-lucide="lightbulb" style="width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:6px;"></i> Spar 15% med årsavtale</h4>
-          <p style="font-size: 0.9rem; color: #6D4C41;">Inngår du en årsavtale får du 15% rabatt på månedsprisen. Kontakt oss for tilbud.</p>
+        <div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+          <h4 style="margin-bottom: 0.75rem; color: var(--blue-900);">Det du får</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">&#10003; Fast kontaktperson som kjenner virksomheten din</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">&#10003; Prioritert responstid på alle henvendelser</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">&#10003; Månedlig rapport med konkrete resultater</p>
+          <p style="font-size: 0.9rem;">&#10003; Løsninger som utvikler seg i takt med bedriften</p>
         </div>
 
         <a href="mailto:kontakt@workloop.no" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:1.5rem;">
@@ -515,10 +501,10 @@
 <!-- CTA -->
 <section class="cta-banner">
   <div class="container">
-    <h2 class="animate-on-scroll">Usikker på hvilken pakke som passer?</h2>
-    <p class="animate-on-scroll">De aller fleste starter med en gratis prosess-kartlegging. Ring oss eller send en melding — vi finner ut av det sammen.</p>
+    <h2 class="animate-on-scroll">Usikker på hvor du skal starte?</h2>
+    <p class="animate-on-scroll">De fleste begynner med en prosess-kartlegging. Send oss en melding — vi finner ut av det sammen.</p>
     <div class="cta-buttons animate-on-scroll">
-      <a href="mailto:kontakt@workloop.no" class="btn btn-accent btn-lg">Bestill gratis kartlegging &rarr;</a>
+      <a href="mailto:kontakt@workloop.no" class="btn btn-accent btn-lg">Bestill kartlegging &rarr;</a>
       <a href="mailto:kontakt@workloop.no" class="btn btn-outline-white btn-lg">Snakk med oss</a>
     </div>
   </div>
@@ -543,6 +529,32 @@
 <script src="/js/main.js"></script>
 <script>
   lucide.createIcons();
+
+  /* ── Hamburger menu ── */
+  (function () {
+    var btn  = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    /* Close when a menu link is clicked */
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  })();
   (function() {
     var btn = document.getElementById('backToTop');
     if (!btn) return;

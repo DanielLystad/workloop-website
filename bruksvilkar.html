@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruksvilkår — Workloop</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/vendors/lucide.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -113,6 +116,34 @@
 </head>
 <body>
 
+<nav class="navbar" style="position:relative;">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/TextLogo.svg" alt="WorkLoop" style="filter:brightness(0) saturate(100%) invert(14%) sepia(30%) saturate(700%) hue-rotate(175deg);">
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-link">Hjem</a>
+      <a href="/services" class="nav-link">Tjenester</a>
+      <a href="/?page=about" class="nav-link">Om oss</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <a href="mailto:kontakt@workloop.no" class="nav-cta">
+        Kontakt oss
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn"
+            aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobilmeny">
+    <a href="/">Hjem</a>
+    <a href="/services">Tjenester</a>
+    <a href="/?page=about">Om oss</a>
+    <a href="mailto:kontakt@workloop.no" class="mobile-cta">Kontakt oss &rarr;</a>
+  </div>
+</nav>
+
 <div class="header">
     <h1>Bruksvilkår</h1>
     <p>workloop.no</p>
@@ -122,11 +153,14 @@
     <div class="meta">Sist oppdatert: 11. april 2026</div>
 
     <h2>1. Generelt</h2>
-    <p>Disse bruksvilkårene («Vilkårene») regulerer din bruk av nettsiden workloop.no («Nettsiden»), som eies og drives av Workloop («vi», «oss», «vår»). Ved å besøke eller bruke Nettsiden aksepterer du disse Vilkårene. Dersom du ikke godtar Vilkårene, ber vi deg om å ikke benytte Nettsiden.</p>
+    <p>Disse bruksvilkårene («Vilkårene») regulerer din bruk av nettsiden workloop.no («Nettsiden»), som eies og drives av Wollan-Frantzen Trading Company, org.nr. 933 778 746, under varemerket WorkLoop («vi», «oss», «vår»). Ved å besøke eller bruke Nettsiden aksepterer du disse Vilkårene. Dersom du ikke godtar Vilkårene, ber vi deg om å ikke benytte Nettsiden.</p>
 
-    <h2>2. Om Workloop</h2>
-    <p>Workloop er et norsk selskap som leverer skreddersydde automasjonsløsninger for bedrifter. Nettsiden er en informasjonsside som presenterer våre tjenester, kompetanse og kontaktinformasjon.</p>
+    <h2>2. Om WorkLoop</h2>
+    <p>WorkLoop er et varemerke eid av Wollan-Frantzen Trading Company (org.nr. 933 778 746). Vi leverer skreddersydde automasjonsløsninger for bedrifter. Nettsiden er en informasjonsside som presenterer våre tjenester, kompetanse og kontaktinformasjon.</p>
     <p>Kontaktinformasjon:<br>
+    Wollan-Frantzen Trading Company<br>
+    Org.nr.: 933 778 746<br>
+    1405 Langhus, Norge<br>
     E-post: <a href="mailto:kontakt@workloop.no">kontakt@workloop.no</a><br>
     Nettside: <a href="https://workloop.no">workloop.no</a></p>
 
@@ -135,8 +169,8 @@
     <p>Du skal ikke forsøke å oppnå uautorisert tilgang til noen del av Nettsiden, tilkoblede systemer eller nettverk, ved hacking, passord-mining eller andre ulovlige metoder.</p>
 
     <h2>4. Immaterielle rettigheter</h2>
-    <p>Alt innhold på Nettsiden — inkludert, men ikke begrenset til, tekst, grafikk, logoer, ikoner, bilder, design og programvare — er beskyttet av opphavsrett og andre immaterielle rettigheter tilhørende Workloop eller våre lisensgivere. Innholdet kan ikke kopieres, reproduseres, distribueres eller brukes uten skriftlig samtykke fra Workloop.</p>
-    <p>Workloops navn, logo og tilhørende merkevarer er registrerte varemerker. Uautorisert bruk er strengt forbudt.</p>
+    <p>Alt innhold på Nettsiden — inkludert, men ikke begrenset til, tekst, grafikk, logoer, ikoner, bilder, design og programvare — er beskyttet av opphavsrett og andre immaterielle rettigheter tilhørende Wollan-Frantzen Trading Company eller våre lisensgivere. Innholdet kan ikke kopieres, reproduseres, distribueres eller brukes uten skriftlig samtykke fra oss.</p>
+    <p>WorkLoop-navnet, logoen og tilhørende merkevarer er vår immaterielle eiendom. Uautorisert bruk er strengt forbudt.</p>
 
     <h2>5. Kontakt via e-post</h2>
     <p>Nettsiden oppgir vår e-postadresse slik at du kan kontakte oss direkte. Informasjonen du sender til oss via e-post behandles i samsvar med vår <a href="/personvern">personvernerklæring</a>. Vi forbeholder oss retten til å ikke besvare henvendelser som er usaklige, støtende eller i strid med norsk lov.</p>
@@ -155,11 +189,13 @@
     <p>Workloop forbeholder seg retten til å endre disse Vilkårene når som helst. Endringer trer i kraft fra det tidspunktet de publiseres på Nettsiden. Datoen for siste oppdatering fremgår øverst på denne siden. Vi oppfordrer deg til å gjennomgå Vilkårene jevnlig. Fortsatt bruk av Nettsiden etter endringer innebærer aksept av de oppdaterte Vilkårene.</p>
 
     <h2>10. Lovvalg og tvister</h2>
-    <p>Disse Vilkårene er underlagt norsk rett. Eventuelle tvister som oppstår i forbindelse med disse Vilkårene eller bruk av Nettsiden skal søkes løst i minnelighet. Dersom partene ikke kommer til enighet, skal tvisten avgjøres av norske domstoler med Workloops forretningsadresse som verneting.</p>
+    <p>Disse Vilkårene er underlagt norsk rett. Eventuelle tvister som oppstår i forbindelse med disse Vilkårene eller bruk av Nettsiden skal søkes løst i minnelighet. Dersom partene ikke kommer til enighet, skal tvisten avgjøres av norske domstoler med Wollan-Frantzen Trading Companys forretningsadresse som verneting.</p>
 
     <h2>11. Kontakt oss</h2>
     <p>Dersom du har spørsmål om disse Vilkårene, er du velkommen til å kontakte oss:</p>
-    <p>Workloop<br>
+    <p>Wollan-Frantzen Trading Company (WorkLoop)<br>
+    Org.nr.: 933 778 746<br>
+    1405 Langhus, Norge<br>
     E-post: <a href="mailto:kontakt@workloop.no">kontakt@workloop.no</a><br>
     Nettside: <a href="https://workloop.no">workloop.no</a></p>
 </div>
@@ -174,5 +210,32 @@
   </div>
 </footer>
 
+
+<script src="/js/main.js"></script>
+<script>
+  lucide.createIcons();
+  (function () {
+    var btn  = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
