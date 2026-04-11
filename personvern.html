@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personvernerklæring — Workloop</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/vendors/lucide.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -157,6 +160,34 @@
 </head>
 <body>
 
+<nav class="navbar" style="position:relative;">
+  <div class="container nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/TextLogo.svg" alt="WorkLoop" style="filter:brightness(0) saturate(100%) invert(14%) sepia(30%) saturate(700%) hue-rotate(175deg);">
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-link">Hjem</a>
+      <a href="/services" class="nav-link">Tjenester</a>
+      <a href="/?page=about" class="nav-link">Om oss</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <a href="mailto:kontakt@workloop.no" class="nav-cta">
+        Kontakt oss
+        <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn"
+            aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobilmeny">
+    <a href="/">Hjem</a>
+    <a href="/services">Tjenester</a>
+    <a href="/?page=about">Om oss</a>
+    <a href="mailto:kontakt@workloop.no" class="mobile-cta">Kontakt oss &rarr;</a>
+  </div>
+</nav>
+
 <div class="header">
     <h1>Personvernerklæring</h1>
     <p>workloop.no</p>
@@ -166,13 +197,15 @@
     <div class="meta">Sist oppdatert: 11. april 2026</div>
 
     <h2>1. Innledning</h2>
-    <p>Workloop («vi», «oss», «vår») er opptatt av å beskytte ditt personvern. Denne personvernerklæringen forklarer hvordan vi behandler personopplysninger i forbindelse med Nettsiden workloop.no («Nettsiden»).</p>
+    <p>Wollan-Frantzen Trading Company, som driver WorkLoop («vi», «oss», «vår»), er opptatt av å beskytte ditt personvern. Denne personvernerklæringen forklarer hvordan vi behandler personopplysninger i forbindelse med Nettsiden workloop.no («Nettsiden»).</p>
     <p>Denne erklæringen er utarbeidet i samsvar med EUs personvernforordning (GDPR) og den norske personopplysningsloven.</p>
 
     <h2>2. Behandlingsansvarlig</h2>
-    <p>Workloop er behandlingsansvarlig for personopplysningene som eventuelt behandles i forbindelse med Nettsiden.</p>
+    <p>Wollan-Frantzen Trading Company (org.nr. 933 778 746), under varemerket WorkLoop, er behandlingsansvarlig for personopplysningene som eventuelt behandles i forbindelse med Nettsiden.</p>
     <p>Kontaktinformasjon:<br>
-    Workloop<br>
+    Wollan-Frantzen Trading Company (WorkLoop)<br>
+    Org.nr.: 933 778 746<br>
+    1405 Langhus, Norge<br>
     E-post: <a href="mailto:kontakt@workloop.no">kontakt@workloop.no</a><br>
     Nettside: <a href="https://workloop.no">workloop.no</a></p>
 
@@ -250,7 +283,9 @@
 
     <h2>13. Kontakt oss</h2>
     <p>Har du spørsmål om denne personvernerklæringen eller hvordan vi behandler dine personopplysninger? Ta gjerne kontakt:</p>
-    <p>Workloop<br>
+    <p>Wollan-Frantzen Trading Company (WorkLoop)<br>
+    Org.nr.: 933 778 746<br>
+    1405 Langhus, Norge<br>
     E-post: <a href="mailto:kontakt@workloop.no">kontakt@workloop.no</a><br>
     Nettside: <a href="https://workloop.no">workloop.no</a></p>
 </div>
@@ -265,5 +300,32 @@
   </div>
 </footer>
 
+
+<script src="/js/main.js"></script>
+<script>
+  lucide.createIcons();
+  (function () {
+    var btn  = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
