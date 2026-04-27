@@ -26,7 +26,7 @@
 
   "home": {
     "meta": {
-      "title": "WorkLoop — automatisering for norske bedrifter",
+      "title": "WorkLoop — Automatisering for norske bedrifter",
       "description": "WorkLoop hjelper norske SMB-er med å spare tid og penger gjennom smart automatisering og AI-løsninger.",
       "ogDescription": "Vi hjelper norske SMB-er spare tid gjennom smart automatisering."
     },
@@ -114,88 +114,6 @@
         "tags": ["Cybersikkerhet", "Compliance", "Nettverkssikkerhet"]
       }
     ]
-  },
-
-  "services": {
-    "meta": {
-      "title": "Tjenester — WorkLoop",
-      "description": "WorkLoop tilbyr prosess-kartlegging, AI-Sprint og AI-Retainer — skreddersydde automasjonsløsninger for norske bedrifter."
-    },
-
-    "header": {
-      "title": "Våre tjenester",
-      "subtitle": "Tre klare tilbud og tydelige resultater. Velg det som passer din situasjon."
-    },
-
-    "audit": {
-      "title": "Prosess-kartlegging",
-      "features": [
-        "Grundig prosessgjennomgang (2–4 timer)",
-        "Top-3 automatiseringsmuligheter",
-        "ROI-estimat per tiltak",
-        "Detaljert skriftlig rapport",
-        "Prioritert handlingsplan",
-        "30 min oppfølgingssamtale",
-        "Ingen bindingstid",
-        "Leveres innen 5 virkedager"
-      ],
-      "howItWorks": [
-        "Du sender oss en e-post på kontakt@workloop.no",
-        "Vi ringer deg innen 1 virkedag",
-        "Vi gjennomfører kartleggingen (digitalt eller fysisk)",
-        "Du mottar rapporten innen 5 virkedager"
-      ]
-    },
-
-    "sprint": {
-      "title": "AI-Sprint",
-      "features": [
-        "Skreddersydd AI-løsning",
-        "Integrasjon med eksisterende systemer",
-        "Testing og kvalitetssikring",
-        "Opplæring av ansatte",
-        "Teknisk dokumentasjon",
-        "3 mnd inkludert support",
-        "Faste ukentlige statusmøter",
-        "Klare milepæler og leveranser"
-      ]
-    },
-
-    "retainer": {
-      "title": "AI-Retainer",
-      "features": [
-        "Månedlig strategimøte (2 timer)",
-        "Løpende optimering av løsninger",
-        "Prioritert support (respons < 4 timer)",
-        "Ny funksjonalitet etter behov",
-        "Månedlig KPI-rapport",
-        "Tilgang til alle nye verktøy vi lanserer",
-        "Dedikert kontaktperson",
-        "Oppsigelse med 1 måneds varsel"
-      ]
-    },
-
-    "faq": [
-      {
-        "question": "Trenger vi teknisk kompetanse internt for å bruke løsningene?",
-        "answer": "Nei. Vi designer løsningene slik at dine ansatte kan bruke dem uten teknisk bakgrunn. Opplæring og brukerdokumentasjon er alltid inkludert i leveransen."
-      },
-      {
-        "question": "Hva skjer med dataene våre? Er det GDPR-sikkert?",
-        "answer": "Alle løsninger er designet i henhold til GDPR-regelverket. Vi signerer databehandleravtale (DPA) med alle kunder, og vi bruker kun GDPR-godkjente skytjenester med servere i EØS."
-      },
-      {
-        "question": "Hvor lang tid tar det å se resultater?",
-        "answer": "For de fleste kunder ser vi målbare resultater innen 30 dager etter at løsningen er i drift."
-      },
-      {
-        "question": "Kan jeg avslutte samarbeidet når som helst?",
-        "answer": "Ja. Prosess-kartlegging og AI-Sprint er engangsprosjekter uten bindingstid. AI-Retainer har 1 måneds oppsigelsestid."
-      },
-      {
-        "question": "Hva om dere ikke leverer som lovet?",
-        "answer": "Vi har klare suksesskriterier i alle kontrakter. Dersom vi ikke oppfyller de avtalte målene, jobber vi til vi gjør det."
-      }
-    ]
   }
+
 }
