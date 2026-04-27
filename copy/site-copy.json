@@ -13,7 +13,6 @@
     "nav": {
       "home": "Hva kan vi",
       "about": "Hvem er vi",
-      "services": "Tjenester",
       "contact": "Kontakt oss"
     },
 
@@ -46,16 +45,16 @@
       "subtitle": "Vi bygger løsninger som fjerner manuelt arbeid, kobler systemer sammen, og gir deg full oversikt — skreddersydd for din virksomhet.",
       "cards": [
         {
-          "title": "Industriell automasjon",
-          "text": "PLC-programmering, maskinvision og styringssystemer. Vi kobler produksjonsgulvet til skyen med moderne OT/IT-integrasjon."
+          "title": "Nettsider som jobber for deg",
+          "text": "Vi lager nettsider som jobber for deg, basert på dine behov. Denne nettsiden er ett eksemplet på arbeider vårt fra bunnen av."
         },
         {
           "title": "Arbeidsflytautomasjon",
-          "text": "Fra manuelle prosesser til smarte systemer som jobber på tvers av avdelinger — automatisk, pålitelig og skalerbart."
+          "text": "Fra manuelle prosesser til smarte systemer som jobber på tvers av avdelinger — automatisk, pålitelig og skalerbart. Med eller uten AI"
         },
         {
           "title": "Systemintegrasjon",
-          "text": "SCADA, OPC, ERP, SQL — vi binder systemene dine sammen slik at data flyter fritt og beslutninger tas raskere."
+          "text": "Trenger du en chatbot, ett booking system, eller noe lignede? Vi kobler sammen tjenestene du trenger"
         }
       ]
     },
@@ -76,11 +75,11 @@
     "team": [
       {
         "name": "Gabriel Wollan",
-        "role": "Automasjonsspesialist",
-        "roleLabel": "Industriell automasjon & IT/OT",
-        "bio": "Erfaring med moderne industrielle automasjonssystemer, fra PLC-programmering og maskinvision til komplekse kommunikasjonsfokuserte IT/OT-løsninger.",
+        "role": "Automasjonspesialist og Grafisk design",
+        "roleLabel": "Automasjon & IT/OT",
+        "bio": "Profesjonell erfaring med moderne industrielle automasjonssystemer, og livslangs interesse i teknologi og design",
         "photo": "/images/team/gabriel-wollan.jpg",
-        "tags": ["PLC", "Maskinvision", "OPC", "SCADA", "OEE", "AX / ERP", "SQL"]
+        "tags": ["Grafisk Design", "IT/OT", "Data Operations"]
       },
       {
         "name": "Philip Tordenskjold",
@@ -110,7 +109,7 @@
         "name": "Abdul-Rafeh Akvi",
         "role": "IT-sikkerhetsspesialist",
         "roleLabel": "Cybersikkerhet & compliance",
-        "bio": "Sørger for at alt vi bygger er sikkert fra dag én. Risikovurdering, tilgangsstyring og sikkerhetsarkitektur.",
+        "bio": "Masterstudent i Cybersikkerhet ved Høyskolen Kristiania med bachelor i samme fagfelt og CompTIA Security+",
         "photo": "/images/team/abdul-akvi.jpg",
         "tags": ["Cybersikkerhet", "Compliance", "Nettverkssikkerhet"]
       }
