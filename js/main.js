@@ -67,38 +67,49 @@
     toastEl.textContent = 'E-postadresse kopiert!';
     var s = toastEl.style;
     s.position = 'fixed';
-    s.bottom = '24px';
-    s.right = '24px';
     s.background = '#1A2E44';
     s.color = '#fff';
-    s.padding = '12px 20px';
+    s.padding = '10px 18px';
     s.borderRadius = '10px';
-    s.fontSize = '0.9rem';
+    s.fontSize = '0.88rem';
     s.fontWeight = '600';
     s.fontFamily = 'inherit';
     s.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
     s.zIndex = '10000';
     s.opacity = '0';
-    s.transform = 'translateY(12px)';
-    s.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    s.whiteSpace = 'nowrap';
     s.pointerEvents = 'none';
     document.body.appendChild(toastEl);
     return toastEl;
   }
 
-  function showToast() {
+  function showToast(anchorEl) {
     var t = createToast();
+    var rect = anchorEl.getBoundingClientRect();
+
+    /* Position centred above the button */
+    t.style.left = (rect.left + rect.width / 2) + 'px';
+    t.style.top  = (rect.top - 52) + 'px';
+    t.style.transform = 'translateX(-50%) translateY(6px)';
+    t.style.transition = 'none';
+    t.style.opacity = '0';
+
+    /* Force reflow so the initial state is painted before we transition */
+    void t.offsetHeight;
+
+    t.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
     t.style.opacity = '1';
-    t.style.transform = 'translateY(0)';
+    t.style.transform = 'translateX(-50%) translateY(0)';
+
     setTimeout(function () {
       t.style.opacity = '0';
-      t.style.transform = 'translateY(12px)';
-    }, 2500);
+      t.style.transform = 'translateX(-50%) translateY(-6px)';
+    }, 2200);
   }
 
-  function copyEmail() {
+  function copyEmail(anchorEl) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(EMAIL).then(showToast);
+      navigator.clipboard.writeText(EMAIL).then(function () { showToast(anchorEl); });
     } else {
       /* Fallback for older browsers */
       var ta = document.createElement('textarea');
@@ -109,14 +120,14 @@
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      showToast();
+      showToast(anchorEl);
     }
   }
 
   /* Attach to every mailto link on the page */
   document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      copyEmail(); /* copy immediately — mailto: href opens mail client in parallel */
+      copyEmail(link); /* copy immediately — mailto: href opens mail client in parallel */
     });
   });
 
