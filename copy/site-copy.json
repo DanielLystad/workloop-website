@@ -1,6 +1,5 @@
 {
   "_note": "Source of truth for all website copy. Only sections rendered in live HTML are kept here.",
-
   "global": {
     "companyName": "WorkLoop",
     "legalEntity": "Wollan-Frantzen Trading Company",
@@ -9,13 +8,11 @@
     "location": "Oslo, Norge",
     "hours": "Man-fre, 08-16",
     "copyright": "© 2026 WorkLoop. Alle rettigheter forbeholdt.",
-
     "nav": {
       "home": "Hva kan vi",
       "about": "Hvem er vi",
       "contact": "Kontakt oss"
     },
-
     "footer": {
       "links": {
         "privacy": "Personvern",
@@ -23,30 +20,27 @@
       }
     }
   },
-
   "home": {
     "meta": {
       "title": "WorkLoop — Automatisering for norske bedrifter",
       "description": "WorkLoop hjelper norske SMB-er med å spare tid og penger gjennom smart automatisering og AI-løsninger.",
       "ogDescription": "Vi hjelper norske SMB-er spare tid gjennom smart automatisering."
     },
-
     "hero": {
       "badge": "Skreddersydde automasjonsløsninger",
       "title": "Vi bygger teknologien som frigjør din bedrift",
-      "subtitle": "Workloop leverer intelligent automasjon tilpasset din virksomhet — slik at du kan fokusere på vekst, mens systemene jobber for deg.",
+      "subtitle": "Workloop leverer intelligent automasjon tilpasset din virksomhet — slik at du kan fokusere på vekst, mens systemene jobber for deg",
       "ctaPrimary": "Kontakt oss",
       "ctaSecondary": "Om oss"
     },
-
     "whatWeDo": {
       "label": "Hva vi gjør",
       "title": "Automasjon som faktisk leverer",
-      "subtitle": "Vi bygger løsninger som fjerner manuelt arbeid, kobler systemer sammen, og gir deg full oversikt — skreddersydd for din virksomhet.",
+      "subtitle": "Vi bygger løsninger som fjerner manuelt arbeid, kobler systemer sammen, og gir deg full oversikt — skreddersydd for din virksomhet",
       "cards": [
         {
           "title": "Nettsider som jobber for deg",
-          "text": "Vi lager nettsider som jobber for deg, basert på dine behov. Denne nettsiden er ett eksemplet på arbeider vårt fra bunnen av."
+          "text": "Vi lager nettsider som jobber for deg, basert på dine behov. Denne nettsiden er ett eksemplet på hva vi kan bygge for deg"
         },
         {
           "title": "Arbeidsflytautomasjon",
@@ -58,20 +52,17 @@
         }
       ]
     },
-
     "ctaSection": {
       "label": "Klar for å starte?",
       "title": "La oss bygge noe som jobber for deg",
-      "subtitle": "Ta kontakt for en uforpliktende prat om hvordan automasjon kan frigjøre tid og ressurser i din bedrift."
+      "subtitle": "Ta kontakt for en uforpliktende prat om hvordan automasjon kan frigjøre tid og ressurser i din bedrift"
     }
   },
-
   "about": {
     "header": {
       "title": "Fem spesialister. Én felles visjon.",
-      "subtitle": "Vi er et tverrfaglig team som kombinerer dyp teknisk kompetanse med forretningsforståelse — fordi de beste løsningene lever i krysningspunktet."
+      "subtitle": "Vi er et tverrfaglig team som kombinerer dyp teknisk kompetanse med forretningsforståelse, de beste løsningene lever i krysningspunktet."
     },
-
     "team": [
       {
         "name": "Gabriel Wollan",
@@ -79,7 +70,11 @@
         "roleLabel": "Automasjon & IT/OT",
         "bio": "Profesjonell erfaring med moderne industrielle automasjonssystemer, og livslangs interesse i teknologi og design",
         "photo": "/images/team/gabriel-wollan.jpg",
-        "tags": ["Grafisk Design", "IT/OT", "Data Operations"]
+        "tags": [
+          "Grafisk Design",
+          "IT/OT",
+          "Data Operations"
+        ]
       },
       {
         "name": "Philip Tordenskjold",
@@ -87,7 +82,11 @@
         "roleLabel": "Strategi & kommunikasjon",
         "bio": "Sikrer at teknologien vi bygger faktisk når frem til de som trenger den. Strategi, merkevarebygging og digital kommunikasjon.",
         "photo": null,
-        "tags": ["Digital strategi", "Merkevare", "Innholdsproduksjon"]
+        "tags": [
+          "Digital strategi",
+          "Merkevare",
+          "Innholdsproduksjon"
+        ]
       },
       {
         "name": "Tom Hynne",
@@ -95,7 +94,11 @@
         "roleLabel": "Infrastruktur & utvikling",
         "bio": "Bygger og vedlikeholder den digitale infrastrukturen som automasjonsløsningene våre kjører på. Fra skyarkitektur til backend-utvikling.",
         "photo": "/images/team/tom-hynne.jpg",
-        "tags": ["Skyinfrastruktur", "Backend", "DevOps"]
+        "tags": [
+          "Skyinfrastruktur",
+          "Backend",
+          "DevOps"
+        ]
       },
       {
         "name": "Daniel Lystad",
@@ -103,7 +106,11 @@
         "roleLabel": "Systemutvikling & integrasjon",
         "bio": "Spesialist på systemutvikling og integrasjon mellom forretningsapplikasjoner. Sikrer at data og prosesser henger sammen på tvers.",
         "photo": "/images/team/daniel-lystad.jpg",
-        "tags": ["Integrasjon", "API-design", "Fullstack"]
+        "tags": [
+          "Integrasjon",
+          "API-design",
+          "Fullstack"
+        ]
       },
       {
         "name": "Abdul-Rafeh Akvi",
@@ -111,9 +118,12 @@
         "roleLabel": "Cybersikkerhet & compliance",
         "bio": "Masterstudent i Cybersikkerhet ved Høyskolen Kristiania med bachelor i samme fagfelt og CompTIA Security+",
         "photo": "/images/team/abdul-akvi.jpg",
-        "tags": ["Cybersikkerhet", "Compliance", "Nettverkssikkerhet"]
+        "tags": [
+          "Cybersikkerhet",
+          "Compliance",
+          "Nettverkssikkerhet"
+        ]
       }
     ]
   }
-
 }
