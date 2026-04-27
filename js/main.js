@@ -51,10 +51,10 @@
     });
   });
 
-  /* ─── Mailto fallback: auto-copy email after 1s ─────────── */
-  /* If the user's OS can't open a mail client, the mailto: link
-     fails silently. After 1 second we assume it didn't work,
-     auto-copy the address to clipboard, and show a toast. */
+  /* ─── Mailto + clipboard ────────────────────────────────── */
+  /* On click: immediately copy the address AND open the mail client.
+     Both happen in parallel — mail client opens if one is configured,
+     clipboard is always populated as a fallback. */
 
   var EMAIL = 'kontakt@workloop.no';
   var toastEl = null;
@@ -116,10 +116,7 @@
   /* Attach to every mailto link on the page */
   document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      /* After 1 second, auto-copy and show toast as fallback */
-      setTimeout(function () {
-        copyEmail();
-      }, 1000);
+      copyEmail(); /* copy immediately — mailto: href opens mail client in parallel */
     });
   });
 
